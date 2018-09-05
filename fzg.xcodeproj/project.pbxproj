@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		EBB7F7D0214044D0009CA91D /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = EBB7F7CE214044D0009CA91D /* Cartfile.resolved */; };
 		EBB7F7D1214044D0009CA91D /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = EBB7F7CF214044D0009CA91D /* Cartfile */; };
+		EBB7F7D821404541009CA91D /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB7F7D321404541009CA91D /* Kingfisher.framework */; };
+		EBB7F7D921404541009CA91D /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB7F7D421404541009CA91D /* MBProgressHUD.framework */; };
+		EBB7F7DA21404541009CA91D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB7F7D521404541009CA91D /* Alamofire.framework */; };
+		EBB7F7DB21404541009CA91D /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB7F7D621404541009CA91D /* IQKeyboardManagerSwift.framework */; };
+		EBB7F7DC21404541009CA91D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB7F7D721404541009CA91D /* SwiftyJSON.framework */; };
 		EBFBC654213FD92F000CFD10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFBC653213FD92F000CFD10 /* AppDelegate.swift */; };
 		EBFBC656213FD92F000CFD10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFBC655213FD92F000CFD10 /* ViewController.swift */; };
 		EBFBC659213FD92F000CFD10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFBC657213FD92F000CFD10 /* Main.storyboard */; };
@@ -39,6 +44,11 @@
 /* Begin PBXFileReference section */
 		EBB7F7CE214044D0009CA91D /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		EBB7F7CF214044D0009CA91D /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		EBB7F7D321404541009CA91D /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		EBB7F7D421404541009CA91D /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
+		EBB7F7D521404541009CA91D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		EBB7F7D621404541009CA91D /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManagerSwift.framework; path = Carthage/Build/iOS/IQKeyboardManagerSwift.framework; sourceTree = "<group>"; };
+		EBB7F7D721404541009CA91D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		EBFBC650213FD92F000CFD10 /* fzg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fzg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFBC653213FD92F000CFD10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBFBC655213FD92F000CFD10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +70,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBB7F7D821404541009CA91D /* Kingfisher.framework in Frameworks */,
+				EBB7F7D921404541009CA91D /* MBProgressHUD.framework in Frameworks */,
+				EBB7F7DA21404541009CA91D /* Alamofire.framework in Frameworks */,
+				EBB7F7DB21404541009CA91D /* IQKeyboardManagerSwift.framework in Frameworks */,
+				EBB7F7DC21404541009CA91D /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +95,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EBB7F7D221404540009CA91D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBB7F7D521404541009CA91D /* Alamofire.framework */,
+				EBB7F7D621404541009CA91D /* IQKeyboardManagerSwift.framework */,
+				EBB7F7D321404541009CA91D /* Kingfisher.framework */,
+				EBB7F7D421404541009CA91D /* MBProgressHUD.framework */,
+				EBB7F7D721404541009CA91D /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EBFBC647213FD92F000CFD10 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +116,7 @@
 				EBFBC66A213FD930000CFD10 /* fzgTests */,
 				EBFBC675213FD930000CFD10 /* fzgUITests */,
 				EBFBC651213FD92F000CFD10 /* Products */,
+				EBB7F7D221404540009CA91D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -440,6 +468,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z476DGXU4Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = fzg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuiou.fzg;
@@ -455,6 +487,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z476DGXU4Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = fzg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuiou.fzg;
