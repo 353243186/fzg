@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EBB7F7D0214044D0009CA91D /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = EBB7F7CE214044D0009CA91D /* Cartfile.resolved */; };
+		EBB7F7D1214044D0009CA91D /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = EBB7F7CF214044D0009CA91D /* Cartfile */; };
 		EBFBC654213FD92F000CFD10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFBC653213FD92F000CFD10 /* AppDelegate.swift */; };
 		EBFBC656213FD92F000CFD10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFBC655213FD92F000CFD10 /* ViewController.swift */; };
 		EBFBC659213FD92F000CFD10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFBC657213FD92F000CFD10 /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EBB7F7CE214044D0009CA91D /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
+		EBB7F7CF214044D0009CA91D /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		EBFBC650213FD92F000CFD10 /* fzg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fzg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFBC653213FD92F000CFD10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBFBC655213FD92F000CFD10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 		EBFBC647213FD92F000CFD10 = {
 			isa = PBXGroup;
 			children = (
+				EBB7F7CF214044D0009CA91D /* Cartfile */,
+				EBB7F7CE214044D0009CA91D /* Cartfile.resolved */,
 				EBFBC652213FD92F000CFD10 /* fzg */,
 				EBFBC66A213FD930000CFD10 /* fzgTests */,
 				EBFBC675213FD930000CFD10 /* fzgUITests */,
@@ -235,7 +241,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBB7F7D1214044D0009CA91D /* Cartfile in Resources */,
 				EBFBC661213FD92F000CFD10 /* LaunchScreen.storyboard in Resources */,
+				EBB7F7D0214044D0009CA91D /* Cartfile.resolved in Resources */,
 				EBFBC65E213FD92F000CFD10 /* Assets.xcassets in Resources */,
 				EBFBC659213FD92F000CFD10 /* Main.storyboard in Resources */,
 			);
