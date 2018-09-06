@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import IQKeyboardManagerSwift
+import CocoaLumberjackSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,8 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     ///跳转启动页
     func pushToLaunchViewController() {
-        let LaunchViewController = FZGLaunchViewController()
-        self.window?.rootViewController = LaunchViewController
+        let launchViewController = FZGLaunchViewController()
+        self.window?.rootViewController = launchViewController
+    }
+    
+    ///跳转主页
+    func pushToMainViewController() {
+        let mainViewController = FZGNavigationViewController.init(rootViewController: FZGMainViewController())
+        self.window?.rootViewController = mainViewController
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -37,6 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
         self.window?.rootViewController = FZGLaunchViewController()
         self.window?.makeKeyAndVisible()
+        
+        DDLog.add(DDTTYLogger.sharedInstance) // TTY = Xcode console
+//        DDLog.add(DDASLLogger.sharedInstance) // ASL = Apple System Logs
         return true
     }
 

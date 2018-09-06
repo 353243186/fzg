@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB4F4C0C2140E46F00AA54F0 /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4F4C0B2140E46F00AA54F0 /* Cartography.framework */; };
+		EB4F4C0E21411F4F00AA54F0 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F4C0D21411F4F00AA54F0 /* HUD.swift */; };
+		EB4F4C1021411FFE00AA54F0 /* ScreenInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F4C0F21411FFE00AA54F0 /* ScreenInfo.swift */; };
+		EB4F4C122141222900AA54F0 /* FZGNetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F4C112141222900AA54F0 /* FZGNetManager.swift */; };
+		EB4F4C14214124AC00AA54F0 /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4F4C13214124AC00AA54F0 /* CocoaLumberjackSwift.framework */; };
+		EB4F4C1621412A5000AA54F0 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4F4C1521412A5000AA54F0 /* CocoaLumberjack.framework */; };
+		EB4F4C1C2141309100AA54F0 /* FZGMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F4C1B2141309100AA54F0 /* FZGMainViewController.swift */; };
+		EB4F4C1F214130F000AA54F0 /* FZGNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F4C1E214130F000AA54F0 /* FZGNavigationViewController.swift */; };
+		EB4F4C212141322100AA54F0 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F4C202141322100AA54F0 /* UIImage+Color.swift */; };
 		EBB7F7D0214044D0009CA91D /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = EBB7F7CE214044D0009CA91D /* Cartfile.resolved */; };
 		EBB7F7D1214044D0009CA91D /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = EBB7F7CF214044D0009CA91D /* Cartfile */; };
 		EBB7F7D821404541009CA91D /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB7F7D321404541009CA91D /* Kingfisher.framework */; };
@@ -46,6 +55,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB4F4C0B2140E46F00AA54F0 /* Cartography.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cartography.framework; path = Carthage/Build/iOS/Cartography.framework; sourceTree = "<group>"; };
+		EB4F4C0D21411F4F00AA54F0 /* HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
+		EB4F4C0F21411FFE00AA54F0 /* ScreenInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenInfo.swift; sourceTree = "<group>"; };
+		EB4F4C112141222900AA54F0 /* FZGNetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGNetManager.swift; sourceTree = "<group>"; };
+		EB4F4C13214124AC00AA54F0 /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = Carthage/Build/iOS/CocoaLumberjackSwift.framework; sourceTree = "<group>"; };
+		EB4F4C1521412A5000AA54F0 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = Carthage/Build/iOS/CocoaLumberjack.framework; sourceTree = "<group>"; };
+		EB4F4C1B2141309100AA54F0 /* FZGMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGMainViewController.swift; sourceTree = "<group>"; };
+		EB4F4C1E214130F000AA54F0 /* FZGNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGNavigationViewController.swift; sourceTree = "<group>"; };
+		EB4F4C202141322100AA54F0 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		EBB7F7CE214044D0009CA91D /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		EBB7F7CF214044D0009CA91D /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		EBB7F7D321404541009CA91D /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -78,6 +96,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB4F4C1621412A5000AA54F0 /* CocoaLumberjack.framework in Frameworks */,
+				EB4F4C14214124AC00AA54F0 /* CocoaLumberjackSwift.framework in Frameworks */,
+				EB4F4C0C2140E46F00AA54F0 /* Cartography.framework in Frameworks */,
 				EBB7F7E52140E025009CA91D /* SnapKit.framework in Frameworks */,
 				EBB7F7D821404541009CA91D /* Kingfisher.framework in Frameworks */,
 				EBB7F7D921404541009CA91D /* MBProgressHUD.framework in Frameworks */,
@@ -104,9 +125,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB4F4C1721412EA100AA54F0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EBFBC65D213FD92F000CFD10 /* Assets.xcassets */,
+			);
+			path = "\bResources";
+			sourceTree = "<group>";
+		};
+		EB4F4C1821412FCE00AA54F0 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				EB4F4C1D2141309B00AA54F0 /* Net */,
+				EB4F4C1A2141304000AA54F0 /* Main */,
+				EBFBC65F213FD92F000CFD10 /* LaunchScreen.storyboard */,
+				EB4F4C0F21411FFE00AA54F0 /* ScreenInfo.swift */,
+				EB4F4C0D21411F4F00AA54F0 /* HUD.swift */,
+				EBFBC653213FD92F000CFD10 /* AppDelegate.swift */,
+				EBB7F7DD214047A6009CA91D /* FZGLoginViewController.swift */,
+				EBB7F7DF2140496B009CA91D /* FZGLaunchViewController.swift */,
+				EBB7F7E121404E58009CA91D /* UIColor+Hex.swift */,
+				EB4F4C202141322100AA54F0 /* UIImage+Color.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		EB4F4C1921412FD400AA54F0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EBFBC662213FD92F000CFD10 /* Info.plist */,
+				EBFBC65A213FD92F000CFD10 /* fzg.xcdatamodeld */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EB4F4C1A2141304000AA54F0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				EB4F4C1B2141309100AA54F0 /* FZGMainViewController.swift */,
+				EB4F4C1E214130F000AA54F0 /* FZGNavigationViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		EB4F4C1D2141309B00AA54F0 /* Net */ = {
+			isa = PBXGroup;
+			children = (
+				EB4F4C112141222900AA54F0 /* FZGNetManager.swift */,
+			);
+			path = Net;
+			sourceTree = "<group>";
+		};
 		EBB7F7D221404540009CA91D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB4F4C1521412A5000AA54F0 /* CocoaLumberjack.framework */,
+				EB4F4C13214124AC00AA54F0 /* CocoaLumberjackSwift.framework */,
+				EB4F4C0B2140E46F00AA54F0 /* Cartography.framework */,
 				EBB7F7E42140E025009CA91D /* SnapKit.framework */,
 				EBB7F7D521404541009CA91D /* Alamofire.framework */,
 				EBB7F7D621404541009CA91D /* IQKeyboardManagerSwift.framework */,
@@ -143,16 +218,11 @@
 		EBFBC652213FD92F000CFD10 /* fzg */ = {
 			isa = PBXGroup;
 			children = (
-				EBFBC653213FD92F000CFD10 /* AppDelegate.swift */,
+				EB4F4C1921412FD400AA54F0 /* Supporting Files */,
+				EB4F4C1821412FCE00AA54F0 /* Sources */,
+				EB4F4C1721412EA100AA54F0 /* Resources */,
 				EBFBC655213FD92F000CFD10 /* ViewController.swift */,
 				EBFBC657213FD92F000CFD10 /* Main.storyboard */,
-				EBFBC65D213FD92F000CFD10 /* Assets.xcassets */,
-				EBFBC65F213FD92F000CFD10 /* LaunchScreen.storyboard */,
-				EBFBC662213FD92F000CFD10 /* Info.plist */,
-				EBFBC65A213FD92F000CFD10 /* fzg.xcdatamodeld */,
-				EBB7F7DD214047A6009CA91D /* FZGLoginViewController.swift */,
-				EBB7F7DF2140496B009CA91D /* FZGLaunchViewController.swift */,
-				EBB7F7E121404E58009CA91D /* UIColor+Hex.swift */,
 			);
 			path = fzg;
 			sourceTree = "<group>";
@@ -321,6 +391,9 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/IQKeyboardManagerSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Cartography.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CocoaLumberjackSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CocoaLumberjack.framework",
 			);
 			name = "Copy Frameworks and DSYMs";
 			outputPaths = (
@@ -336,12 +409,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB4F4C122141222900AA54F0 /* FZGNetManager.swift in Sources */,
+				EB4F4C1F214130F000AA54F0 /* FZGNavigationViewController.swift in Sources */,
 				EBFBC656213FD92F000CFD10 /* ViewController.swift in Sources */,
 				EBFBC654213FD92F000CFD10 /* AppDelegate.swift in Sources */,
 				EBB7F7DE214047A6009CA91D /* FZGLoginViewController.swift in Sources */,
+				EB4F4C212141322100AA54F0 /* UIImage+Color.swift in Sources */,
 				EBB7F7E221404E58009CA91D /* UIColor+Hex.swift in Sources */,
+				EB4F4C0E21411F4F00AA54F0 /* HUD.swift in Sources */,
 				EBFBC65C213FD92F000CFD10 /* fzg.xcdatamodeld in Sources */,
+				EB4F4C1C2141309100AA54F0 /* FZGMainViewController.swift in Sources */,
 				EBB7F7E02140496B009CA91D /* FZGLaunchViewController.swift in Sources */,
+				EB4F4C1021411FFE00AA54F0 /* ScreenInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,7 +592,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = fzg/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/fzg/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuiou.fzg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -532,7 +611,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = fzg/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/fzg/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuiou.fzg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
