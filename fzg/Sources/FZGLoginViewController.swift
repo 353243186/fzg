@@ -143,7 +143,7 @@ class FZGLoginViewController: UIViewController {
             refreshButton.right == contain.right - 16
             refreshButton.centerY == authCodeTextField.centerY
             refreshButton.height == authCodeTextField.height
-            refreshButton.width == 60
+            refreshButton.width == 70
             
             authCodeImageView.right == refreshButton.left
             authCodeImageView.centerY == authCodeTextField.centerY
@@ -174,29 +174,29 @@ class FZGLoginViewController: UIViewController {
     @objc private func login() {
         
         
-        guard let loginId = accountTextField.text, loginId.trimmingCharacters(in: .whitespacesAndNewlines) != "" else{
-            HUD.error("请输入账号")
-            return
-        }
-
-        guard let userPwd = passwordTextField.text, userPwd.trimmingCharacters(in: .whitespacesAndNewlines) != "" else{
-            HUD.error("请输入密码")
-            return
-        }
+//        guard let loginId = accountTextField.text, loginId.trimmingCharacters(in: .whitespacesAndNewlines) != "" else{
+//            HUD.error("请输入账号")
+//            return
+//        }
+//
+//        guard let userPwd = passwordTextField.text, userPwd.trimmingCharacters(in: .whitespacesAndNewlines) != "" else{
+//            HUD.error("请输入密码")
+//            return
+//        }
+//
+//        guard let verifyCode = authCodeTextField.text, verifyCode.trimmingCharacters(in: .whitespacesAndNewlines) != "" else{
+//            HUD.error("请输入验证码")
+//            return
+//        }
         
-        guard let verifyCode = authCodeTextField.text, verifyCode.trimmingCharacters(in: .whitespacesAndNewlines) != "" else{
-            HUD.error("请输入验证码")
-            return
-        }
-        
-        let param = ["loginId": loginId,
-                     "userPwd": userPwd,
-                     "verifyCode": verifyCode
-                     ]
-//        let param = ["loginId": "fuiou",
-//                     "userPwd": "123456",
+//        let param = ["loginId": loginId,
+//                     "userPwd": userPwd,
 //                     "verifyCode": verifyCode
-//        ]
+//                     ]
+        let param = ["loginId": "fuiou",
+                     "userPwd": "123456",
+                     "verifyCode": "verifyCode"
+        ]
         HUD.loading()
         FZGNetManager.instance.postJSONDataWithUrl(FZGNetManager.loginUrl, parameters: param, successed: { (value, status) in
             HUD.hide()

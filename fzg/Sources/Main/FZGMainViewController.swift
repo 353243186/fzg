@@ -10,11 +10,19 @@ import UIKit
 
 class FZGMainViewController: UIViewController {
 
+    @IBOutlet weak var accountLabel: UILabel!
+    @IBAction func checkTransactionRecords(_ sender: Any) {
+        
+    }
+    @IBAction func aboutFuiou(_ sender: Any) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         title = "富掌柜"
+        self.showLeftButtonWithImage(#imageLiteral(resourceName: "email"), target: self, action: #selector(pushToNotificationView))
+        self.showRightButtonWithImage(#imageLiteral(resourceName: "refresh"), isOriginalImage: true, target: self, action: #selector(refresh))
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,6 +30,13 @@ class FZGMainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @objc private func pushToNotificationView() {
+        
+    }
+    
+    @objc private func refresh() {
+        
+    }
 
     /*
     // MARK: - Navigation
