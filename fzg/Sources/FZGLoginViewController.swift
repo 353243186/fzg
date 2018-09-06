@@ -9,6 +9,7 @@
 import UIKit
 import Cartography
 import CocoaLumberjackSwift
+import Kingfisher
 
 class FZGLoginViewController: UIViewController {
 
@@ -27,32 +28,75 @@ class FZGLoginViewController: UIViewController {
     lazy var accountTextField : UITextField = {
         let textField = UITextField()
         textField.placeholder = "请输入登录账户名"
+        textField.backgroundColor = UIColor.white
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.black999.cgColor
+        textField.layer.cornerRadius = 4
+        let imageView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 45, height: 45))
+        imageView.image = #imageLiteral(resourceName: "userIcon")
+        imageView.contentMode = .center
+        textField.leftView = imageView
+        textField.leftViewMode = .always
         return textField
     }()
     
     lazy var passwordTextField : UITextField = {
         let textField = UITextField()
         textField.placeholder = "请输入登录账户名"
+        textField.backgroundColor = UIColor.white
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.black999.cgColor
+        textField.layer.cornerRadius = 4
+        let imageView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 45, height: 45))
+        imageView.image = #imageLiteral(resourceName: "lock")
+        imageView.contentMode = .center
+        textField.leftView = imageView
+        textField.leftViewMode = .always
         return textField
     }()
     
     lazy var authCodeTextField : UITextField = {
         let textField = UITextField()
         textField.placeholder = "请输入验证码"
+        textField.isSecureTextEntry = true
+        textField.backgroundColor = UIColor.white
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.black999.cgColor
+        textField.layer.cornerRadius = 4
+        let imageView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 45, height: 45))
+        imageView.image = #imageLiteral(resourceName: "list")
+        imageView.contentMode = .center
+        textField.leftView = imageView
+        textField.leftViewMode = .always
         return textField
+    }()
+    
+    lazy var authCodeImageView : UIImageView = {
+        let imageView = UIImageView()
+        imageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: FZGNetManager.verifyCodeUrl)!), placeholder: nil, options: [KingfisherOptionsInfoItem.transition(ImageTransition.fade(1)), KingfisherOptionsInfoItem.forceRefresh], progressBlock: nil, completionHandler: nil)
+        return imageView
+    }()
+    
+    lazy var refreshButton : UIButton = {
+        let button = UIButton()
+        button.setTitle("刷新", for: .normal)
+        button.setTitleColor(UIColor.accentColor, for: .normal)
+        button.setImage(#imageLiteral(resourceName: "refresh"), for: .normal)
+        return button
     }()
     
     lazy var tipLabel : UILabel = {
         let label = UILabel()
         label.textColor = UIColor.red
+        label.numberOfLines = 0
         return label
     }()
     
     lazy var loginButton : UIButton = {
         let button = UIButton()
         button.setTitle("提 交", for: .normal)
-        button.backgroundColor = UIColor.withHex(hexInt: 0x134591)
-        button.layer.cornerRadius = 4
+        button.backgroundColor = UIColor.accentColor
+        button.layer.cornerRadius = 6
         return button
     }()
 
@@ -61,11 +105,14 @@ class FZGLoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor.backgroundColor
-        [topImageBackView, accountTextField, passwordTextField, authCodeTextField, tipLabel, loginButton].forEach(view.addSubview)
+        [topImageBackView, accountTextField, passwordTextField, authCodeTextField, authCodeImageView,refreshButton, tipLabel, loginButton].forEach(view.addSubview)
         topImageBackView.addSubview(logoView)
         loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        refreshButton.addTarget(self, action: #selector(refreshVerifCode), for: .touchUpInside)
         makeConstains()
     }
+    
+    
     
     private func makeConstains() {
         constrain(view, topImageBackView,accountTextField, passwordTextField, authCodeTextField) { (contain, topImageBackView,accountTextField, passwordTextField, authCodeTextField) in
@@ -75,7 +122,7 @@ class FZGLoginViewController: UIViewController {
             topImageBackView.height == 229
             
             accountTextField.left == contain.left + 16
-            accountTextField.top == topImageBackView.bottom + 32
+            accountTextField.top == topImageBackView.bottom + 64
             accountTextField.right == contain.right - 16
             accountTextField.height == 45
             
@@ -86,13 +133,27 @@ class FZGLoginViewController: UIViewController {
             
             authCodeTextField.left == contain.left + 16
             authCodeTextField.top == passwordTextField.bottom + 12
-            authCodeTextField.right == contain.right - 16
             authCodeTextField.height == 45
 
         }
         
+        constrain(view, authCodeTextField, authCodeImageView, refreshButton) { (contain, authCodeTextField, authCodeImageView, refreshButton) in
+            authCodeTextField.right == authCodeImageView.left
+            
+            refreshButton.right == contain.right - 16
+            refreshButton.centerY == authCodeTextField.centerY
+            refreshButton.height == authCodeTextField.height
+            refreshButton.width == 60
+            
+            authCodeImageView.right == refreshButton.left
+            authCodeImageView.centerY == authCodeTextField.centerY
+            authCodeImageView.height == authCodeTextField.height
+            authCodeImageView.width == 100
+        }
+        
         constrain(view, authCodeTextField, tipLabel, loginButton) { (contain, authCodeTextField, tipLabel, loginButton) in
             tipLabel.left == authCodeTextField.left
+            tipLabel.left == contain.right - 16
             tipLabel.top == authCodeTextField.bottom + 12
             
             loginButton.left == contain.left + 16
@@ -109,20 +170,54 @@ class FZGLoginViewController: UIViewController {
         }
     }
     
+    
     @objc private func login() {
-        HUD.loading()
-        let param = ["loginId": "fuiou",
-                     "userPwd": "123456"
+        
+        
+        guard let loginId = accountTextField.text, loginId.trimmingCharacters(in: .whitespacesAndNewlines) != "" else{
+            HUD.error("请输入账号")
+            return
+        }
+
+        guard let userPwd = passwordTextField.text, userPwd.trimmingCharacters(in: .whitespacesAndNewlines) != "" else{
+            HUD.error("请输入密码")
+            return
+        }
+        
+        guard let verifyCode = authCodeTextField.text, verifyCode.trimmingCharacters(in: .whitespacesAndNewlines) != "" else{
+            HUD.error("请输入验证码")
+            return
+        }
+        
+        let param = ["loginId": loginId,
+                     "userPwd": userPwd,
+                     "verifyCode": verifyCode
                      ]
-        FZGNetManager.instance.postJSONDataWithUrl(FZGNetManager.loginUrl, parameters: param, successed: { (response, status) in
+//        let param = ["loginId": "fuiou",
+//                     "userPwd": "123456",
+//                     "verifyCode": verifyCode
+//        ]
+        HUD.loading()
+        FZGNetManager.instance.postJSONDataWithUrl(FZGNetManager.loginUrl, parameters: param, successed: { (value, status) in
             HUD.hide()
-            DDLogInfo(response.description)
+            if value["retCode"] == "0000"{
+                AppDelegate.currentDelegate().pushToMainViewController()
+            }else{
+                self.tipLabel.text = value["retMsg"].string
+                HUD.error("\(value["retMsg"].string ?? "服务器连接失败！")")
+            }
             
+            AppDelegate.currentDelegate().pushToMainViewController()
+            DDLogInfo(value.description)
         }) { (error) in
             HUD.hide()
             DDLogError(error.debugDescription)
-            
+            HUD.error("服务器连接失败！")
         }
+    }
+    
+    @objc private func refreshVerifCode() {
+        authCodeImageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: FZGNetManager.verifyCodeUrl)!), placeholder: nil, options: [KingfisherOptionsInfoItem.transition(ImageTransition.fade(1)), KingfisherOptionsInfoItem.forceRefresh], progressBlock: nil, completionHandler: nil)
     }
 
     override func didReceiveMemoryWarning() {

@@ -14,7 +14,7 @@ class FZGMainViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        title = "zhuye"
+        title = "富掌柜"
     }
 
     override func didReceiveMemoryWarning() {

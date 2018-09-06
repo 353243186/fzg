@@ -14,11 +14,11 @@ class FZGNavigationViewController: UINavigationController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-    self.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor.withHex(hexInt: 0x134591), size: CGSize(width: 1,height: 1)), for:.default)
+    self.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor.accentColor, size: CGSize(width: 1,height: 1)), for:.default)
         self.navigationBar.isTranslucent = false
+        self.navigationBar.tintColor = UIColor.white
         self.navigationBar.shadowImage = UIImage()
-//        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(magicIdentifier: "style.color.foreground.normal"), NSFontAttributeName: UIFont(magicIdentifier: "style.text.normal.font_spec_bold").allCaps()]
+        self.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]/*, NSFontAttributeName: UIFont(magicIdentifier: "style.text.normal.font_spec_bold").allCaps()]*/
 //
 //        let navButtonAppearance = UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self])
 //
