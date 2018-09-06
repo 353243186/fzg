@@ -14,6 +14,10 @@
 		EBB7F7DA21404541009CA91D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB7F7D521404541009CA91D /* Alamofire.framework */; };
 		EBB7F7DB21404541009CA91D /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB7F7D621404541009CA91D /* IQKeyboardManagerSwift.framework */; };
 		EBB7F7DC21404541009CA91D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB7F7D721404541009CA91D /* SwiftyJSON.framework */; };
+		EBB7F7DE214047A6009CA91D /* FZGLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7F7DD214047A6009CA91D /* FZGLoginViewController.swift */; };
+		EBB7F7E02140496B009CA91D /* FZGLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7F7DF2140496B009CA91D /* FZGLaunchViewController.swift */; };
+		EBB7F7E221404E58009CA91D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7F7E121404E58009CA91D /* UIColor+Hex.swift */; };
+		EBB7F7E52140E025009CA91D /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB7F7E42140E025009CA91D /* SnapKit.framework */; };
 		EBFBC654213FD92F000CFD10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFBC653213FD92F000CFD10 /* AppDelegate.swift */; };
 		EBFBC656213FD92F000CFD10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFBC655213FD92F000CFD10 /* ViewController.swift */; };
 		EBFBC659213FD92F000CFD10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFBC657213FD92F000CFD10 /* Main.storyboard */; };
@@ -49,6 +53,10 @@
 		EBB7F7D521404541009CA91D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		EBB7F7D621404541009CA91D /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManagerSwift.framework; path = Carthage/Build/iOS/IQKeyboardManagerSwift.framework; sourceTree = "<group>"; };
 		EBB7F7D721404541009CA91D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		EBB7F7DD214047A6009CA91D /* FZGLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGLoginViewController.swift; sourceTree = "<group>"; };
+		EBB7F7DF2140496B009CA91D /* FZGLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGLaunchViewController.swift; sourceTree = "<group>"; };
+		EBB7F7E121404E58009CA91D /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		EBB7F7E42140E025009CA91D /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		EBFBC650213FD92F000CFD10 /* fzg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fzg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFBC653213FD92F000CFD10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBFBC655213FD92F000CFD10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBB7F7E52140E025009CA91D /* SnapKit.framework in Frameworks */,
 				EBB7F7D821404541009CA91D /* Kingfisher.framework in Frameworks */,
 				EBB7F7D921404541009CA91D /* MBProgressHUD.framework in Frameworks */,
 				EBB7F7DA21404541009CA91D /* Alamofire.framework in Frameworks */,
@@ -98,6 +107,7 @@
 		EBB7F7D221404540009CA91D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EBB7F7E42140E025009CA91D /* SnapKit.framework */,
 				EBB7F7D521404541009CA91D /* Alamofire.framework */,
 				EBB7F7D621404541009CA91D /* IQKeyboardManagerSwift.framework */,
 				EBB7F7D321404541009CA91D /* Kingfisher.framework */,
@@ -140,6 +150,9 @@
 				EBFBC65F213FD92F000CFD10 /* LaunchScreen.storyboard */,
 				EBFBC662213FD92F000CFD10 /* Info.plist */,
 				EBFBC65A213FD92F000CFD10 /* fzg.xcdatamodeld */,
+				EBB7F7DD214047A6009CA91D /* FZGLoginViewController.swift */,
+				EBB7F7DF2140496B009CA91D /* FZGLaunchViewController.swift */,
+				EBB7F7E121404E58009CA91D /* UIColor+Hex.swift */,
 			);
 			path = fzg;
 			sourceTree = "<group>";
@@ -172,6 +185,7 @@
 				EBFBC64C213FD92F000CFD10 /* Sources */,
 				EBFBC64D213FD92F000CFD10 /* Frameworks */,
 				EBFBC64E213FD92F000CFD10 /* Resources */,
+				EBB7F7E321404F67009CA91D /* Copy Frameworks and DSYMs */,
 			);
 			buildRules = (
 			);
@@ -224,6 +238,7 @@
 		EBFBC648213FD92F000CFD10 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = FZG;
 				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = fuiou;
@@ -293,6 +308,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EBB7F7E321404F67009CA91D /* Copy Frameworks and DSYMs */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/MBProgressHUD.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/IQKeyboardManagerSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+			);
+			name = "Copy Frameworks and DSYMs";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# to run locally, replace with $(BUILT_PRODUCTS_DIR)/WireSyncEngine.framework\n/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EBFBC64C213FD92F000CFD10 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -300,7 +338,10 @@
 			files = (
 				EBFBC656213FD92F000CFD10 /* ViewController.swift in Sources */,
 				EBFBC654213FD92F000CFD10 /* AppDelegate.swift in Sources */,
+				EBB7F7DE214047A6009CA91D /* FZGLoginViewController.swift in Sources */,
+				EBB7F7E221404E58009CA91D /* UIColor+Hex.swift in Sources */,
 				EBFBC65C213FD92F000CFD10 /* fzg.xcdatamodeld in Sources */,
+				EBB7F7E02140496B009CA91D /* FZGLaunchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,15 +8,35 @@
 
 import UIKit
 import CoreData
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    class func currentDelegate() ->AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+    ///跳转登录
+    func pushToLoginViewController() {
+        let loginViewController = FZGLoginViewController()
+        self.window?.rootViewController = loginViewController
+    }
+    
+    ///跳转启动页
+    func pushToLaunchViewController() {
+        let LaunchViewController = FZGLaunchViewController()
+        self.window?.rootViewController = LaunchViewController
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        //启动IQKeyboardManager
+        IQKeyboardManager.shared.enable = true
+        self.window = UIWindow.init(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = FZGLaunchViewController()
+        self.window?.makeKeyAndVisible()
         return true
     }
 
