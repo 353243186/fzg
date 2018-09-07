@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB4D4A622142BD4F0007C030 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4D4A5E2142BD4F0007C030 /* UTDID.framework */; };
+		EB4D4A632142BD4F0007C030 /* CloudPushSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4D4A5F2142BD4F0007C030 /* CloudPushSDK.framework */; };
+		EB4D4A642142BD4F0007C030 /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4D4A602142BD4F0007C030 /* UTMini.framework */; };
+		EB4D4A652142BD4F0007C030 /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4D4A612142BD4F0007C030 /* AlicloudUtils.framework */; };
+		EB4D4A672142BD830007C030 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4D4A662142BD830007C030 /* libz.tbd */; };
+		EB4D4A692142BDB20007C030 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4D4A682142BDB20007C030 /* libresolv.tbd */; };
+		EB4D4A6B2142BDC90007C030 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4D4A6A2142BDC90007C030 /* libsqlite3.tbd */; };
 		EB4F4C0C2140E46F00AA54F0 /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4F4C0B2140E46F00AA54F0 /* Cartography.framework */; };
 		EB4F4C0E21411F4F00AA54F0 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F4C0D21411F4F00AA54F0 /* HUD.swift */; };
 		EB4F4C1021411FFE00AA54F0 /* ScreenInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F4C0F21411FFE00AA54F0 /* ScreenInfo.swift */; };
@@ -65,6 +72,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB4D4A5D2142B1860007C030 /* fzg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fzg.entitlements; sourceTree = "<group>"; };
+		EB4D4A5E2142BD4F0007C030 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTDID.framework; path = OneSDK/UTDID.framework; sourceTree = "<group>"; };
+		EB4D4A5F2142BD4F0007C030 /* CloudPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudPushSDK.framework; path = OneSDK/CloudPushSDK.framework; sourceTree = "<group>"; };
+		EB4D4A602142BD4F0007C030 /* UTMini.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTMini.framework; path = OneSDK/UTMini.framework; sourceTree = "<group>"; };
+		EB4D4A612142BD4F0007C030 /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudUtils.framework; path = OneSDK/AlicloudUtils.framework; sourceTree = "<group>"; };
+		EB4D4A662142BD830007C030 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		EB4D4A682142BDB20007C030 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		EB4D4A6A2142BDC90007C030 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		EB4D4A6C2142BDDD0007C030 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		EB4D4A6D2142BDE90007C030 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EB4F4C0B2140E46F00AA54F0 /* Cartography.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cartography.framework; path = Carthage/Build/iOS/Cartography.framework; sourceTree = "<group>"; };
 		EB4F4C0D21411F4F00AA54F0 /* HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		EB4F4C0F21411FFE00AA54F0 /* ScreenInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenInfo.swift; sourceTree = "<group>"; };
@@ -116,11 +133,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB4D4A622142BD4F0007C030 /* UTDID.framework in Frameworks */,
+				EB4D4A632142BD4F0007C030 /* CloudPushSDK.framework in Frameworks */,
+				EB4D4A6B2142BDC90007C030 /* libsqlite3.tbd in Frameworks */,
+				EB4D4A692142BDB20007C030 /* libresolv.tbd in Frameworks */,
+				EB4D4A642142BD4F0007C030 /* UTMini.framework in Frameworks */,
+				EB4D4A652142BD4F0007C030 /* AlicloudUtils.framework in Frameworks */,
 				EB4F4C1621412A5000AA54F0 /* CocoaLumberjack.framework in Frameworks */,
 				EB4F4C14214124AC00AA54F0 /* CocoaLumberjackSwift.framework in Frameworks */,
 				EB4F4C0C2140E46F00AA54F0 /* Cartography.framework in Frameworks */,
 				EBB7F7E52140E025009CA91D /* SnapKit.framework in Frameworks */,
 				EBB7F7D821404541009CA91D /* Kingfisher.framework in Frameworks */,
+				EB4D4A672142BD830007C030 /* libz.tbd in Frameworks */,
 				EBB7F7D921404541009CA91D /* MBProgressHUD.framework in Frameworks */,
 				EBB7F7DA21404541009CA91D /* Alamofire.framework in Frameworks */,
 				EBB7F7DB21404541009CA91D /* IQKeyboardManagerSwift.framework in Frameworks */,
@@ -217,6 +241,15 @@
 		EBB7F7D221404540009CA91D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB4D4A6D2142BDE90007C030 /* SystemConfiguration.framework */,
+				EB4D4A6C2142BDDD0007C030 /* CoreTelephony.framework */,
+				EB4D4A6A2142BDC90007C030 /* libsqlite3.tbd */,
+				EB4D4A682142BDB20007C030 /* libresolv.tbd */,
+				EB4D4A662142BD830007C030 /* libz.tbd */,
+				EB4D4A612142BD4F0007C030 /* AlicloudUtils.framework */,
+				EB4D4A5F2142BD4F0007C030 /* CloudPushSDK.framework */,
+				EB4D4A5E2142BD4F0007C030 /* UTDID.framework */,
+				EB4D4A602142BD4F0007C030 /* UTMini.framework */,
 				EB4F4C1521412A5000AA54F0 /* CocoaLumberjack.framework */,
 				EB4F4C13214124AC00AA54F0 /* CocoaLumberjackSwift.framework */,
 				EB4F4C0B2140E46F00AA54F0 /* Cartography.framework */,
@@ -256,6 +289,7 @@
 		EBFBC652213FD92F000CFD10 /* fzg */ = {
 			isa = PBXGroup;
 			children = (
+				EB4D4A5D2142B1860007C030 /* fzg.entitlements */,
 				EB4F4C1921412FD400AA54F0 /* Supporting Files */,
 				EB4F4C1821412FCE00AA54F0 /* Sources */,
 				EB4F4C1721412EA100AA54F0 /* Resources */,
@@ -354,6 +388,14 @@
 					EBFBC64F213FD92F000CFD10 = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					EBFBC666213FD930000CFD10 = {
 						CreatedOnToolsVersion = 9.0.1;
@@ -634,11 +676,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = fzg/fzg.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z476DGXU4Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/OneSDK",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/fzg/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -654,11 +698,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = fzg/fzg.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z476DGXU4Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/OneSDK",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/fzg/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
