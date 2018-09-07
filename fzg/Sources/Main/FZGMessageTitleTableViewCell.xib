@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="KGk-i7-Jjw" customClass="FZGMessageTitleTableViewCell" customModule="fzg" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logn" translatesAutoresizingMaskIntoConstraints="NO" id="qIR-8d-fXk">
+                        <rect key="frame" x="60" y="29" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="5Mr-LT-ZE7"/>
+                            <constraint firstAttribute="height" constant="40" id="RTZ-Hz-hUV"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收款成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDe-GF-bHT">
+                        <rect key="frame" x="131.5" y="24" width="57.5" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="GVh-mz-EqP"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥1.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khh-9G-mFG">
+                        <rect key="frame" x="137" y="53" width="46.5" height="22.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" red="0.14901960780000001" green="0.54901960780000003" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="khh-9G-mFG" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="15k-oq-Y4Y"/>
+                    <constraint firstItem="qIR-8d-fXk" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.5" id="1cf-3i-oyV"/>
+                    <constraint firstItem="qIR-8d-fXk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="80j-lR-Djo"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="khh-9G-mFG" secondAttribute="bottom" constant="16" id="J4z-7i-eCO"/>
+                    <constraint firstItem="nDe-GF-bHT" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="JE8-4U-ZXu"/>
+                    <constraint firstItem="nDe-GF-bHT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="QBX-Ek-4p0"/>
+                    <constraint firstItem="khh-9G-mFG" firstAttribute="top" secondItem="nDe-GF-bHT" secondAttribute="bottom" constant="12" id="yxv-FQ-jIq"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="amountLabel" destination="khh-9G-mFG" id="CAh-UL-Vst"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="80"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="logn" width="79" height="79"/>
+    </resources>
+</document>

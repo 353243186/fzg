@@ -18,6 +18,14 @@
 		EB4F4C2421417E9F00AA54F0 /* UIViewController+Nav.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F4C2321417E9F00AA54F0 /* UIViewController+Nav.swift */; };
 		EB4F4C272141827800AA54F0 /* FZGMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F4C252141827800AA54F0 /* FZGMainViewController.swift */; };
 		EB4F4C282141827800AA54F0 /* FZGMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB4F4C262141827800AA54F0 /* FZGMainViewController.xib */; };
+		EB4F4C2A21418BFA00AA54F0 /* FZGMessageCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F4C2921418BFA00AA54F0 /* FZGMessageCenterViewController.swift */; };
+		EB4F4C2C214195C200AA54F0 /* FZGMessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F4C2B214195C200AA54F0 /* FZGMessageDetailViewController.swift */; };
+		EB4F4C3721419FC300AA54F0 /* FZGMessageTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F4C3521419FC300AA54F0 /* FZGMessageTitleTableViewCell.swift */; };
+		EB4F4C3821419FC300AA54F0 /* FZGMessageTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB4F4C3621419FC300AA54F0 /* FZGMessageTitleTableViewCell.xib */; };
+		EB4F4C3B2141A45A00AA54F0 /* FZGMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F4C392141A45A00AA54F0 /* FZGMessageTableViewCell.swift */; };
+		EB4F4C3C2141A45A00AA54F0 /* FZGMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB4F4C3A2141A45A00AA54F0 /* FZGMessageTableViewCell.xib */; };
+		EB4F4C3F2142199900AA54F0 /* FZGMessageFooterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F4C3D2142199900AA54F0 /* FZGMessageFooterTableViewCell.swift */; };
+		EB4F4C402142199900AA54F0 /* FZGMessageFooterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB4F4C3E2142199900AA54F0 /* FZGMessageFooterTableViewCell.xib */; };
 		EBB7F7D0214044D0009CA91D /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = EBB7F7CE214044D0009CA91D /* Cartfile.resolved */; };
 		EBB7F7D1214044D0009CA91D /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = EBB7F7CF214044D0009CA91D /* Cartfile */; };
 		EBB7F7D821404541009CA91D /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB7F7D321404541009CA91D /* Kingfisher.framework */; };
@@ -68,6 +76,14 @@
 		EB4F4C2321417E9F00AA54F0 /* UIViewController+Nav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Nav.swift"; sourceTree = "<group>"; };
 		EB4F4C252141827800AA54F0 /* FZGMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGMainViewController.swift; sourceTree = "<group>"; };
 		EB4F4C262141827800AA54F0 /* FZGMainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FZGMainViewController.xib; sourceTree = "<group>"; };
+		EB4F4C2921418BFA00AA54F0 /* FZGMessageCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGMessageCenterViewController.swift; sourceTree = "<group>"; };
+		EB4F4C2B214195C200AA54F0 /* FZGMessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGMessageDetailViewController.swift; sourceTree = "<group>"; };
+		EB4F4C3521419FC300AA54F0 /* FZGMessageTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGMessageTitleTableViewCell.swift; sourceTree = "<group>"; };
+		EB4F4C3621419FC300AA54F0 /* FZGMessageTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FZGMessageTitleTableViewCell.xib; sourceTree = "<group>"; };
+		EB4F4C392141A45A00AA54F0 /* FZGMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGMessageTableViewCell.swift; sourceTree = "<group>"; };
+		EB4F4C3A2141A45A00AA54F0 /* FZGMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FZGMessageTableViewCell.xib; sourceTree = "<group>"; };
+		EB4F4C3D2142199900AA54F0 /* FZGMessageFooterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGMessageFooterTableViewCell.swift; sourceTree = "<group>"; };
+		EB4F4C3E2142199900AA54F0 /* FZGMessageFooterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FZGMessageFooterTableViewCell.xib; sourceTree = "<group>"; };
 		EBB7F7CE214044D0009CA91D /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		EBB7F7CF214044D0009CA91D /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		EBB7F7D321404541009CA91D /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -168,6 +184,14 @@
 				EB4F4C1E214130F000AA54F0 /* FZGNavigationViewController.swift */,
 				EB4F4C252141827800AA54F0 /* FZGMainViewController.swift */,
 				EB4F4C262141827800AA54F0 /* FZGMainViewController.xib */,
+				EB4F4C2921418BFA00AA54F0 /* FZGMessageCenterViewController.swift */,
+				EB4F4C2B214195C200AA54F0 /* FZGMessageDetailViewController.swift */,
+				EB4F4C3521419FC300AA54F0 /* FZGMessageTitleTableViewCell.swift */,
+				EB4F4C3621419FC300AA54F0 /* FZGMessageTitleTableViewCell.xib */,
+				EB4F4C392141A45A00AA54F0 /* FZGMessageTableViewCell.swift */,
+				EB4F4C3A2141A45A00AA54F0 /* FZGMessageTableViewCell.xib */,
+				EB4F4C3D2142199900AA54F0 /* FZGMessageFooterTableViewCell.swift */,
+				EB4F4C3E2142199900AA54F0 /* FZGMessageFooterTableViewCell.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -371,7 +395,10 @@
 				EBB7F7D1214044D0009CA91D /* Cartfile in Resources */,
 				EBFBC661213FD92F000CFD10 /* LaunchScreen.storyboard in Resources */,
 				EBB7F7D0214044D0009CA91D /* Cartfile.resolved in Resources */,
+				EB4F4C3C2141A45A00AA54F0 /* FZGMessageTableViewCell.xib in Resources */,
 				EB4F4C282141827800AA54F0 /* FZGMainViewController.xib in Resources */,
+				EB4F4C3821419FC300AA54F0 /* FZGMessageTitleTableViewCell.xib in Resources */,
+				EB4F4C402142199900AA54F0 /* FZGMessageFooterTableViewCell.xib in Resources */,
 				EBFBC65E213FD92F000CFD10 /* Assets.xcassets in Resources */,
 				EBFBC659213FD92F000CFD10 /* Main.storyboard in Resources */,
 			);
@@ -424,7 +451,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB4F4C3B2141A45A00AA54F0 /* FZGMessageTableViewCell.swift in Sources */,
 				EB4F4C122141222900AA54F0 /* FZGNetManager.swift in Sources */,
+				EB4F4C3F2142199900AA54F0 /* FZGMessageFooterTableViewCell.swift in Sources */,
 				EB4F4C2421417E9F00AA54F0 /* UIViewController+Nav.swift in Sources */,
 				EB4F4C1F214130F000AA54F0 /* FZGNavigationViewController.swift in Sources */,
 				EBFBC656213FD92F000CFD10 /* ViewController.swift in Sources */,
@@ -435,8 +464,11 @@
 				EBB7F7E221404E58009CA91D /* UIColor+Hex.swift in Sources */,
 				EB4F4C0E21411F4F00AA54F0 /* HUD.swift in Sources */,
 				EBFBC65C213FD92F000CFD10 /* fzg.xcdatamodeld in Sources */,
+				EB4F4C3721419FC300AA54F0 /* FZGMessageTitleTableViewCell.swift in Sources */,
+				EB4F4C2C214195C200AA54F0 /* FZGMessageDetailViewController.swift in Sources */,
 				EBB7F7E02140496B009CA91D /* FZGLaunchViewController.swift in Sources */,
 				EB4F4C1021411FFE00AA54F0 /* ScreenInfo.swift in Sources */,
+				EB4F4C2A21418BFA00AA54F0 /* FZGMessageCenterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

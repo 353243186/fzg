@@ -98,6 +98,10 @@ extension UIColor {
         return withHex(hexInt: 0x134591)
     }
     
+    static var accentGreenColor : UIColor {
+        return withHex(hexInt: 0x268c16)
+    }
+    
     //统一背景色
     static var backgroundColor : UIColor {
         return withHex(hexInt: 0xf4f4f4)
