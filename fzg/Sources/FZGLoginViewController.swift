@@ -10,7 +10,13 @@ import UIKit
 import Cartography
 import CocoaLumberjackSwift
 import Kingfisher
+import Alamofire
+import CloudPushSDK
 
+
+//let tokenKey = "token"
+let userKey = "user"
+let userTypeKey = "user"
 class FZGLoginViewController: UIViewController {
 
     lazy var topImageBackView : UIImageView = {
@@ -37,12 +43,13 @@ class FZGLoginViewController: UIViewController {
         imageView.contentMode = .center
         textField.leftView = imageView
         textField.leftViewMode = .always
+        textField.clearButtonMode = .whileEditing
         return textField
     }()
     
     lazy var passwordTextField : UITextField = {
         let textField = UITextField()
-        textField.placeholder = "请输入登录账户名"
+        textField.placeholder = "请输入登录账户密码"
         textField.backgroundColor = UIColor.white
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.black999.cgColor
@@ -73,7 +80,6 @@ class FZGLoginViewController: UIViewController {
     
     lazy var refreshButton : UIButton = {
         let button = UIButton()
-        button.kf.setBackgroundImage(with: ImageResource.init(downloadURL: URL.init(string: FZGNetManager.verifyCodeUrl)!), for: .normal, placeholder: nil, options: [KingfisherOptionsInfoItem.transition(ImageTransition.fade(1)), KingfisherOptionsInfoItem.forceRefresh], progressBlock: nil, completionHandler: nil)
         return button
     }()
     
@@ -100,11 +106,24 @@ class FZGLoginViewController: UIViewController {
         [topImageBackView, accountTextField, passwordTextField, authCodeTextField, refreshButton, tipLabel, loginButton].forEach(view.addSubview)
         topImageBackView.addSubview(logoView)
         loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
-        refreshButton.addTarget(self, action: #selector(refreshVerifCode), for: .touchUpInside)
+        refreshButton.addTarget(self, action: #selector(getAuthCode), for: .touchUpInside)
         makeConstains()
+        getAuthCode()
     }
     
-    
+    @objc private func getAuthCode() {
+        Alamofire.request(FZGNetManager.verifyCodeUrl, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseData { (response) in
+            switch response.result {
+            case.success(let value):
+                if response.response?.statusCode == 200{
+                    let image = UIImage.init(data: value)
+                    self.refreshButton.setBackgroundImage(image, for: .normal)
+                }
+            case .failure(let error):
+                DDLogError(error.localizedDescription)
+            }
+        }
+    }
     
     private func makeConstains() {
         constrain(view, topImageBackView,accountTextField, passwordTextField, authCodeTextField) { (contain, topImageBackView,accountTextField, passwordTextField, authCodeTextField) in
@@ -160,7 +179,6 @@ class FZGLoginViewController: UIViewController {
     
     @objc private func login() {
         
-        
         guard let loginId = accountTextField.text, loginId.trimmingCharacters(in: .whitespacesAndNewlines) != "" else{
             HUD.error("请输入账号")
             return
@@ -177,13 +195,13 @@ class FZGLoginViewController: UIViewController {
         }
         
         let param = ["loginId": loginId,
-                     "userPwd": userPwd,
-                     "verifyCode": verifyCode
+                     "userPwd": userPwd.md5(),
+                     "verifyCode": verifyCode,
+                     "deviceId": CloudPushSDK.getDeviceId(),
+                     "appType": "iOS",
+                     "ver": FZGTools.getShortVersionString(),
+                     "appModel": FZGTools.deviceModel
                      ]
-//        let param = ["loginId": "fuiou",
-//                     "userPwd": "123456",
-//                     "verifyCode": "verifyCode"
-//        ]
         HUD.loading()
         FZGNetManager.instance.postJSONDataWithUrl(FZGNetManager.loginUrl, parameters: param, successed: { (value, status) in
             HUD.hide()
@@ -194,7 +212,7 @@ class FZGLoginViewController: UIViewController {
                 HUD.error("\(value["retMsg"].string ?? "服务器连接失败！")")
             }
             
-            AppDelegate.currentDelegate().pushToMainViewController()
+//            AppDelegate.currentDelegate().pushToMainViewController()
             DDLogInfo(value.description)
         }) { (error) in
             HUD.hide()
@@ -203,9 +221,6 @@ class FZGLoginViewController: UIViewController {
         }
     }
     
-    @objc private func refreshVerifCode() {
-        refreshButton.kf.setBackgroundImage(with: ImageResource.init(downloadURL: URL.init(string: FZGNetManager.verifyCodeUrl)!), for: .normal, placeholder: nil, options: [KingfisherOptionsInfoItem.transition(ImageTransition.fade(1)), KingfisherOptionsInfoItem.forceRefresh], progressBlock: nil, completionHandler: nil)
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

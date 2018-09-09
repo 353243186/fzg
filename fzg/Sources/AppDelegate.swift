@@ -156,6 +156,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         CloudPushSDK.registerDevice(deviceToken) { (res) in
             if (res!.success) {
                 print("Upload deviceToken to Push Server, deviceToken: \(CloudPushSDK.getApnsDeviceToken()!)")
+                print("my deviceID: \(CloudPushSDK.getDeviceId())")
             } else {
                 print("Upload deviceToken to Push Server failed, error: \(String(describing: res?.error))")
             }
@@ -180,6 +181,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // self.syncBadgeNum(0)
         CloudPushSDK.sendNotificationAck(userInfo)
         print("Notification, alert: \(alert), badge: \(badge), sound: \(sound), extras: \(String(describing: extras)).")
+       FZGSpeechUtteranceManager.shared.speechWeather(with: "微信成功收款54.67元")
     }
     
     // App处于前台时收到通知(iOS 10+)
@@ -190,8 +192,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // 通知不弹出
 //        completionHandler([])
         // 通知弹出，且带有声音、内容和角标
-        completionHandler([.alert, .badge, .sound])
+//        completionHandler([.alert, .badge, .sound])
+//        FZGSpeechUtteranceManager.shared.speechWeather(with: "微信成功收款5.67元")
     }
+    
+
     
     // 触发通知动作时回调，比如点击、删除通知和点击自定义action(iOS 10+)
     @available(iOS 10, *)

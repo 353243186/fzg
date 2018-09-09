@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB26E8CF21441A3D00FE9769 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB26E8CE21441A3D00FE9769 /* String+MD5.swift */; };
+		EB26E8D72144AE6900FE9769 /* FZGTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB26E8D62144AE6900FE9769 /* FZGTools.swift */; };
 		EB4D4A622142BD4F0007C030 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4D4A5E2142BD4F0007C030 /* UTDID.framework */; };
 		EB4D4A632142BD4F0007C030 /* CloudPushSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4D4A5F2142BD4F0007C030 /* CloudPushSDK.framework */; };
 		EB4D4A642142BD4F0007C030 /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4D4A602142BD4F0007C030 /* UTMini.framework */; };
@@ -44,6 +46,7 @@
 		EBB7F7E02140496B009CA91D /* FZGLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7F7DF2140496B009CA91D /* FZGLaunchViewController.swift */; };
 		EBB7F7E221404E58009CA91D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7F7E121404E58009CA91D /* UIColor+Hex.swift */; };
 		EBB7F7E52140E025009CA91D /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB7F7E42140E025009CA91D /* SnapKit.framework */; };
+		EBC62F4B2142DB6500A8C581 /* FZGSpeechUtteranceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC62F4A2142DB6500A8C581 /* FZGSpeechUtteranceManager.swift */; };
 		EBFBC654213FD92F000CFD10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFBC653213FD92F000CFD10 /* AppDelegate.swift */; };
 		EBFBC656213FD92F000CFD10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFBC655213FD92F000CFD10 /* ViewController.swift */; };
 		EBFBC659213FD92F000CFD10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFBC657213FD92F000CFD10 /* Main.storyboard */; };
@@ -72,6 +75,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB26E8CE21441A3D00FE9769 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
+		EB26E8D021441A9F00FE9769 /* fzg-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fzg-Bridging-Header.h"; sourceTree = "<group>"; };
+		EB26E8D62144AE6900FE9769 /* FZGTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGTools.swift; sourceTree = "<group>"; };
 		EB4D4A5D2142B1860007C030 /* fzg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fzg.entitlements; sourceTree = "<group>"; };
 		EB4D4A5E2142BD4F0007C030 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTDID.framework; path = OneSDK/UTDID.framework; sourceTree = "<group>"; };
 		EB4D4A5F2142BD4F0007C030 /* CloudPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudPushSDK.framework; path = OneSDK/CloudPushSDK.framework; sourceTree = "<group>"; };
@@ -112,6 +118,7 @@
 		EBB7F7DF2140496B009CA91D /* FZGLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGLaunchViewController.swift; sourceTree = "<group>"; };
 		EBB7F7E121404E58009CA91D /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		EBB7F7E42140E025009CA91D /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		EBC62F4A2142DB6500A8C581 /* FZGSpeechUtteranceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGSpeechUtteranceManager.swift; sourceTree = "<group>"; };
 		EBFBC650213FD92F000CFD10 /* fzg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fzg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFBC653213FD92F000CFD10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBFBC655213FD92F000CFD10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +194,7 @@
 				EB4F4C0F21411FFE00AA54F0 /* ScreenInfo.swift */,
 				EB4F4C0D21411F4F00AA54F0 /* HUD.swift */,
 				EBFBC653213FD92F000CFD10 /* AppDelegate.swift */,
+				EBC62F4A2142DB6500A8C581 /* FZGSpeechUtteranceManager.swift */,
 				EBB7F7DD214047A6009CA91D /* FZGLoginViewController.swift */,
 				EBB7F7DF2140496B009CA91D /* FZGLaunchViewController.swift */,
 			);
@@ -234,6 +242,9 @@
 				EBB7F7E121404E58009CA91D /* UIColor+Hex.swift */,
 				EB4F4C202141322100AA54F0 /* UIImage+Color.swift */,
 				EB4F4C2321417E9F00AA54F0 /* UIViewController+Nav.swift */,
+				EB26E8CE21441A3D00FE9769 /* String+MD5.swift */,
+				EB26E8D021441A9F00FE9769 /* fzg-Bridging-Header.h */,
+				EB26E8D62144AE6900FE9769 /* FZGTools.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -387,6 +398,7 @@
 				TargetAttributes = {
 					EBFBC64F213FD92F000CFD10 = {
 						CreatedOnToolsVersion = 9.0.1;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -500,10 +512,13 @@
 				EB4F4C1F214130F000AA54F0 /* FZGNavigationViewController.swift in Sources */,
 				EBFBC656213FD92F000CFD10 /* ViewController.swift in Sources */,
 				EB4F4C272141827800AA54F0 /* FZGMainViewController.swift in Sources */,
+				EB26E8CF21441A3D00FE9769 /* String+MD5.swift in Sources */,
 				EBFBC654213FD92F000CFD10 /* AppDelegate.swift in Sources */,
 				EBB7F7DE214047A6009CA91D /* FZGLoginViewController.swift in Sources */,
+				EBC62F4B2142DB6500A8C581 /* FZGSpeechUtteranceManager.swift in Sources */,
 				EB4F4C212141322100AA54F0 /* UIImage+Color.swift in Sources */,
 				EBB7F7E221404E58009CA91D /* UIColor+Hex.swift in Sources */,
+				EB26E8D72144AE6900FE9769 /* FZGTools.swift in Sources */,
 				EB4F4C0E21411F4F00AA54F0 /* HUD.swift in Sources */,
 				EBFBC65C213FD92F000CFD10 /* fzg.xcdatamodeld in Sources */,
 				EB4F4C3721419FC300AA54F0 /* FZGMessageTitleTableViewCell.swift in Sources */,
@@ -676,6 +691,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = fzg/fzg.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z476DGXU4Y;
@@ -689,6 +705,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuiou.fzg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "fzg/Sources/Extension/fzg-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -698,6 +716,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = fzg/fzg.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z476DGXU4Y;
@@ -711,6 +730,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuiou.fzg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "fzg/Sources/Extension/fzg-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
