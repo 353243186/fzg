@@ -20,6 +20,7 @@ class FZGNetManager: NSObject {
     static let BaseUrl = "http://futest1.fuiou.com:24010/bdc_platfrom"
     static let loginUrl = "\(BaseUrl)/login"
     static let verifyCodeUrl = "\(BaseUrl)/getVerifyCode"
+    static let checkVersionUrl = "\(BaseUrl)/appVerUpdate"
     
     //单例模式下唯一实例化方法
     static let instance = FZGNetManager()

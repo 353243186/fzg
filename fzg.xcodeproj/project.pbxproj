@@ -78,6 +78,7 @@
 		EB26E8CE21441A3D00FE9769 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		EB26E8D021441A9F00FE9769 /* fzg-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fzg-Bridging-Header.h"; sourceTree = "<group>"; };
 		EB26E8D62144AE6900FE9769 /* FZGTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGTools.swift; sourceTree = "<group>"; };
+		EB26E8D82144B79A00FE9769 /* 1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = 1.0.xcdatamodel; sourceTree = "<group>"; };
 		EB4D4A5D2142B1860007C030 /* fzg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fzg.entitlements; sourceTree = "<group>"; };
 		EB4D4A5E2142BD4F0007C030 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTDID.framework; path = OneSDK/UTDID.framework; sourceTree = "<group>"; };
 		EB4D4A5F2142BD4F0007C030 /* CloudPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudPushSDK.framework; path = OneSDK/CloudPushSDK.framework; sourceTree = "<group>"; };
@@ -847,9 +848,10 @@
 		EBFBC65A213FD92F000CFD10 /* fzg.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				EB26E8D82144B79A00FE9769 /* 1.0.xcdatamodel */,
 				EBFBC65B213FD92F000CFD10 /* fzg.xcdatamodel */,
 			);
-			currentVersion = EBFBC65B213FD92F000CFD10 /* fzg.xcdatamodel */;
+			currentVersion = EB26E8D82144B79A00FE9769 /* 1.0.xcdatamodel */;
 			path = fzg.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

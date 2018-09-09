@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CocoaLumberjackSwift
 
 class FZGLaunchViewController: UIViewController {
 
@@ -14,9 +15,28 @@ class FZGLaunchViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        AppDelegate.currentDelegate().pushToLoginViewController()
+//        AppDelegate.currentDelegate().pushToLoginViewController()
+        checkVersion()
     }
 
+    private func checkVersion() {
+        let param = ["version": FZGTools.getShortVersionString(),
+                     "appType": "iOS"]
+        FZGNetManager.instance.postJSONDataWithUrl(FZGNetManager.checkVersionUrl, parameters: param, successed: { (value, status) in
+            HUD.hide()
+            if value["retCode"] == "0000"{
+                AppDelegate.currentDelegate().pushToMainViewController()
+            }else{
+                AppDelegate.currentDelegate().pushToLoginViewController()
+                
+            }
+            DDLogInfo(value.description)
+        }) { (error) in
+            HUD.hide()
+            DDLogError(error.debugDescription)
+            HUD.error("服务器连接失败！")
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

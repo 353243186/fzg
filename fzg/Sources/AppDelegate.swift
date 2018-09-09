@@ -62,6 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // 点击通知将App从关闭状态启动时，将通知打开回执上报
         //CloudPushSDK.handleLaunching(launchOptions)(Deprecated from v1.8.1)
         CloudPushSDK.sendNotificationAck(launchOptions)
+        
         return true
     }
     
@@ -293,7 +294,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
 
     // MARK: - Core Data stack
-
+    //数据库上下文，根据iOS版本
+    lazy var managedObjectContext : NSManagedObjectContext = {
+        if #available(iOS 10.0, *) {
+            return self.persistentContainer.viewContext
+        } else {//ios9以前
+            let url = Bundle.main.url(forResource: "fzg", withExtension: "momd")
+            let managedObjectModel = NSManagedObjectModel.init(contentsOf: url!)
+            let persistentStoreCoordinator = NSPersistentStoreCoordinator.init(managedObjectModel: managedObjectModel!)
+            
+            let appDocumentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last!
+            let storeUrl = appDocumentDirectory.appendingPathComponent("fzg.data")
+            let option = [NSMigratePersistentStoresAutomaticallyOption : true, NSInferMappingModelAutomaticallyOption : false ]
+            
+            do {
+                let store = try  persistentStoreCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeUrl, options: option)
+            } catch  {
+                print("数据库错误:\(error.localizedDescription)")
+            }
+            
+            let context = NSManagedObjectContext.init(concurrencyType: .privateQueueConcurrencyType)
+            context.persistentStoreCoordinator = persistentStoreCoordinator
+            
+            return context
+        }
+    }()
+    
+    
     @available(iOS 10.0, *)
     lazy var persistentContainer: NSPersistentContainer = {
         /*
@@ -324,9 +351,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     // MARK: - Core Data Saving support
 
-    @available(iOS 10.0, *)
     func saveContext () {
-        let context = persistentContainer.viewContext
+        let context = managedObjectContext
         if context.hasChanges {
             do {
                 try context.save()
