@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		EB26E8CF21441A3D00FE9769 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB26E8CE21441A3D00FE9769 /* String+MD5.swift */; };
 		EB26E8D72144AE6900FE9769 /* FZGTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB26E8D62144AE6900FE9769 /* FZGTools.swift */; };
+		EB26E91C214532C700FE9769 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB26E91B214532C700FE9769 /* NotificationService.swift */; };
+		EB26E920214532C700FE9769 /* PushServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EB26E919214532C700FE9769 /* PushServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EB26E93D2145363800FE9769 /* FZGSpeechUtteranceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC62F4A2142DB6500A8C581 /* FZGSpeechUtteranceManager.swift */; };
+		EB26E93F2145392500FE9769 /* fzg.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBFBC65A213FD92F000CFD10 /* fzg.xcdatamodeld */; };
+		EB26E9402145393E00FE9769 /* fzg.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = EBFBC65A213FD92F000CFD10 /* fzg.xcdatamodeld */; };
 		EB4D4A622142BD4F0007C030 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4D4A5E2142BD4F0007C030 /* UTDID.framework */; };
 		EB4D4A632142BD4F0007C030 /* CloudPushSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4D4A5F2142BD4F0007C030 /* CloudPushSDK.framework */; };
 		EB4D4A642142BD4F0007C030 /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4D4A602142BD4F0007C030 /* UTMini.framework */; };
@@ -58,6 +63,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		EB26E91E214532C700FE9769 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBFBC648213FD92F000CFD10 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB26E918214532C700FE9769;
+			remoteInfo = PushServiceExtension;
+		};
 		EBFBC668213FD930000CFD10 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EBFBC648213FD92F000CFD10 /* Project object */;
@@ -74,11 +86,39 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		EB26E924214532C700FE9769 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EB26E920214532C700FE9769 /* PushServiceExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB26E9362145337B00FE9769 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		EB26E8CE21441A3D00FE9769 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		EB26E8D021441A9F00FE9769 /* fzg-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fzg-Bridging-Header.h"; sourceTree = "<group>"; };
 		EB26E8D62144AE6900FE9769 /* FZGTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGTools.swift; sourceTree = "<group>"; };
 		EB26E8D82144B79A00FE9769 /* 1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = 1.0.xcdatamodel; sourceTree = "<group>"; };
+		EB26E919214532C700FE9769 /* PushServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PushServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB26E91B214532C700FE9769 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		EB26E91D214532C700FE9769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB26E94121453D5500FE9769 /* PushServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PushServiceExtension.entitlements; sourceTree = "<group>"; };
 		EB4D4A5D2142B1860007C030 /* fzg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fzg.entitlements; sourceTree = "<group>"; };
 		EB4D4A5E2142BD4F0007C030 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTDID.framework; path = OneSDK/UTDID.framework; sourceTree = "<group>"; };
 		EB4D4A5F2142BD4F0007C030 /* CloudPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudPushSDK.framework; path = OneSDK/CloudPushSDK.framework; sourceTree = "<group>"; };
@@ -137,6 +177,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EB26E916214532C700FE9769 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EBFBC64D213FD92F000CFD10 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -177,6 +224,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB26E91A214532C700FE9769 /* PushServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				EB26E94121453D5500FE9769 /* PushServiceExtension.entitlements */,
+				EB26E91B214532C700FE9769 /* NotificationService.swift */,
+				EB26E91D214532C700FE9769 /* Info.plist */,
+			);
+			path = PushServiceExtension;
+			sourceTree = "<group>";
+		};
 		EB4F4C1721412EA100AA54F0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +340,7 @@
 				EBFBC652213FD92F000CFD10 /* fzg */,
 				EBFBC66A213FD930000CFD10 /* fzgTests */,
 				EBFBC675213FD930000CFD10 /* fzgUITests */,
+				EB26E91A214532C700FE9769 /* PushServiceExtension */,
 				EBFBC651213FD92F000CFD10 /* Products */,
 				EBB7F7D221404540009CA91D /* Frameworks */,
 			);
@@ -294,6 +352,7 @@
 				EBFBC650213FD92F000CFD10 /* fzg.app */,
 				EBFBC667213FD930000CFD10 /* fzgTests.xctest */,
 				EBFBC672213FD930000CFD10 /* fzgUITests.xctest */,
+				EB26E919214532C700FE9769 /* PushServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -332,6 +391,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		EB26E918214532C700FE9769 /* PushServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB26E923214532C700FE9769 /* Build configuration list for PBXNativeTarget "PushServiceExtension" */;
+			buildPhases = (
+				EB26E915214532C700FE9769 /* Sources */,
+				EB26E916214532C700FE9769 /* Frameworks */,
+				EB26E917214532C700FE9769 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PushServiceExtension;
+			productName = PushServiceExtension;
+			productReference = EB26E919214532C700FE9769 /* PushServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		EBFBC64F213FD92F000CFD10 /* fzg */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EBFBC67B213FD930000CFD10 /* Build configuration list for PBXNativeTarget "fzg" */;
@@ -340,10 +416,13 @@
 				EBFBC64D213FD92F000CFD10 /* Frameworks */,
 				EBFBC64E213FD92F000CFD10 /* Resources */,
 				EBB7F7E321404F67009CA91D /* Copy Frameworks and DSYMs */,
+				EB26E924214532C700FE9769 /* Embed App Extensions */,
+				EB26E9362145337B00FE9769 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EB26E91F214532C700FE9769 /* PBXTargetDependency */,
 			);
 			name = fzg;
 			productName = fzg;
@@ -393,15 +472,27 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = FZG;
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = fuiou;
 				TargetAttributes = {
+					EB26E918214532C700FE9769 = {
+						CreatedOnToolsVersion = 9.4;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					EBFBC64F213FD92F000CFD10 = {
 						CreatedOnToolsVersion = 9.0.1;
 						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
@@ -438,11 +529,20 @@
 				EBFBC64F213FD92F000CFD10 /* fzg */,
 				EBFBC666213FD930000CFD10 /* fzgTests */,
 				EBFBC671213FD930000CFD10 /* fzgUITests */,
+				EB26E918214532C700FE9769 /* PushServiceExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EB26E917214532C700FE9769 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB26E9402145393E00FE9769 /* fzg.xcdatamodeld in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EBFBC64E213FD92F000CFD10 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -502,6 +602,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EB26E915214532C700FE9769 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB26E91C214532C700FE9769 /* NotificationService.swift in Sources */,
+				EB26E93D2145363800FE9769 /* FZGSpeechUtteranceManager.swift in Sources */,
+				EB26E93F2145392500FE9769 /* fzg.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EBFBC64C213FD92F000CFD10 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -549,6 +659,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		EB26E91F214532C700FE9769 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB26E918214532C700FE9769 /* PushServiceExtension */;
+			targetProxy = EB26E91E214532C700FE9769 /* PBXContainerItemProxy */;
+		};
 		EBFBC669213FD930000CFD10 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EBFBC64F213FD92F000CFD10 /* fzg */;
@@ -581,6 +696,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		EB26E921214532C700FE9769 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = PushServiceExtension/PushServiceExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z476DGXU4Y;
+				INFOPLIST_FILE = PushServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fuiou.fzg.PushServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EB26E922214532C700FE9769 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = PushServiceExtension/PushServiceExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z476DGXU4Y;
+				INFOPLIST_FILE = PushServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fuiou.fzg.PushServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		EBFBC679213FD930000CFD10 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -691,6 +846,7 @@
 		EBFBC67C213FD930000CFD10 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = fzg/fzg.entitlements;
@@ -716,6 +872,7 @@
 		EBFBC67D213FD930000CFD10 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = fzg/fzg.entitlements;
@@ -806,6 +963,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EB26E923214532C700FE9769 /* Build configuration list for PBXNativeTarget "PushServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB26E921214532C700FE9769 /* Debug */,
+				EB26E922214532C700FE9769 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EBFBC64B213FD92F000CFD10 /* Build configuration list for PBXProject "fzg" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

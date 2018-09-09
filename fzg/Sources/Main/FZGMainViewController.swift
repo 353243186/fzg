@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class FZGMainViewController: UIViewController {
 
@@ -24,6 +25,13 @@ class FZGMainViewController: UIViewController {
         self.showLeftButtonWithImage(#imageLiteral(resourceName: "email"), target: self, action: #selector(pushToMessageCenter))
         self.showRightButtonWithImage(#imageLiteral(resourceName: "refresh"), isOriginalImage: true, target: self, action: #selector(refresh))
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+    }
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -7,9 +7,20 @@
 //
 
 import UIKit
+import CoreData
+import CocoaLumberjackSwift
 
 class FZGMessageCenterViewController: UITableViewController {
 
+    //coreData数据库上下文
+    lazy var managedObjectContext : NSManagedObjectContext = {
+        let context = AppDelegate.currentDelegate().managedObjectContext
+        return context
+    }()
+    
+    //数据
+    var historys = Array<Any>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +32,36 @@ class FZGMessageCenterViewController: UITableViewController {
 //        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         title = "消息"
         tableView.tableFooterView = UIView()
+        
+        loadTransDetails()
+    }
+    
+    //清除
+//    func clearHisrory() {
+//        for history in historys {
+//            managedObjectContext.delete(history as! NSManagedObject)
+//        }
+//        historys.removeAll()
+//        self.mainTableView.reloadData()
+//        self.mainTableView.tableFooterView = tableFooterView
+//    }
+    
+    //读取
+    private func loadTransDetails() {
+        let request = NSFetchRequest<NSFetchRequestResult>.init(entityName: "TransDetail")
+//        let sortDescriptor = NSSortDescriptor.init(key: "time", ascending: false)
+//        request.sortDescriptors = [sortDescriptor]
+        do {
+            historys = try managedObjectContext.fetch(request)
+            
+            if historys.count > 0 {
+                tableView.reloadData()
+            }else{
+//                self.mainTableView.tableFooterView = tableFooterView
+            }
+        } catch  {
+            DDLogError("数据库错误：\(error.localizedDescription)")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,14 +71,14 @@ class FZGMessageCenterViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 1
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return historys.count
     }
 
     
@@ -49,17 +90,21 @@ class FZGMessageCenterViewController: UITableViewController {
             cell?.textLabel?.font = UIFont.systemFont(ofSize: 14)
             cell?.textLabel?.textColor = UIColor.black333
             cell?.detailTextLabel?.textColor = UIColor.black333
+            cell?.separatorInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
         }
 //        tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        let transDetail = historys[indexPath.row] as! TransDetail
         cell?.imageView?.image = #imageLiteral(resourceName: "message")
-        cell?.textLabel?.text = "微信收款0.01元"
-        cell?.detailTextLabel?.text = "2018-12-12"
+        cell?.textLabel?.text = "微信收款\(transDetail.amt)元"
+        cell?.detailTextLabel?.text = transDetail.txTime
         return cell!
     }
  
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.navigationController?.pushViewController(FZGMessageDetailViewController(), animated: true)
+        let transDetail = historys[indexPath.row] as! TransDetail
+        let controller = FZGMessageDetailViewController.init(transDetail)
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 
 }

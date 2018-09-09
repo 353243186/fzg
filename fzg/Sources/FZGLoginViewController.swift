@@ -50,6 +50,7 @@ class FZGLoginViewController: UIViewController {
     lazy var passwordTextField : UITextField = {
         let textField = UITextField()
         textField.placeholder = "请输入登录账户密码"
+        textField.isSecureTextEntry = true
         textField.backgroundColor = UIColor.white
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.black999.cgColor
@@ -65,7 +66,6 @@ class FZGLoginViewController: UIViewController {
     lazy var authCodeTextField : UITextField = {
         let textField = UITextField()
         textField.placeholder = "请输入验证码"
-        textField.isSecureTextEntry = true
         textField.backgroundColor = UIColor.white
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.black999.cgColor

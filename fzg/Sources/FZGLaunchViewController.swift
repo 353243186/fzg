@@ -27,7 +27,8 @@ class FZGLaunchViewController: UIViewController {
             if value["retCode"] == "0000"{
                 AppDelegate.currentDelegate().pushToMainViewController()
             }else{
-                AppDelegate.currentDelegate().pushToLoginViewController()
+                AppDelegate.currentDelegate().pushToMainViewController()
+//                AppDelegate.currentDelegate().pushToLoginViewController()
                 
             }
             DDLogInfo(value.description)
