@@ -23,6 +23,9 @@ class FZGNetManager: NSObject {
     static let verifyCodeUrl = "\(BaseUrl)/getVerifyCode"
     static let checkVersionUrl = "\(BaseUrl)/appVerUpdate"
     static let checkTokenUrl = "\(BaseUrl)/checkToken"
+    static let aboutUrl = "http://fzgwx-test.fuiou.com/static/about.html"
+    static let historyUrl = "http://fzgwx-test.fuiou.com/t/appTxnDetail"
+
     
     //单例模式下唯一实例化方法
     static let instance = FZGNetManager()

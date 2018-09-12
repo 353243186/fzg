@@ -16,8 +16,13 @@ class FZGMainViewController: UIViewController {
     @IBOutlet weak var accountLabel: UILabel!
     @IBAction func checkTransactionRecords(_ sender: Any) {
         
+        let transactionRecordsView = FZGWebViewController.init(FZGNetManager.historyUrl)
+        transactionRecordsView.hasToken = true
+        self.navigationController?.pushViewController(transactionRecordsView, animated: true)
     }
     @IBAction func aboutFuiou(_ sender: Any) {
+        let aboutView = FZGWebViewController.init(FZGNetManager.aboutUrl)
+        self.navigationController?.pushViewController(aboutView, animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

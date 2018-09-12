@@ -14,6 +14,7 @@
 		EB26E93D2145363800FE9769 /* FZGSpeechUtteranceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC62F4A2142DB6500A8C581 /* FZGSpeechUtteranceManager.swift */; };
 		EB26E93F2145392500FE9769 /* fzg.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBFBC65A213FD92F000CFD10 /* fzg.xcdatamodeld */; };
 		EB26E9402145393E00FE9769 /* fzg.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = EBFBC65A213FD92F000CFD10 /* fzg.xcdatamodeld */; };
+		EB3CE39A214949770051243F /* FZGWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3CE399214949770051243F /* FZGWebViewController.swift */; };
 		EB4D4A622142BD4F0007C030 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4D4A5E2142BD4F0007C030 /* UTDID.framework */; };
 		EB4D4A632142BD4F0007C030 /* CloudPushSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4D4A5F2142BD4F0007C030 /* CloudPushSDK.framework */; };
 		EB4D4A642142BD4F0007C030 /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4D4A602142BD4F0007C030 /* UTMini.framework */; };
@@ -119,6 +120,7 @@
 		EB26E91B214532C700FE9769 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		EB26E91D214532C700FE9769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB26E94121453D5500FE9769 /* PushServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PushServiceExtension.entitlements; sourceTree = "<group>"; };
+		EB3CE399214949770051243F /* FZGWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGWebViewController.swift; sourceTree = "<group>"; };
 		EB4D4A5D2142B1860007C030 /* fzg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fzg.entitlements; sourceTree = "<group>"; };
 		EB4D4A5E2142BD4F0007C030 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTDID.framework; path = OneSDK/UTDID.framework; sourceTree = "<group>"; };
 		EB4D4A5F2142BD4F0007C030 /* CloudPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudPushSDK.framework; path = OneSDK/CloudPushSDK.framework; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				EB4F4C1E214130F000AA54F0 /* FZGNavigationViewController.swift */,
+				EB3CE399214949770051243F /* FZGWebViewController.swift */,
 				EB4F4C252141827800AA54F0 /* FZGMainViewController.swift */,
 				EB4F4C262141827800AA54F0 /* FZGMainViewController.xib */,
 				EB4F4C2921418BFA00AA54F0 /* FZGMessageCenterViewController.swift */,
@@ -637,6 +640,7 @@
 				EBB7F7E02140496B009CA91D /* FZGLaunchViewController.swift in Sources */,
 				EB4F4C1021411FFE00AA54F0 /* ScreenInfo.swift in Sources */,
 				EB4F4C2A21418BFA00AA54F0 /* FZGMessageCenterViewController.swift in Sources */,
+				EB3CE39A214949770051243F /* FZGWebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
