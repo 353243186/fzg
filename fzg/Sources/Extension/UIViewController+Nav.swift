@@ -51,5 +51,58 @@ extension UIViewController{
         self.navigationItem.rightBarButtonItem = barItem
     }
     
+    //MARK:给导航栏右边添加文字按钮
+    func showRightButtonWithTitle(_ title: String, target: Any?, action: Selector?) {
+        let barItem = UIBarButtonItem.init(title: title, style: .plain, target: target, action: action)
+        self.navigationItem.rightBarButtonItem = barItem
+    }
+    
+    //MARK:显示系统样式提示框（UIAlertController）
+    
+    /// 显示系统样式提示框：UIAlertController
+    ///
+    /// - Parameters:
+    ///   - title: 提示信息标题
+    ///   - message: 提示信息
+    ///   - animated: 是否存在动画
+    func showAlert(_ title: String?, message: String? = nil, animated: Bool = true) -> Void {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction.init(title: "确定", style: UIAlertActionStyle.default))
+        self.present(alertController, animated: animated, completion: nil)
+    }
+    
+    //MARK:显示系统样式提示框（带一个操作）
+    
+    /// 显示带一个操作的系统样式提示框
+    ///
+    /// - Parameters:
+    ///   - action: 预设的一个操作action
+    ///   - title: 提示信息标题
+    ///   - message: 提示信息
+    ///   - animated: 是否存在动画
+    func showAlertWithAction(_ action: UIAlertAction, title: String?, message: String? = nil, animated: Bool = true) -> Void {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(action)
+        self.present(alertController, animated: animated, completion: nil)
+    }
+    
+    
+    //MARK:显示系统样式提示框（带一组操作）
+    
+    /// 显示带一组操作的系统样式提示框
+    ///
+    /// - Parameters:
+    ///   - actions: 预设的一组操作action
+    ///   - title: 提示信息标题
+    ///   - message: 提示信息
+    ///   - animated: 是否存在动画
+    func showAlertWithActions(_ actions: Array<UIAlertAction>, title: String?, message: String? = nil, animated: Bool = true ) -> Void {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        for action in actions {
+            alertController.addAction(action)
+        }
+        self.present(alertController, animated: animated, completion: nil)
+    }
+    
     
 }

@@ -1,4 +1,4 @@
-//
+ //
 //  NotificationService.swift
 //  PushServiceExtension
 //
@@ -7,7 +7,6 @@
 //
 
 import UserNotifications
-import ExtensionComponents
 import CoreData
 
 
@@ -55,46 +54,55 @@ class NotificationService: UNNotificationServiceExtension {
 //    "traceNo":"跟踪号",
 //    "transactionId":"渠道流水号",
 //    "goodsDes":"交易信息"
+    
+//    mchntName:商户名称；txnSt：交易状态；amt:交易金额（单位是分）；termId:终端号；mchntCd：商户号；busiCd：交易类型（业务代码）；loginIdList：???；txnSsn:富友流水号；chnlCd：渠道商户号；m: ???;busiCdDesc：交易类型描述；termName：终端别称；txTime：交易时间；orderNo：订单号；cardNo：卡号；
     override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
         self.contentHandler = contentHandler
         bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
-        print("--------------\(bestAttemptContent?.userInfo.description)")
-        if let extras = bestAttemptContent?.userInfo["Extras"] as? [AnyHashable : Any]{
+//        print("--------------\(bestAttemptContent?.userInfo.description)")
+        if let userInfo = bestAttemptContent?.userInfo{
             print("---开始解析通知内容")
 //            let managedObjectContext = FZGDataAccess.instance.managedObjectContext
-            let TransDetail = NSEntityDescription.insertNewObject(forEntityName: "TransDetail", into: managedObjectContext)
-            if let value = extras["mchntName"] as? String{
-                TransDetail.setValue(value, forKey: "mchntName")
+            let transDetail = NSEntityDescription.insertNewObject(forEntityName: "TransDetail", into: managedObjectContext)
+            if let value = userInfo["mchntName"] as? String{
+                transDetail.setValue(value, forKey: "mchntName")
             }
-            if let value = extras["mchntCd"] as? String{
-                TransDetail.setValue(value, forKey: "mchntCd")
+            if let value = userInfo["termName"] as? String{
+                transDetail.setValue(value, forKey: "termName")
             }
-            if let value = extras["busiCd"] as? String{
-                TransDetail.setValue(value, forKey: "busiCd")
+            if let value = userInfo["termId"] as? String{
+                transDetail.setValue(value, forKey: "termId")
             }
-            if let value = extras["amt"] as? String, let amtDoubleValue = Double.init(value){
-                TransDetail.setValue(amtDoubleValue / 100.0, forKey: "amt")
+            if let value = userInfo["txTime"] as? String{
+                transDetail.setValue(value, forKey: "txTime")
             }
-            if let value = extras["txTime"] as? String{
-                TransDetail.setValue(value, forKey: "txTime")
+            if let value = userInfo["busiCd"] as? String{
+                transDetail.setValue(value, forKey: "busiCd")
             }
-            if let value = extras["txnSt"] as? String{
-                TransDetail.setValue(value, forKey: "txnSt")
+            if let value = userInfo["cardNo"] as? String{
+                transDetail.setValue(value, forKey: "cardNo")
             }
-            if let value = extras["orderNo"] as? String{
-                TransDetail.setValue(value, forKey: "orderNo")
+            if let value = userInfo["mchntCd"] as? String{
+                transDetail.setValue(value, forKey: "mchntCd")
             }
-            if let value = extras["txnSsn"] as? String{
-                TransDetail.setValue(value, forKey: "txnSsn")
+            if let value = userInfo["orderNo"] as? String{
+                transDetail.setValue(value, forKey: "orderNo")
             }
-            if let value = extras["termId"] as? String{
-                TransDetail.setValue(value, forKey: "termId")
+            if let value = userInfo["amt"] as? Double{
+                transDetail.setValue(value / 100.0, forKey: "amt")
             }
-            if let value = extras["transactionId"] as? String{
-                TransDetail.setValue(value, forKey: "transactionId")
+            if let value = userInfo["txnSsn"] as? String{
+                transDetail.setValue(value, forKey: "txnSsn")
             }
-            if let value = extras["goodsDes"] as? String{
-                TransDetail.setValue(value, forKey: "goodsDes")
+            if let value = userInfo["txnSt"] as? String{
+                transDetail.setValue(value, forKey: "txnSt")
+            }
+            
+            if let value = userInfo["transactionId"] as? String{
+                transDetail.setValue(value, forKey: "transactionId")
+            }
+            if let value = userInfo["goodsDes"] as? String{
+                transDetail.setValue(value, forKey: "goodsDes")
             }
             
             print("---开始保存通知内容")
@@ -104,16 +112,18 @@ class NotificationService: UNNotificationServiceExtension {
             } catch  {
                 print("---数据库错误，保存失败：\(error.localizedDescription)")
             }
-            if let value = extras["amt"] as? String, let amtDoubleValue = Double.init(value){
-                FZGSpeechUtteranceManager.shared.speechWeather(with: "微信收款\(amtDoubleValue / 100.0)元")
-            }
+            
+            FZGSpeechUtteranceManager.shared.speechWeather(with: bestAttemptContent?.body ?? "富掌柜交易成功")
+//            if let value = userInfo["amt"] as? String, let amtDoubleValue = Double.init(value){
+//                FZGSpeechUtteranceManager.shared.speechWeather(with: "微信收款\(amtDoubleValue / 100.0)元")
+//            }
             
         }
 
         
         if let bestAttemptContent = bestAttemptContent {
             // Modify the notification content here...
-            bestAttemptContent.title = "\(bestAttemptContent.title) [modified]"
+//            bestAttemptContent.title = "bestAttemptContent.title"
             
             contentHandler(bestAttemptContent)
         }

@@ -33,6 +33,10 @@ class FZGMessageCenterViewController: UITableViewController {
         title = "消息"
         tableView.tableFooterView = UIView()
         
+        65555555555555555
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         loadTransDetails()
     }
     
@@ -95,9 +99,28 @@ class FZGMessageCenterViewController: UITableViewController {
 //        tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         let transDetail = historys[indexPath.row] as! TransDetail
         cell?.imageView?.image = #imageLiteral(resourceName: "message")
-        cell?.textLabel?.text = "微信收款\(transDetail.amt)元"
+//        TX09->微信收款    TX15->支付宝收款   TX02->银行卡收款    TX18->扫码退款    TX03->银行卡退款
+//        其余的都叫富掌柜交易成功
+        
+        cell?.textLabel?.text = "\(getBusiNameWithBusiCd(transDetail.busiCd))\(transDetail.amt)元"
         cell?.detailTextLabel?.text = transDetail.txTime
         return cell!
+    }
+    
+    private func getBusiNameWithBusiCd(_ busiCd: String?) -> String {
+        if busiCd == "TX02"{
+            return "银行卡收款"
+        }else if busiCd == "TX03"{
+            return "银行卡退款"
+        }else if busiCd == "TX09"{
+            return "微信收款"
+        }else if busiCd == "TX15"{
+            return "支付宝收款"
+        }else if busiCd == "TX18"{
+            return "扫码退款"
+        }else{
+            return "富掌柜交易"
+        }
     }
  
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

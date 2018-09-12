@@ -17,11 +17,11 @@ import CloudPushSDK
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
-    let testAppKey = "25060647"
-    let testAppSecret = "17646e2d5f2fa5b54f35565b25cf34aa"
+    private let testAppKey = "25060647"
+    private let testAppSecret = "17646e2d5f2fa5b54f35565b25cf34aa"
     
-    var notificationRootViewController: UINavigationController?
-    
+//    var notificationRootViewController: UINavigationController?
+    var fromDead = false // 标记是否是被杀死的应用被后台吊起
     class func currentDelegate() ->AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
@@ -49,18 +49,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         //启动IQKeyboardManager
         IQKeyboardManager.shared.enable = true
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
-        if notificationRootViewController != nil{
-            self.window?.rootViewController = notificationRootViewController
-            notificationRootViewController = nil
-//            FZGSpeechUtteranceManager.shared.speechWeather(with: "通知")
-        }else{
-            self.window?.rootViewController = FZGLaunchViewController()
-//            FZGSpeechUtteranceManager.shared.speechWeather(with: "启动")
+        if launchOptions != nil{
+            fromDead = true
         }
-        
+        self.window?.rootViewController = FZGLaunchViewController()
+
         self.window?.makeKeyAndVisible()
         
-        DDLog.add(DDTTYLogger.sharedInstance) // TTY = Xcode console
+//        DDLog.add(DDTTYLogger.sharedInstance) // TTY = Xcode console
         DDLog.add(DDASLLogger.sharedInstance) // ASL = Apple System Logs
         
         // APNs注册，获取deviceToken并上报
@@ -181,7 +177,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Get deviceToken from APNs failed, error: \(error).")
     }
-    // App处于启动状态时，通知打开回调（< iOS 10）
+    // App处于启动状态时，通知打开回调（iOS 9）
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         saveTransDetailInfo(userInfo: userInfo)
         print("Receive one notification.")
@@ -224,15 +220,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             // 处理iOS 10通知，并上报通知打开回执
             handleiOS10Notification(response.notification)
             let content: UNNotificationContent = response.notification.request.content
-            if let extras = content.userInfo["Extras"] as?  [AnyHashable : Any],
-                let clickTransDetailId = extras["transactionId"] as? String,
+            if let clickTransDetailId = content.userInfo["txnSsn"] as? String,
                 let transDetail = searchTransDetailWithId(clickTransDetailId) {
-                let controller = FZGMessageDetailViewController.init(transDetail)
-//                (self.window?.rootViewController as? UINavigationController)?.pushViewController(controller, animated: true)
-//                FZGSpeechUtteranceManager.shared.speechWeather(with: "打开")
-                notificationRootViewController = FZGNavigationViewController.init(rootViewController: controller)
-                self.window?.rootViewController?.present(notificationRootViewController!, animated: true, completion: nil)
-                FZGSpeechUtteranceManager.shared.speechWeather(with: "打开")
+                
+                guard let user = FZGTools.defaultsUser(), let token = FZGTools.defaultsToken() else{
+                    return
+                }
+                let param = ["loginId": user,
+                             "deviceId": CloudPushSDK.getDeviceId(),
+                             "token": token]
+                FZGNetManager.instance.postJSONDataWithUrl(FZGNetManager.checkTokenUrl, parameters: param, successed: { (value, status) in
+                    HUD.hide()
+                    if value["retCode"] == "0000"{
+                        self.pushToNotificationViewWithTransDetail(transDetail)
+                    }else{
+                        
+                    }
+                }) { (error) in
+                    HUD.hide()
+                    DDLogError(error.debugDescription)
+                }
+                
+//                if fromDead{
+//                    FZGSpeechUtteranceManager.shared.speechWeather(with: "打开")
+//                }
             }
             
         }
@@ -254,56 +265,74 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         completionHandler()
     }
     
+    private func pushToNotificationViewWithTransDetail(_ transDetail :TransDetail) {
+        let controller = FZGMessageDetailViewController.init(transDetail)
+        controller.fromNotificatoinCenter = true
+        
+        let notificationRootViewController = FZGNavigationViewController.init(rootViewController: controller)
+        
+        //
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+            self.window?.rootViewController = notificationRootViewController
+        })
+    }
+    
     private func saveTransDetailInfo(userInfo: [AnyHashable : Any]) {
-        if let extras = userInfo["Extras"] as? [AnyHashable : Any]{
-            print("---开始解析通知内容(ios9)")
-            //            let managedObjectContext = FZGDataAccess.instance.managedObjectContext
-            let TransDetail = NSEntityDescription.insertNewObject(forEntityName: "TransDetail", into: managedObjectContext)
-            if let value = extras["mchntName"] as? String{
-                TransDetail.setValue(value, forKey: "mchntName")
-            }
-            if let value = extras["mchntCd"] as? String{
-                TransDetail.setValue(value, forKey: "mchntCd")
-            }
-            if let value = extras["busiCd"] as? String{
-                TransDetail.setValue(value, forKey: "busiCd")
-            }
-            if let value = extras["amt"] as? String, let amtDoubleValue = Double.init(value){
-                TransDetail.setValue(amtDoubleValue / 100.0, forKey: "amt")
-            }
-            if let value = extras["txTime"] as? String{
-                TransDetail.setValue(value, forKey: "txTime")
-            }
-            if let value = extras["txnSt"] as? String{
-                TransDetail.setValue(value, forKey: "txnSt")
-            }
-            if let value = extras["orderNo"] as? String{
-                TransDetail.setValue(value, forKey: "orderNo")
-            }
-            if let value = extras["txnSsn"] as? String{
-                TransDetail.setValue(value, forKey: "txnSsn")
-            }
-            if let value = extras["termId"] as? String{
-                TransDetail.setValue(value, forKey: "termId")
-            }
-            if let value = extras["transactionId"] as? String{
-                TransDetail.setValue(value, forKey: "transactionId")
-            }
-            if let value = extras["goodsDes"] as? String{
-                TransDetail.setValue(value, forKey: "goodsDes")
-            }
-            
-            print("---开始保存通知内容")
-            //保存通知内容
-            do {
-                try managedObjectContext.save()
-            } catch  {
-                print("---数据库错误，保存失败：\(error.localizedDescription)")
-            }
-            if let value = extras["amt"] as? String, let amtDoubleValue = Double.init(value){
-                FZGSpeechUtteranceManager.shared.speechWeather(with: "微信收款\(amtDoubleValue / 100.0)元")
-            }
+       print("---开始解析通知内容(ios9)")
+        //            let managedObjectContext = FZGDataAccess.instance.managedObjectContext
+        let transDetail = NSEntityDescription.insertNewObject(forEntityName: "TransDetail", into: managedObjectContext)
+        if let value = userInfo["mchntName"] as? String{
+            transDetail.setValue(value, forKey: "mchntName")
         }
+        if let value = userInfo["termName"] as? String{
+            transDetail.setValue(value, forKey: "termName")
+        }
+        if let value = userInfo["termId"] as? String{
+            transDetail.setValue(value, forKey: "termId")
+        }
+        if let value = userInfo["txTime"] as? String{
+            transDetail.setValue(value, forKey: "txTime")
+        }
+        if let value = userInfo["busiCd"] as? String{
+            transDetail.setValue(value, forKey: "busiCd")
+        }
+        if let value = userInfo["cardNo"] as? String{
+            transDetail.setValue(value, forKey: "cardNo")
+        }
+        if let value = userInfo["mchntCd"] as? String{
+            transDetail.setValue(value, forKey: "mchntCd")
+        }
+        if let value = userInfo["orderNo"] as? String{
+            transDetail.setValue(value, forKey: "orderNo")
+        }
+        if let value = userInfo["amt"] as? Double{
+            transDetail.setValue(value / 100.0, forKey: "amt")
+        }
+        if let value = userInfo["txnSsn"] as? String{
+            transDetail.setValue(value, forKey: "txnSsn")
+        }
+        if let value = userInfo["txnSt"] as? String{
+            transDetail.setValue(value, forKey: "txnSt")
+        }
+        
+        if let value = userInfo["transactionId"] as? String{
+            transDetail.setValue(value, forKey: "transactionId")
+        }
+        if let value = userInfo["goodsDes"] as? String{
+            transDetail.setValue(value, forKey: "goodsDes")
+        }
+        
+        print("---开始保存通知内容")
+        //保存通知内容
+        do {
+            try managedObjectContext.save()
+        } catch  {
+            print("---数据库错误，保存失败：\(error.localizedDescription)")
+        }
+//        if let value = userInfo["amt"] as? String, let amtDoubleValue = Double.init(value){
+//            FZGSpeechUtteranceManager.shared.speechWeather(with: "微信收款\(amtDoubleValue / 100.0)元")
+//        }
+        
     }
     
     //读取
@@ -311,7 +340,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "TransDetail")
         //        let sortDescriptor = NSSortDescriptor.init(key: "time", ascending: false)
         //        request.sortDescriptors = [sortDescriptor]
-        let predicate = NSPredicate.init(format: "transactionId = '\(id)'", "")
+        let predicate = NSPredicate.init(format: "txnSsn = '\(id)'", "")
         fetchRequest.predicate = predicate;
         
         do {

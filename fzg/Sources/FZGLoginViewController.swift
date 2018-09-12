@@ -16,7 +16,8 @@ import CloudPushSDK
 
 //let tokenKey = "token"
 let userKey = "user"
-let userTypeKey = "user"
+let userTypeKey = "userType"
+let tokenKey = "token"
 class FZGLoginViewController: UIViewController {
 
     lazy var topImageBackView : UIImageView = {
@@ -200,12 +201,20 @@ class FZGLoginViewController: UIViewController {
                      "deviceId": CloudPushSDK.getDeviceId(),
                      "appType": "iOS",
                      "ver": FZGTools.getShortVersionString(),
+                     "deviceVer": UIDevice.current.systemVersion,
                      "appModel": FZGTools.deviceModel
                      ]
         HUD.loading()
         FZGNetManager.instance.postJSONDataWithUrl(FZGNetManager.loginUrl, parameters: param, successed: { (value, status) in
             HUD.hide()
-            if value["retCode"] == "0000"{
+            if value["retCode"].string == "0000"{
+                FZGTools.setDefaultsValue(loginId, forKey: userKey)
+//                if let userType = value[""].string{
+//                    FZGTools.setDefaultsValue(userType, forKey: userTypeKey)
+//                }
+                if let token = value["token"].string{
+                    FZGTools.setDefaultsValue(token, forKey: tokenKey)
+                }
                 AppDelegate.currentDelegate().pushToMainViewController()
             }else{
                 self.tipLabel.text = value["retMsg"].string

@@ -12,6 +12,9 @@ class FZGMessageDetailViewController: UITableViewController {
 
     private var transDetail : TransDetail
     
+    var fromNotificatoinCenter = false
+    
+    
     init(_ transDetail: TransDetail) {
         self.transDetail = transDetail
         super.init(style: .plain)
@@ -35,6 +38,7 @@ class FZGMessageDetailViewController: UITableViewController {
         self.tableView.register(UINib.init(nibName: "FZGMessageTableViewCell", bundle: nil), forCellReuseIdentifier: "FZGMessageTableViewCell")
         self.tableView.register(UINib.init(nibName: "FZGMessageFooterTableViewCell", bundle: nil), forCellReuseIdentifier: "FZGMessageFooterTableViewCell")
 //        register(FZGMessageTitleTableViewCell.self, forCellReuseIdentifier: "FZGMessageTitleTableViewCell")
+        self.tableView.allowsSelection = false
         
     }
 
@@ -67,8 +71,8 @@ class FZGMessageDetailViewController: UITableViewController {
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FZGMessageTableViewCell", for: indexPath) as! FZGMessageTableViewCell
-            cell.titleLabel.text = "商户名称2"
-            cell.valueLabel.text = transDetail.mchntName
+            cell.titleLabel.text = "分店名称"
+            cell.valueLabel.text = transDetail.termName
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FZGMessageTableViewCell", for: indexPath) as! FZGMessageTableViewCell
@@ -83,7 +87,7 @@ class FZGMessageDetailViewController: UITableViewController {
         case 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FZGMessageTableViewCell", for: indexPath) as! FZGMessageTableViewCell
             cell.titleLabel.text = "交易类型"
-            cell.valueLabel.text = transDetail.busiCd
+            cell.valueLabel.text = getBusiNameWithBusiCd(transDetail.busiCd)
             return cell
         case 6:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FZGMessageTableViewCell", for: indexPath) as! FZGMessageTableViewCell
@@ -93,7 +97,7 @@ class FZGMessageDetailViewController: UITableViewController {
         case 7:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FZGMessageTableViewCell", for: indexPath) as! FZGMessageTableViewCell
             cell.titleLabel.text = "交易参考号"
-            cell.valueLabel.text = transDetail.traceNo
+            cell.valueLabel.text = transDetail.txnSsn
             return cell
         case 8:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FZGMessageTableViewCell", for: indexPath) as! FZGMessageTableViewCell
@@ -107,10 +111,33 @@ class FZGMessageDetailViewController: UITableViewController {
             return cell
         }
     }
- 
+    
+    private func getBusiNameWithBusiCd(_ busiCd: String?) -> String {
+        if busiCd == "TX02"{
+            return "银行卡收款"
+        }else if busiCd == "TX03"{
+            return "银行卡退款"
+        }else if busiCd == "TX09"{
+            return "微信收款"
+        }else if busiCd == "TX15"{
+            return "支付宝收款"
+        }else if busiCd == "TX18"{
+            return "扫码退款"
+        }else{
+            return "富掌柜交易"
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
     @objc private func sureButtonClick() {
-        self.navigationController?.popViewController(animated: true)
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        if fromNotificatoinCenter{
+            AppDelegate.currentDelegate().pushToMainViewController()
+        }else{
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 
     /*

@@ -19,8 +19,10 @@ typealias failedHander = (_ error: Error?) ->Void
 class FZGNetManager: NSObject {
     static let BaseUrl = "http://futest1.fuiou.com:24010/bdc_platfrom"
     static let loginUrl = "\(BaseUrl)/login"
+    static let logoutUrl = "\(BaseUrl)/logout"
     static let verifyCodeUrl = "\(BaseUrl)/getVerifyCode"
     static let checkVersionUrl = "\(BaseUrl)/appVerUpdate"
+    static let checkTokenUrl = "\(BaseUrl)/checkToken"
     
     //单例模式下唯一实例化方法
     static let instance = FZGNetManager()
