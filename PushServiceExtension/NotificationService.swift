@@ -59,10 +59,9 @@ class NotificationService: UNNotificationServiceExtension {
     override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
         self.contentHandler = contentHandler
         bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
-//        print("--------------\(bestAttemptContent?.userInfo.description)")
+
         if let userInfo = bestAttemptContent?.userInfo{
             print("---开始解析通知内容")
-//            let managedObjectContext = FZGDataAccess.instance.managedObjectContext
             let transDetail = NSEntityDescription.insertNewObject(forEntityName: "TransDetail", into: managedObjectContext)
             if let value = userInfo["mchntName"] as? String{
                 transDetail.setValue(value, forKey: "mchntName")
@@ -114,12 +113,26 @@ class NotificationService: UNNotificationServiceExtension {
             }
             
             FZGSpeechUtteranceManager.shared.speechWeather(with: bestAttemptContent?.body ?? "富掌柜交易成功")
-//            if let value = userInfo["amt"] as? String, let amtDoubleValue = Double.init(value){
-//                FZGSpeechUtteranceManager.shared.speechWeather(with: "微信收款\(amtDoubleValue / 100.0)元")
+//            func getspeechStringWithBusiCd(_ busiCd: String, amt: Double) -> String {
+//                if busiCd == "TX02"{
+//                    return "银行卡收款\(amt)元"
+//                }else if busiCd == "TX03"{
+//                    return "富掌柜退款\(amt)元"
+//                }else if busiCd == "TX09"{
+//                    return "微信收款\(amt)元"
+//                }else if busiCd == "TX15"{
+//                    return "支付宝收款\(amt)元"
+//                }else if busiCd == "TX18"{
+//                    return "富掌柜退款\(amt)元"
+//                }else{
+//                    return "富掌柜交易成功"
+//                }
 //            }
-            
+//
+//            if let busiCd = userInfo["busiCd"] as? String, let amt = userInfo["amt"] as? Double{
+//                FZGSpeechUtteranceManager.shared.speechWeather(with: getspeechStringWithBusiCd(busiCd, amt: amt))
+//            }
         }
-
         
         if let bestAttemptContent = bestAttemptContent {
             // Modify the notification content here...

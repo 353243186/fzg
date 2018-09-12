@@ -53,8 +53,8 @@ class FZGMessageCenterViewController: UITableViewController {
     //读取
     private func loadTransDetails() {
         let request = NSFetchRequest<NSFetchRequestResult>.init(entityName: "TransDetail")
-//        let sortDescriptor = NSSortDescriptor.init(key: "time", ascending: false)
-//        request.sortDescriptors = [sortDescriptor]
+        let sortDescriptor = NSSortDescriptor.init(key: "txTime", ascending: false)
+        request.sortDescriptors = [sortDescriptor]
         do {
             historys = try managedObjectContext.fetch(request)
             

@@ -54,7 +54,7 @@ class FZGLaunchViewController: UIViewController {
         let param = ["version": FZGTools.getShortVersionString(),
                      "appType": "iOS",
                      "deviceVer": UIDevice.current.systemVersion,
-                     "appId": "dfdf"
+                     "appId": CloudPushSDK.getDeviceId()
                      ]
         FZGNetManager.instance.postJSONDataWithUrl(FZGNetManager.checkVersionUrl, parameters: param, successed: { (value, status) in
             HUD.hide()
