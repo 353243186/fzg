@@ -25,6 +25,11 @@ class FZGTools: NSObject {
     class func defaultsUser() -> String?{
         return defaultsValue(forKey: userKey) as? String
     }
+    
+    //返回缓存的用户名id
+    class func defaultsUserId() -> String?{
+        return defaultsValue(forKey: userIdKey) as? String
+    }
 
     //返回缓存的token
     class func defaultsToken() -> Any?{

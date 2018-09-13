@@ -16,6 +16,7 @@ import CloudPushSDK
 
 //let tokenKey = "token"
 let userKey = "user"
+let userIdKey = "userId"
 let userTypeKey = "userType"
 let tokenKey = "token"
 class FZGLoginViewController: UIViewController {
@@ -212,6 +213,9 @@ class FZGLoginViewController: UIViewController {
 //                if let userType = value[""].string{
 //                    FZGTools.setDefaultsValue(userType, forKey: userTypeKey)
 //                }
+                if let token = value["mchntCd"].string{
+                    FZGTools.setDefaultsValue(token, forKey: userIdKey)
+                }
                 if let token = value["token"].string{
                     FZGTools.setDefaultsValue(token, forKey: tokenKey)
                 }

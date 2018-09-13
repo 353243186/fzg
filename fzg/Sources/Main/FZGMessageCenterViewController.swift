@@ -32,8 +32,7 @@ class FZGMessageCenterViewController: UITableViewController {
 //        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         title = "消息"
         tableView.tableFooterView = UIView()
-        
-        65555555555555555
+  
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +54,8 @@ class FZGMessageCenterViewController: UITableViewController {
         let request = NSFetchRequest<NSFetchRequestResult>.init(entityName: "TransDetail")
         let sortDescriptor = NSSortDescriptor.init(key: "txTime", ascending: false)
         request.sortDescriptors = [sortDescriptor]
+//        let predicate = NSPredicate.init(format: "txnSsn = '\(id)'", "")
+//        fetchRequest.predicate = predicate;
         do {
             historys = try managedObjectContext.fetch(request)
             

@@ -72,6 +72,7 @@ class FZGMainViewController: UIViewController {
                 FZGTools.deleteValue(forKey: userKey)
                 FZGTools.deleteValue(forKey: userTypeKey)
                 FZGTools.deleteValue(forKey: tokenKey)
+                self.clearCoreData()
                 AppDelegate.currentDelegate().pushToLoginViewController()
             }else{
                 HUD.error("\(value["retMsg"].string ?? "服务器连接失败！")")
@@ -83,6 +84,21 @@ class FZGMainViewController: UIViewController {
             HUD.error("服务器连接失败！")
         }
             
+    }
+    
+    //清除
+    private func clearCoreData() {
+        let request = NSFetchRequest<NSFetchRequestResult>.init(entityName: "TransDetail")
+        let managedObjectContext = AppDelegate.currentDelegate().managedObjectContext
+        do {
+            let historys = try managedObjectContext.fetch(request)
+            for history in historys {
+                managedObjectContext.delete(history as! NSManagedObject)
+            }
+    
+        } catch  {
+            DDLogError("数据库错误：\(error.localizedDescription)")
+        }
     }
 
 

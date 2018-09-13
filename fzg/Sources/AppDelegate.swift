@@ -347,7 +347,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             let results = try managedObjectContext.fetch(fetchRequest)
             
             if results.count > 0 {
-                return results[0] as! TransDetail
+                return results[0] as? TransDetail
             }else{
                 return nil
             }
