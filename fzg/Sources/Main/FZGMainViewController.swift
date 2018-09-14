@@ -72,7 +72,7 @@ class FZGMainViewController: UIViewController {
                 FZGTools.deleteValue(forKey: userKey)
                 FZGTools.deleteValue(forKey: userTypeKey)
                 FZGTools.deleteValue(forKey: tokenKey)
-                self.clearCoreData()
+//                self.clearCoreData()
                 AppDelegate.currentDelegate().pushToLoginViewController()
             }else{
                 HUD.error("\(value["retMsg"].string ?? "服务器连接失败！")")

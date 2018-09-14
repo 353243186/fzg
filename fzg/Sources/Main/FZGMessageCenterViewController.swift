@@ -53,8 +53,11 @@ class FZGMessageCenterViewController: UITableViewController {
         let request = NSFetchRequest<NSFetchRequestResult>.init(entityName: "TransDetail")
         let sortDescriptor = NSSortDescriptor.init(key: "txTime", ascending: false)
         request.sortDescriptors = [sortDescriptor]
-//        let predicate = NSPredicate.init(format: "txnSsn = '\(id)'", "")
-//        fetchRequest.predicate = predicate;
+        if let id = FZGTools.defaultsUserId(){
+            let predicate = NSPredicate.init(format: "mchntCd = '\(id)'", "")
+            request.predicate = predicate
+        }
+        
         do {
             historys = try managedObjectContext.fetch(request)
             
