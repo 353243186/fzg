@@ -27,7 +27,7 @@ class NotificationService: UNNotificationServiceExtension {
         
         let appDocumentDirectory = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.fuiou.fzg")
         let storeUrl = appDocumentDirectory?.appendingPathComponent("fzg.data")
-        let option = [NSMigratePersistentStoresAutomaticallyOption : true, NSInferMappingModelAutomaticallyOption : false ]
+        let option = [NSMigratePersistentStoresAutomaticallyOption : true, NSInferMappingModelAutomaticallyOption : true ]
         
         do {
             let store = try  persistentStoreCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeUrl, options: option)

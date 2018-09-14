@@ -82,7 +82,7 @@ class FZGWebViewController: UIViewController, WKNavigationDelegate /*WKScriptMes
             if let appId = CloudPushSDK.getDeviceId(){
                 startUrlString.append("?appId=\(appId)")
             }
-            if let tokenString = FZGTools.defaultsToken() as? String{
+            if let tokenString = FZGTools.defaultsToken(){
                 startUrlString.append("&token=\(tokenString)")
             }
         }

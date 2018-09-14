@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     private let testAppKey = "25060647"
     private let testAppSecret = "17646e2d5f2fa5b54f35565b25cf34aa"
     
-//    var notificationRootViewController: UINavigationController?
     var fromDead = false // 标记是否是被杀死的应用被后台吊起
     class func currentDelegate() ->AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
@@ -436,7 +435,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             
             let appDocumentDirectory = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.fuiou.fzg")
         let storeUrl = appDocumentDirectory?.appendingPathComponent("fzg.data")
-            let option = [NSMigratePersistentStoresAutomaticallyOption : true, NSInferMappingModelAutomaticallyOption : false ]
+            let option = [NSMigratePersistentStoresAutomaticallyOption : true, NSInferMappingModelAutomaticallyOption : true ]
             
             do {
                 let store = try  persistentStoreCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeUrl, options: option)

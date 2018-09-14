@@ -13,8 +13,6 @@ import Kingfisher
 import Alamofire
 import CloudPushSDK
 
-
-//let tokenKey = "token"
 let userKey = "user"
 let userIdKey = "userId"
 let userTypeKey = "userType"
@@ -114,7 +112,8 @@ class FZGLoginViewController: UIViewController {
     }
     
     @objc private func getAuthCode() {
-        Alamofire.request(FZGNetManager.verifyCodeUrl, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseData { (response) in
+        let url = "\(FZGNetManager.verifyCodeUrl)/\(CloudPushSDK.getDeviceId() ?? "")"
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseData { (response) in
             switch response.result {
             case.success(let value):
                 if response.response?.statusCode == 200{
