@@ -39,7 +39,9 @@ class FZGMessageDetailViewController: UITableViewController {
         self.tableView.register(UINib.init(nibName: "FZGMessageFooterTableViewCell", bundle: nil), forCellReuseIdentifier: "FZGMessageFooterTableViewCell")
 //        register(FZGMessageTitleTableViewCell.self, forCellReuseIdentifier: "FZGMessageTitleTableViewCell")
         self.tableView.allowsSelection = false
+        tableView.estimatedRowHeight = 44.0//推测高度，必须有，可以随便写多少
         
+        tableView.rowHeight =  UITableViewAutomaticDimension
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,7 +51,15 @@ class FZGMessageDetailViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if indexPath.row == 0{
+//            return 99.5
+//        }else if indexPath.row == 9{
+//            return 50.5
+//        }else{
+//            return 44
+//        }
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows

@@ -32,7 +32,6 @@ class FZGMessageCenterViewController: UITableViewController {
 //        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         title = "消息"
         tableView.tableFooterView = UIView()
-  
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,6 +79,8 @@ class FZGMessageCenterViewController: UITableViewController {
 //        // #warning Incomplete implementation, return the number of sections
 //        return 1
 //    }
+    
+
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
