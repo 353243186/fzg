@@ -17,6 +17,7 @@ let userKey = "user"
 let userIdKey = "userId"
 let userTypeKey = "userType"
 let tokenKey = "token"
+let userNameKey = "userName"
 class FZGLoginViewController: UIViewController {
 
     lazy var topImageBackView : UIImageView = {
@@ -27,21 +28,46 @@ class FZGLoginViewController: UIViewController {
     
     lazy var logoView : UIImageView = {
         let imageView = UIImageView()
-        imageView.image = #imageLiteral(resourceName: "logn")
+        imageView.image = #imageLiteral(resourceName: "login_logo")
         return imageView
     }()
+    
+    class LeftView: UIView {
+        var image: UIImage?{
+            didSet{
+                imageView.image = image
+            }
+        }
+        
+        private var imageView = UIImageView()
+        
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            imageView.contentMode = .center
+            addSubview(imageView)
+            constrain(self, imageView) { (contain, imageView) in
+                imageView.width == imageView.height
+                imageView.top == contain.top
+                imageView.right == contain.right
+                imageView.bottom == contain.bottom
+            }
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+    }
     
     lazy var accountTextField : UITextField = {
         let textField = UITextField()
         textField.placeholder = "请输入登录账户名"
         textField.backgroundColor = UIColor.white
         textField.layer.borderWidth = 1
-        textField.layer.borderColor = UIColor.black999.cgColor
-        textField.layer.cornerRadius = 4
-        let imageView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 45, height: 45))
-        imageView.image = #imageLiteral(resourceName: "userIcon")
-        imageView.contentMode = .center
-        textField.leftView = imageView
+        textField.layer.borderColor = UIColor.separateLineColor.cgColor
+        let leftView = LeftView.init(frame: CGRect.init(x: 0, y: 0, width: 65, height: 45))
+        leftView.image = #imageLiteral(resourceName: "userIcon")
+        textField.leftView = leftView
         textField.leftViewMode = .always
         textField.clearButtonMode = .whileEditing
         return textField
@@ -53,12 +79,10 @@ class FZGLoginViewController: UIViewController {
         textField.isSecureTextEntry = true
         textField.backgroundColor = UIColor.white
         textField.layer.borderWidth = 1
-        textField.layer.borderColor = UIColor.black999.cgColor
-        textField.layer.cornerRadius = 4
-        let imageView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 45, height: 45))
-        imageView.image = #imageLiteral(resourceName: "lock")
-        imageView.contentMode = .center
-        textField.leftView = imageView
+        textField.layer.borderColor = UIColor.separateLineColor.cgColor
+        let leftView = LeftView.init(frame: CGRect.init(x: 0, y: 0, width: 65, height: 45))
+        leftView.image = #imageLiteral(resourceName: "lock")
+        textField.leftView = leftView
         textField.leftViewMode = .always
         return textField
     }()
@@ -68,12 +92,10 @@ class FZGLoginViewController: UIViewController {
         textField.placeholder = "请输入验证码"
         textField.backgroundColor = UIColor.white
         textField.layer.borderWidth = 1
-        textField.layer.borderColor = UIColor.black999.cgColor
-        textField.layer.cornerRadius = 4
-        let imageView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 45, height: 45))
-        imageView.image = #imageLiteral(resourceName: "list")
-        imageView.contentMode = .center
-        textField.leftView = imageView
+        textField.layer.borderColor = UIColor.separateLineColor.cgColor
+        let leftView = LeftView.init(frame: CGRect.init(x: 0, y: 0, width: 65, height: 45))
+        leftView.image = #imageLiteral(resourceName: "list")
+        textField.leftView = leftView
         textField.leftViewMode = .always
         return textField
     }()
@@ -92,9 +114,8 @@ class FZGLoginViewController: UIViewController {
     
     lazy var loginButton : UIButton = {
         let button = UIButton()
-        button.setTitle("提 交", for: .normal)
-        button.backgroundColor = UIColor.accentColor
-        button.layer.cornerRadius = 6
+        button.setTitle("立即登录", for: .normal)
+        button.backgroundColor = UIColor.withHex(hexInt: 0x1ba3e7)
         return button
     }()
 
@@ -102,9 +123,8 @@ class FZGLoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor.backgroundColor
-        [topImageBackView, accountTextField, passwordTextField, authCodeTextField, refreshButton, tipLabel, loginButton].forEach(view.addSubview)
-        topImageBackView.addSubview(logoView)
+        view.backgroundColor = UIColor.white
+        [logoView, accountTextField, passwordTextField, authCodeTextField, refreshButton, tipLabel, loginButton].forEach(view.addSubview)
         loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         refreshButton.addTarget(self, action: #selector(getAuthCode), for: .touchUpInside)
         makeConstains()
@@ -127,33 +147,31 @@ class FZGLoginViewController: UIViewController {
     }
     
     private func makeConstains() {
-        constrain(view, topImageBackView,accountTextField, passwordTextField, authCodeTextField) { (contain, topImageBackView,accountTextField, passwordTextField, authCodeTextField) in
-            topImageBackView.left == contain.left
-            topImageBackView.top == contain.top
-            topImageBackView.right == contain.right
-            topImageBackView.height == 229
+        constrain(view, logoView,accountTextField, passwordTextField, authCodeTextField) { (contain, logoView,accountTextField, passwordTextField, authCodeTextField) in
+            logoView.centerX == contain.centerX
+            logoView.top == contain.top + 70
             
-            accountTextField.left == contain.left + 16
-            accountTextField.top == topImageBackView.bottom + 64
-            accountTextField.right == contain.right - 16
-            accountTextField.height == 45
+            accountTextField.left == contain.left - 1
+            accountTextField.top == logoView.bottom + 70
+            accountTextField.right == contain.right + 1
+            accountTextField.height == 47
             
-            passwordTextField.left == contain.left + 16
-            passwordTextField.top == accountTextField.bottom + 12
-            passwordTextField.right == contain.right - 16
-            passwordTextField.height == 45
+            passwordTextField.left == contain.left - 1
+            passwordTextField.top == accountTextField.bottom - 1
+            passwordTextField.right == contain.right + 1
+            passwordTextField.height == 47
             
-            authCodeTextField.left == contain.left + 16
-            authCodeTextField.top == passwordTextField.bottom + 12
-            authCodeTextField.height == 45
+            authCodeTextField.left == contain.left - 1
+            authCodeTextField.top == passwordTextField.bottom - 1
+            authCodeTextField.right == contain.right + 1
+            authCodeTextField.height == 46
 
         }
         
         constrain(view, authCodeTextField, refreshButton) { (contain, authCodeTextField, refreshButton) in
-            refreshButton.left == authCodeTextField.right
-            refreshButton.right == contain.right - 16
-            refreshButton.centerY == authCodeTextField.centerY
-            refreshButton.height == authCodeTextField.height
+            refreshButton.right == contain.right - 12
+            refreshButton.top == authCodeTextField.top + 1
+            refreshButton.height == 44
             refreshButton.width == 100
 
         }
@@ -163,18 +181,12 @@ class FZGLoginViewController: UIViewController {
             tipLabel.left == contain.right - 16
             tipLabel.top == authCodeTextField.bottom + 12
             
-            loginButton.left == contain.left + 16
-            loginButton.top == tipLabel.bottom + 12
-            loginButton.right == contain.right - 16
+            loginButton.left == contain.left
+            loginButton.top == authCodeTextField.bottom + 85
+            loginButton.right == contain.right
             loginButton.height == 45
         }
         
-        constrain(topImageBackView, logoView) { (topImageBackView, logoView) in
-            logoView.width == logoView.height
-            logoView.height == 79
-            logoView.centerX == topImageBackView.centerX
-            logoView.centerY == topImageBackView.centerY
-        }
     }
     
     
@@ -212,8 +224,11 @@ class FZGLoginViewController: UIViewController {
 //                if let userType = value[""].string{
 //                    FZGTools.setDefaultsValue(userType, forKey: userTypeKey)
 //                }
-                if let token = value["mchntCd"].string{
-                    FZGTools.setDefaultsValue(token, forKey: userIdKey)
+                if let mchntCd = value["mchntCd"].string{
+                    FZGTools.setDefaultsValue(mchntCd, forKey: userIdKey)
+                }
+                if let mchntName = value["mchantName"].string{
+                    FZGTools.setDefaultsValue(mchntName, forKey: userNameKey)
                 }
                 if let token = value["token"].string{
                     FZGTools.setDefaultsValue(token, forKey: tokenKey)

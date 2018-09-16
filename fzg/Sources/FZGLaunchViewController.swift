@@ -23,6 +23,8 @@ class FZGLaunchViewController: UIViewController {
         constrain(view, logo) { (view, logo) in
             logo.centerX == view.centerX
             logo.centerY == view.centerY
+            logo.width == 320
+            logo.height == (320 * 203 / 720)
         }
         checkVersion()
 //        checkToken()

@@ -95,7 +95,7 @@ extension UIColor {
     
     //自定义颜色
     static var accentColor : UIColor {
-        return withHex(hexInt: 0x134591)
+        return withHex(hexInt: 0x1362b1)
     }
     
     static var accentGreenColor : UIColor {
@@ -109,7 +109,7 @@ extension UIColor {
     
     //统一分割线颜色
     static var separateLineColor : UIColor {
-        return withHex(hexInt: 0xe0e0e0)
+        return withHex(hexInt: 0xd2d2d6)
     }
 
     

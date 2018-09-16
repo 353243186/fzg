@@ -21,12 +21,17 @@ class FZGTools: NSObject {
         userDefaults.synchronize()
     }
     
-    //返回缓存的用户名
+    //返回缓存的账号名
     class func defaultsUser() -> String?{
         return defaultsValue(forKey: userKey) as? String
     }
     
-    //返回缓存的用户名id
+    //返回缓存的商户名
+    class func defaultsUserName() -> String?{
+        return defaultsValue(forKey: userNameKey) as? String
+    }
+    
+    //返回缓存的商户id
     class func defaultsUserId() -> String?{
         return defaultsValue(forKey: userIdKey) as? String
     }

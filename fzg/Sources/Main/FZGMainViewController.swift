@@ -14,22 +14,29 @@ import CocoaLumberjackSwift
 class FZGMainViewController: UIViewController {
 
     @IBOutlet weak var accountLabel: UILabel!
+    
+    
+    @IBAction func mesaageButtonClick(_ sender: Any) {
+        pushToMessageCenter()
+    }
+    
     @IBAction func checkTransactionRecords(_ sender: Any) {
         
         let transactionRecordsView = FZGWebViewController.init(FZGNetManager.historyUrl)
         transactionRecordsView.hasToken = true
         self.navigationController?.pushViewController(transactionRecordsView, animated: true)
     }
-    @IBAction func aboutFuiou(_ sender: Any) {
-        let aboutView = FZGWebViewController.init(FZGNetManager.aboutUrl)
-        self.navigationController?.pushViewController(aboutView, animated: true)
-    }
+//    @IBAction func aboutFuiou(_ sender: Any) {
+//        let aboutView = FZGWebViewController.init(FZGNetManager.aboutUrl)
+//        self.navigationController?.pushViewController(aboutView, animated: true)
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         title = "富掌柜"
-        self.showLeftButtonWithImage(#imageLiteral(resourceName: "email"), target: self, action: #selector(pushToMessageCenter))
+        accountLabel.text = FZGTools.defaultsUserName()
+//        self.showLeftButtonWithImage(#imageLiteral(resourceName: "email"), target: self, action: #selector(pushToMessageCenter))
 //        self.showRightButtonWithImage(#imageLiteral(resourceName: "refresh"), isOriginalImage: true, target: self, action: #selector(refresh))
         showRightButtonWithTitle("登出", target: self, action: #selector(logoutButtonClick))
     }

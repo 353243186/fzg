@@ -33,6 +33,8 @@ class FZGMessageDetailViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         title = "交易详情"
+        
+        self.showRightButtonWithImage(#imageLiteral(resourceName: "messageDetail_home"), target: self, action: #selector(sureButtonClick))
         tableView.tableFooterView = UIView()
         self.tableView.register(UINib.init(nibName: "FZGMessageTitleTableViewCell", bundle: nil), forCellReuseIdentifier: "FZGMessageTitleTableViewCell")
         self.tableView.register(UINib.init(nibName: "FZGMessageTableViewCell", bundle: nil), forCellReuseIdentifier: "FZGMessageTableViewCell")
@@ -63,7 +65,7 @@ class FZGMessageDetailViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return 9
     }
 
     
@@ -71,6 +73,14 @@ class FZGMessageDetailViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FZGMessageTitleTableViewCell", for: indexPath) as! FZGMessageTitleTableViewCell
+            let busiCd = transDetail.busiCd
+            if busiCd == "TX02" || busiCd == "TX09" || busiCd == "TX15"{
+                cell.titleLabel.text = "收款成功"
+                cell.amountLabel.textColor = UIColor.withHex(hexInt: 0x009e3e)
+            }else if busiCd == "TX03" || busiCd == "TX18"{
+                cell.titleLabel.text = "退款成功"
+                cell.amountLabel.textColor = UIColor.withHex(hexInt:0xe60012)
+            }
             cell.amountLabel.text = "¥\(transDetail.amt)"
             cell.separatorInset = UIEdgeInsets.init(top: 0, left: UIScreen.main.bounds.width, bottom: 0, right: 0)
             return cell
@@ -146,7 +156,7 @@ class FZGMessageDetailViewController: UITableViewController {
         if fromNotificatoinCenter{
             AppDelegate.currentDelegate().pushToMainViewController()
         }else{
-            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popToRootViewController(animated: true)
         }
     }
 

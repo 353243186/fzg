@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,72 +22,86 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商业服务部（测试账户）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZh-cW-tnQ">
-                    <rect key="frame" x="16" y="36" width="157.5" height="17"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homepage_fuzhanggui" translatesAutoresizingMaskIntoConstraints="NO" id="Ik9-sY-NKH">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Ik9-sY-NKH" secondAttribute="height" multiplier="1028:493" id="FF3-GB-PXh"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZh-cW-tnQ">
+                    <rect key="frame" x="16" y="28" width="0.0" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="交易明细" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abd-KH-BmT">
+                    <rect key="frame" x="154.5" y="288" width="65.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homepage_ad" translatesAutoresizingMaskIntoConstraints="NO" id="ECg-00-3iN">
+                    <rect key="frame" x="0.0" y="523.5" width="375" height="143.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="ECg-00-3iN" secondAttribute="height" multiplier="1080:413" id="thG-Lw-1v2"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbD-S7-Qrk">
+                    <rect key="frame" x="32" y="212" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="EMN-ZI-cXR"/>
+                        <constraint firstAttribute="height" constant="60" id="ZQR-Uj-Y8Y"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="homepage_message"/>
+                    <connections>
+                        <action selector="mesaageButtonClick:" destination="-1" eventType="touchUpInside" id="YYL-oG-hYY"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消息推送" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPW-ew-uui">
+                    <rect key="frame" x="29.5" y="288" width="65.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dG4-Pv-gtM">
-                    <rect key="frame" x="157.5" y="203.5" width="60" height="60"/>
+                    <rect key="frame" x="157.5" y="212" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="Sc3-ui-8Ss"/>
                         <constraint firstAttribute="width" constant="60" id="dc1-FR-OZm"/>
                     </constraints>
-                    <state key="normal" backgroundImage="transactionRecords"/>
+                    <state key="normal" backgroundImage="homepage_transactionDetail"/>
                     <connections>
                         <action selector="checkTransactionRecords:" destination="-1" eventType="touchUpInside" id="bQ8-7c-pcf"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="交易查询" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abd-KH-BmT">
-                    <rect key="frame" x="158.5" y="279.5" width="57.5" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更多功能请使用微信扫一扫，关注福掌柜富友商务服务公众号" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciC-cW-QfH">
-                    <rect key="frame" x="16" y="431.5" width="343" height="33.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qzcode" translatesAutoresizingMaskIntoConstraints="NO" id="ECg-00-3iN">
-                    <rect key="frame" x="127" y="481" width="120" height="120"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="120" id="1r5-Qu-9jX"/>
-                        <constraint firstAttribute="width" constant="120" id="Lrd-6k-Puz"/>
-                    </constraints>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qV9-jP-kJV">
-                    <rect key="frame" x="118" y="617" width="138" height="30"/>
-                    <state key="normal" title="关于富友富掌柜服务"/>
-                    <connections>
-                        <action selector="aboutFuiou:" destination="-1" eventType="touchUpInside" id="AeP-sP-C1u"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ciC-cW-QfH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2en-z2-Jrq"/>
-                <constraint firstItem="dG4-Pv-gtM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7Jm-Uu-UoM"/>
-                <constraint firstItem="qV9-jP-kJV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9df-XG-yVg"/>
-                <constraint firstItem="ciC-cW-QfH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="CgZ-0F-pnx"/>
-                <constraint firstItem="dG4-Pv-gtM" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-100" id="Me9-ZC-F4S"/>
-                <constraint firstItem="ECg-00-3iN" firstAttribute="top" secondItem="ciC-cW-QfH" secondAttribute="bottom" constant="16" id="Nns-cH-k80"/>
+                <constraint firstItem="ECg-00-3iN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="53u-cP-uFj"/>
+                <constraint firstItem="ZbD-S7-Qrk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="Ds1-4V-e8s"/>
+                <constraint firstItem="dG4-Pv-gtM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Fry-Vw-Git"/>
+                <constraint firstItem="gPW-ew-uui" firstAttribute="top" secondItem="ZbD-S7-Qrk" secondAttribute="bottom" constant="16" id="GpW-Ra-yAa"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ik9-sY-NKH" secondAttribute="trailing" id="JwZ-1C-3xM"/>
+                <constraint firstItem="gPW-ew-uui" firstAttribute="centerX" secondItem="ZbD-S7-Qrk" secondAttribute="centerX" id="K6F-4d-4iG"/>
+                <constraint firstItem="Ik9-sY-NKH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Nk3-Jz-p1O"/>
                 <constraint firstItem="abd-KH-BmT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="SM2-fB-R4Q"/>
-                <constraint firstAttribute="trailing" secondItem="ciC-cW-QfH" secondAttribute="trailing" constant="16" id="bIo-Bi-XrF"/>
-                <constraint firstItem="ECg-00-3iN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bdn-BT-5j7"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="qV9-jP-kJV" secondAttribute="bottom" constant="20" id="blC-TI-Dhm"/>
-                <constraint firstItem="vZh-cW-tnQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="d5U-IC-2pp"/>
-                <constraint firstItem="qV9-jP-kJV" firstAttribute="top" secondItem="ECg-00-3iN" secondAttribute="bottom" constant="16" id="uUs-Km-cEr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ECg-00-3iN" secondAttribute="bottom" id="Vhq-L3-yif"/>
+                <constraint firstItem="ZbD-S7-Qrk" firstAttribute="top" secondItem="Ik9-sY-NKH" secondAttribute="bottom" constant="32" id="aH1-NF-Tn5"/>
+                <constraint firstItem="dG4-Pv-gtM" firstAttribute="centerY" secondItem="ZbD-S7-Qrk" secondAttribute="centerY" id="bCz-zj-BgK"/>
+                <constraint firstItem="vZh-cW-tnQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="d5U-IC-2pp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ECg-00-3iN" secondAttribute="trailing" id="ioe-cx-aMR"/>
+                <constraint firstItem="Ik9-sY-NKH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ora-Eb-cBa"/>
                 <constraint firstItem="vZh-cW-tnQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="uca-Vm-zfi"/>
                 <constraint firstItem="abd-KH-BmT" firstAttribute="top" secondItem="dG4-Pv-gtM" secondAttribute="bottom" constant="16" id="z9D-pM-csM"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="54.5" y="54.5"/>
         </view>
     </objects>
     <resources>
-        <image name="qzcode" width="77" height="70"/>
-        <image name="transactionRecords" width="100" height="100"/>
+        <image name="homepage_ad" width="540" height="206"/>
+        <image name="homepage_fuzhanggui" width="514" height="246"/>
+        <image name="homepage_message" width="150" height="150"/>
+        <image name="homepage_transactionDetail" width="75" height="75"/>
     </resources>
 </document>

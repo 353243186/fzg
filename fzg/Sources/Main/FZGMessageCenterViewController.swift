@@ -103,13 +103,27 @@ class FZGMessageCenterViewController: UITableViewController {
         }
 //        tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         let transDetail = historys[indexPath.row] as! TransDetail
-        cell?.imageView?.image = #imageLiteral(resourceName: "message")
+        let imageColor = getColorWithBusiCd(transDetail.busiCd)
+        let image = FZGTools.imageWithColor(imageColor, size: CGSize.init(width: 10, height: 10))
+        cell?.imageView?.image = image
+        cell?.imageView?.layer.cornerRadius = 5
+        cell?.imageView?.clipsToBounds = true
 //        TX09->微信收款    TX15->支付宝收款   TX02->银行卡收款    TX18->扫码退款    TX03->银行卡退款
 //        其余的都叫富掌柜交易成功
         
         cell?.textLabel?.text = "\(getBusiNameWithBusiCd(transDetail.busiCd))\(transDetail.amt)元"
         cell?.detailTextLabel?.text = transDetail.txTime
         return cell!
+    }
+    
+    private func getColorWithBusiCd(_ busiCd: String?) -> UIColor {
+        if busiCd == "TX02" || busiCd == "TX09" || busiCd == "TX15"{
+            return UIColor.withHex(hexInt: 0x009e3e)
+        }else if busiCd == "TX03" || busiCd == "TX18"{
+            return UIColor.withHex(hexInt: 0xe60012)
+        }else{
+            return UIColor.gray
+        }
     }
     
     private func getBusiNameWithBusiCd(_ busiCd: String?) -> String {

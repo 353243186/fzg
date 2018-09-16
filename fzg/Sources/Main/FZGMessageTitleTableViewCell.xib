@@ -28,8 +28,8 @@
                             <constraint firstAttribute="height" constant="40" id="RTZ-Hz-hUV"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收款成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDe-GF-bHT">
-                        <rect key="frame" x="131.5" y="24" width="57.5" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDe-GF-bHT">
+                        <rect key="frame" x="160.5" y="24" width="0.0" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="GVh-mz-EqP"/>
                         </constraints>
@@ -57,11 +57,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="amountLabel" destination="khh-9G-mFG" id="CAh-UL-Vst"/>
+                <outlet property="titleLabel" destination="nDe-GF-bHT" id="eC2-N0-tZT"/>
             </connections>
             <point key="canvasLocation" x="25" y="80"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="logn" width="79" height="79"/>
+        <image name="logn" width="75" height="75"/>
     </resources>
 </document>

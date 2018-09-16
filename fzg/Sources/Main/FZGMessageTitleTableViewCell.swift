@@ -10,6 +10,7 @@ import UIKit
 
 class FZGMessageTitleTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
