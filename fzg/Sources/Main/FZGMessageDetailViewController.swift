@@ -119,16 +119,16 @@ class FZGMessageDetailViewController: UITableViewController {
             cell.titleLabel.text = "交易参考号"
             cell.valueLabel.text = transDetail.txnSsn
             return cell
-        case 8:
+        default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FZGMessageTableViewCell", for: indexPath) as! FZGMessageTableViewCell
             cell.titleLabel.text = "交易单号"
             cell.valueLabel.text = transDetail.orderNo
             return cell
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FZGMessageFooterTableViewCell", for: indexPath) as! FZGMessageFooterTableViewCell
-            cell.separatorInset = UIEdgeInsets.init(top: 0, left: UIScreen.main.bounds.width, bottom: 0, right: 0)
-            cell.sureButton.addTarget(self, action: #selector(sureButtonClick), for: .touchUpInside)
-            return cell
+//        default:
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "FZGMessageFooterTableViewCell", for: indexPath) as! FZGMessageFooterTableViewCell
+//            cell.separatorInset = UIEdgeInsets.init(top: 0, left: UIScreen.main.bounds.width, bottom: 0, right: 0)
+//            cell.sureButton.addTarget(self, action: #selector(sureButtonClick), for: .touchUpInside)
+//            return cell
         }
     }
     

@@ -24,6 +24,7 @@ class FZGMainViewController: UIViewController {
         
         let transactionRecordsView = FZGWebViewController.init(FZGNetManager.historyUrl)
         transactionRecordsView.hasToken = true
+//        transactionRecordsView.title = ""
         self.navigationController?.pushViewController(transactionRecordsView, animated: true)
     }
 //    @IBAction func aboutFuiou(_ sender: Any) {
@@ -36,8 +37,7 @@ class FZGMainViewController: UIViewController {
         // Do any additional setup after loading the view.
         title = "富掌柜"
         accountLabel.text = FZGTools.defaultsUserName()
-//        self.showLeftButtonWithImage(#imageLiteral(resourceName: "email"), target: self, action: #selector(pushToMessageCenter))
-//        self.showRightButtonWithImage(#imageLiteral(resourceName: "refresh"), isOriginalImage: true, target: self, action: #selector(refresh))
+        navigationItem.leftBarButtonItem = nil
         showRightButtonWithTitle("登出", target: self, action: #selector(logoutButtonClick))
     }
     
@@ -54,7 +54,11 @@ class FZGMainViewController: UIViewController {
     }
     
     @objc private func pushToMessageCenter() {
-        self.navigationController?.pushViewController(FZGMessageCenterViewController(), animated: true) 
+        FZGSpeechUtteranceManager.shared.speechWeather(with: "富掌柜交易成功1")
+        FZGSpeechUtteranceManager.shared.speechWeather(with: "富掌柜交易成功2")
+        FZGSpeechUtteranceManager.shared.speechWeather(with: "富掌柜交易成功3")
+        FZGSpeechUtteranceManager.shared.speechWeather(with: "富掌柜交易成功4")
+//        self.navigationController?.pushViewController(FZGMessageCenterViewController(), animated: true) 
     }
     
     @objc private func logoutButtonClick() {

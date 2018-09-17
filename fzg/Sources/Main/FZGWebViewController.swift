@@ -62,7 +62,7 @@ class FZGWebViewController: UIViewController, WKNavigationDelegate /*WKScriptMes
         //全清缓存
         self.clearCacheWithLocalStorage(true)
         setSubviews()
-        self.navigationController?.navigationBar.topItem?.title = "";
+//        self.navigationController?.navigationBar.topItem?.title = "";
         //若有本地页面，加载本地网页
         if let urlString = self.localUrlString {
             let fileURL = URL.init(fileURLWithPath: urlString)
@@ -168,8 +168,9 @@ class FZGWebViewController: UIViewController, WKNavigationDelegate /*WKScriptMes
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.progressView.isHidden = true
         self.progressView.progress = 0
-        if self.title == nil || self.title == ""{
-            self.title = self.mainWebView.title
+//        if self.title == nil || self.title == ""{
+        if let title = self.mainWebView.title{
+            self.title = title
         }
     }
     

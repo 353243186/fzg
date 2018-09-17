@@ -15,7 +15,7 @@ class FZGSpeechUtteranceManager: NSObject {
     
     var synthesizer = AVSpeechSynthesizer()
     var speechUtterance: AVSpeechUtterance?
-//    var voiceType = AVSpeechSynthesisVoice(language: Locale.current.languageCode)
+    var currentStrings = [String]()
     var voiceType = AVSpeechSynthesisVoice(language: "zh-CN")
     private override init() {
         super.init()
@@ -28,33 +28,61 @@ class FZGSpeechUtteranceManager: NSObject {
     }
     
     /// 自定义语音播报方法
-    /// 此处只举例播报一个String的情况
+    /// 此处只举例播报一个String的情况（现在是多个）
     func speechWeather(with weather: String) {
-        if let _ = speechUtterance {
-            synthesizer.stopSpeaking(at: .immediate)
+//        if let _ = speechUtterance {
+//            synthesizer.stopSpeaking(at: .immediate)
+//        }
+        // 将新增的包包内容放在数组末尾
+        currentStrings.append(weather)
+        
+//        speechUtterance = AVSpeechUtterance(string: weather)
+//        speechUtterance?.voice = voiceType
+//        speechUtterance?.rate = 0.5
+//        synthesizer.speak(speechUtterance!)
+        play()
+    }
+    
+    fileprivate func play() {
+        if speechUtterance == nil && currentStrings.count > 0{
+            do {
+                try AVAudioSession.sharedInstance().setActive(true)
+            } catch {
+                print(error.localizedDescription)
+            }
+            speechUtterance = AVSpeechUtterance(string: currentStrings[0])
+            speechUtterance?.voice = voiceType
+            speechUtterance?.rate = 0.5
+            print("----开始播放：\(currentStrings[0])")
+            synthesizer.speak(speechUtterance!)
+            
         }
-        
-        do {
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-        speechUtterance = AVSpeechUtterance(string: weather)
-        
-        speechUtterance?.voice = voiceType
-        speechUtterance?.rate = 0.5
-        synthesizer.speak(speechUtterance!)
     }
 }
 
 extension FZGSpeechUtteranceManager: AVSpeechSynthesizerDelegate {
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        do {
-            try AVAudioSession.sharedInstance().setActive(false, with: .notifyOthersOnDeactivation)
-        } catch {
-            print(error.localizedDescription)
-        }
+        
         speechUtterance = nil
+        print("----播放结束：\(currentStrings.first ?? "")")
+        // 移除已播放的，位于数组首位
+        currentStrings.removeFirst()
+        if currentStrings.count <= 0 {
+            print("----关掉播放器")
+            do {
+                try AVAudioSession.sharedInstance().setActive(false, with: .notifyOthersOnDeactivation)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }else{
+            print("----继续播放")
+            play()
+        }
+        
     }
+    
+//    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didContinue utterance: AVSpeechUtterance) {
+//        <#code#>
+//    }
+
 }

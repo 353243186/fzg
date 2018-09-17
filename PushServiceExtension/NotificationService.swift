@@ -61,7 +61,7 @@ class NotificationService: UNNotificationServiceExtension {
         bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
 
         if let userInfo = bestAttemptContent?.userInfo{
-            print("---开始解析通知内容")
+//            print("---开始解析通知内容")
             let transDetail = NSEntityDescription.insertNewObject(forEntityName: "TransDetail", into: managedObjectContext)
             if let value = userInfo["mchntName"] as? String{
                 transDetail.setValue(value, forKey: "mchntName")
@@ -104,7 +104,7 @@ class NotificationService: UNNotificationServiceExtension {
                 transDetail.setValue(value, forKey: "goodsDes")
             }
             
-            print("---开始保存通知内容")
+//            print("---开始保存通知内容")
             //保存通知内容
             do {
                 try managedObjectContext.save()

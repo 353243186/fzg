@@ -33,14 +33,21 @@ class FZGNavigationViewController: UINavigationController {
     }
     
 
-    /*
-    // MARK: - Navigation
+    
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        super.pushViewController(viewController, animated: animated)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let backButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "message_back"), style: .plain, target: self, action: #selector(FZGNavigationViewController.backToLastVC))
+        viewController.navigationItem.leftBarButtonItem = backButtonItem
     }
-    */
+    
+    @objc private func backToLastVC() {
+        if self.viewControllers.count > 1 {
+            self.popViewController(animated: true)
+        }
+        else {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
 
 }
