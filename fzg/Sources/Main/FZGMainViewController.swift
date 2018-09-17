@@ -54,11 +54,7 @@ class FZGMainViewController: UIViewController {
     }
     
     @objc private func pushToMessageCenter() {
-        FZGSpeechUtteranceManager.shared.speechWeather(with: "富掌柜交易成功1")
-        FZGSpeechUtteranceManager.shared.speechWeather(with: "富掌柜交易成功2")
-        FZGSpeechUtteranceManager.shared.speechWeather(with: "富掌柜交易成功3")
-        FZGSpeechUtteranceManager.shared.speechWeather(with: "富掌柜交易成功4")
-//        self.navigationController?.pushViewController(FZGMessageCenterViewController(), animated: true) 
+        self.navigationController?.pushViewController(FZGMessageCenterViewController(), animated: true)
     }
     
     @objc private func logoutButtonClick() {

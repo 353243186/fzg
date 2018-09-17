@@ -33,7 +33,9 @@ class FZGMessageDetailViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         title = "交易详情"
-        
+        if fromNotificatoinCenter{
+            navigationItem.leftBarButtonItem = nil
+        }
         self.showRightButtonWithImage(#imageLiteral(resourceName: "messageDetail_home"), target: self, action: #selector(sureButtonClick))
         tableView.tableFooterView = UIView()
         self.tableView.register(UINib.init(nibName: "FZGMessageTitleTableViewCell", bundle: nil), forCellReuseIdentifier: "FZGMessageTitleTableViewCell")
@@ -80,6 +82,9 @@ class FZGMessageDetailViewController: UITableViewController {
             }else if busiCd == "TX03" || busiCd == "TX18"{
                 cell.titleLabel.text = "退款成功"
                 cell.amountLabel.textColor = UIColor.withHex(hexInt:0xe60012)
+            }else{
+                cell.titleLabel.text = "交易成功"
+                cell.amountLabel.textColor = UIColor.black333
             }
             cell.amountLabel.text = "¥\(transDetail.amt)"
             cell.separatorInset = UIEdgeInsets.init(top: 0, left: UIScreen.main.bounds.width, bottom: 0, right: 0)
