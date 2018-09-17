@@ -93,10 +93,15 @@ class NotificationService: UNNotificationServiceExtension {
             if let value = userInfo["txnSsn"] as? String{
                 transDetail.setValue(value, forKey: "txnSsn")
             }
+            if let value = userInfo["traceNo"] as? String{
+                transDetail.setValue(value, forKey: "traceNo")
+            }
             if let value = userInfo["txnSt"] as? String{
                 transDetail.setValue(value, forKey: "txnSt")
             }
-            
+            if let value = userInfo["busiCdDesc"] as? String{
+                transDetail.setValue(value, forKey: "busiCdDesc")
+            }
             if let value = userInfo["transactionId"] as? String{
                 transDetail.setValue(value, forKey: "transactionId")
             }
@@ -111,8 +116,12 @@ class NotificationService: UNNotificationServiceExtension {
             } catch  {
                 print("---数据库错误，保存失败：\(error.localizedDescription)")
             }
+            if let value = userInfo["isBroadCast"] as? String{
+                if value != "0"{
+                    FZGSpeechUtteranceManager.shared.speechWeather(with: bestAttemptContent?.body ?? "富掌柜交易成功")
+                }
+            }
             
-            FZGSpeechUtteranceManager.shared.speechWeather(with: bestAttemptContent?.body ?? "富掌柜交易成功")
 //            func getspeechStringWithBusiCd(_ busiCd: String, amt: Double) -> String {
 //                if busiCd == "TX02"{
 //                    return "银行卡收款\(amt)元"

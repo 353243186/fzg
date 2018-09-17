@@ -53,6 +53,8 @@
 		EBB7F7E221404E58009CA91D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7F7E121404E58009CA91D /* UIColor+Hex.swift */; };
 		EBB7F7E52140E025009CA91D /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB7F7E42140E025009CA91D /* SnapKit.framework */; };
 		EBC62F4B2142DB6500A8C581 /* FZGSpeechUtteranceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC62F4A2142DB6500A8C581 /* FZGSpeechUtteranceManager.swift */; };
+		EBE5552D214FAC2100362A2C /* FZGNoDataTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE5552C214FAC2100362A2C /* FZGNoDataTableFooterView.swift */; };
+		EBE5552F214FAD0500362A2C /* FZGNoDataTableFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE5552E214FAD0500362A2C /* FZGNoDataTableFooterView.xib */; };
 		EBFBC654213FD92F000CFD10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFBC653213FD92F000CFD10 /* AppDelegate.swift */; };
 		EBFBC656213FD92F000CFD10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFBC655213FD92F000CFD10 /* ViewController.swift */; };
 		EBFBC659213FD92F000CFD10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFBC657213FD92F000CFD10 /* Main.storyboard */; };
@@ -162,6 +164,10 @@
 		EBB7F7E121404E58009CA91D /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		EBB7F7E42140E025009CA91D /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		EBC62F4A2142DB6500A8C581 /* FZGSpeechUtteranceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGSpeechUtteranceManager.swift; sourceTree = "<group>"; };
+		EBE5552C214FAC2100362A2C /* FZGNoDataTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGNoDataTableFooterView.swift; sourceTree = "<group>"; };
+		EBE5552E214FAD0500362A2C /* FZGNoDataTableFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FZGNoDataTableFooterView.xib; sourceTree = "<group>"; };
+		EBE55530214FBF3900362A2C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		EBE55531214FBF3900362A2C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		EBFBC650213FD92F000CFD10 /* fzg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fzg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFBC653213FD92F000CFD10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBFBC655213FD92F000CFD10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -278,6 +284,8 @@
 				EB4F4C252141827800AA54F0 /* FZGMainViewController.swift */,
 				EB4F4C262141827800AA54F0 /* FZGMainViewController.xib */,
 				EB4F4C2921418BFA00AA54F0 /* FZGMessageCenterViewController.swift */,
+				EBE5552C214FAC2100362A2C /* FZGNoDataTableFooterView.swift */,
+				EBE5552E214FAD0500362A2C /* FZGNoDataTableFooterView.xib */,
 				EB4F4C2B214195C200AA54F0 /* FZGMessageDetailViewController.swift */,
 				EB4F4C3521419FC300AA54F0 /* FZGMessageTitleTableViewCell.swift */,
 				EB4F4C3621419FC300AA54F0 /* FZGMessageTitleTableViewCell.xib */,
@@ -553,6 +561,7 @@
 				EBB7F7D1214044D0009CA91D /* Cartfile in Resources */,
 				EBFBC661213FD92F000CFD10 /* LaunchScreen.storyboard in Resources */,
 				EBB7F7D0214044D0009CA91D /* Cartfile.resolved in Resources */,
+				EBE5552F214FAD0500362A2C /* FZGNoDataTableFooterView.xib in Resources */,
 				EB4F4C3C2141A45A00AA54F0 /* FZGMessageTableViewCell.xib in Resources */,
 				EB4F4C282141827800AA54F0 /* FZGMainViewController.xib in Resources */,
 				EB4F4C3821419FC300AA54F0 /* FZGMessageTitleTableViewCell.xib in Resources */,
@@ -619,6 +628,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBE5552D214FAC2100362A2C /* FZGNoDataTableFooterView.swift in Sources */,
 				EB4F4C3B2141A45A00AA54F0 /* FZGMessageTableViewCell.swift in Sources */,
 				EB4F4C122141222900AA54F0 /* FZGNetManager.swift in Sources */,
 				EB4F4C3F2142199900AA54F0 /* FZGMessageFooterTableViewCell.swift in Sources */,
@@ -685,6 +695,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EBFBC658213FD92F000CFD10 /* Base */,
+				EBE55531214FBF3900362A2C /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -693,6 +704,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EBFBC660213FD92F000CFD10 /* Base */,
+				EBE55530214FBF3900362A2C /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -744,6 +756,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -801,6 +814,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

@@ -66,7 +66,7 @@ class FZGLaunchViewController: UIViewController {
                         self.checkToken()
                     }
                     let sureAction = UIAlertAction.init(title: "确定", style: .destructive) {(_) in
-                        let url = URL.init(string: "itms-apps://itunes.apple.com/app/id1242707264")
+                        let url = URL.init(string: "itms-apps://itunes.apple.com/app/id1436487297")
                         UIApplication.shared.openURL(url!)
                     }
                     // 升级标志: 0：不需要升级；1：需要升级；2：强制升级

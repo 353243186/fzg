@@ -77,16 +77,15 @@ class FZGMessageDetailViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FZGMessageTitleTableViewCell", for: indexPath) as! FZGMessageTitleTableViewCell
             let busiCd = transDetail.busiCd
             if busiCd == "TX02" || busiCd == "TX09" || busiCd == "TX15"{
-                cell.titleLabel.text = "收款成功"
                 cell.amountLabel.textColor = UIColor.withHex(hexInt: 0x009e3e)
             }else if busiCd == "TX03" || busiCd == "TX18"{
-                cell.titleLabel.text = "退款成功"
                 cell.amountLabel.textColor = UIColor.withHex(hexInt:0xe60012)
             }else{
-                cell.titleLabel.text = "交易成功"
                 cell.amountLabel.textColor = UIColor.black333
             }
-            cell.amountLabel.text = "¥\(transDetail.amt)"
+            cell.titleLabel.text = "交易成功"
+            let amtString = String.init(format: "%.2f", transDetail.amt)
+            cell.amountLabel.text = "¥\(amtString)"
             cell.separatorInset = UIEdgeInsets.init(top: 0, left: UIScreen.main.bounds.width, bottom: 0, right: 0)
             return cell
         case 1:
@@ -112,22 +111,37 @@ class FZGMessageDetailViewController: UITableViewController {
         case 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FZGMessageTableViewCell", for: indexPath) as! FZGMessageTableViewCell
             cell.titleLabel.text = "交易类型"
-            cell.valueLabel.text = getBusiNameWithBusiCd(transDetail.busiCd)
+            cell.valueLabel.text = transDetail.busiCdDesc
             return cell
         case 6:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FZGMessageTableViewCell", for: indexPath) as! FZGMessageTableViewCell
             cell.titleLabel.text = "交易卡号"
-            cell.valueLabel.text = transDetail.cardNo
+            if let cardNo = transDetail.cardNo{
+                let fristIndex = cardNo.index(cardNo.startIndex, offsetBy: 6)
+                let fristString = cardNo[cardNo.startIndex ..< fristIndex]
+                let endIndex = cardNo.index(cardNo.endIndex, offsetBy: -4)
+                let endStirng = cardNo[endIndex ..< cardNo.endIndex]
+                cell.valueLabel.text = "\(fristString)******\(endStirng)"
+            }else{
+                cell.valueLabel.text = ""
+            }
             return cell
         case 7:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FZGMessageTableViewCell", for: indexPath) as! FZGMessageTableViewCell
             cell.titleLabel.text = "交易参考号"
-            cell.valueLabel.text = transDetail.txnSsn
+            let type = transDetail.busiCd
+            if type == "TX18" || type == "TX48" || type == "CX90" || type == "CX92"{
+                cell.valueLabel.text = transDetail.traceNo
+            }else{
+                cell.valueLabel.text = transDetail.txnSsn
+            }
+            
+            
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FZGMessageTableViewCell", for: indexPath) as! FZGMessageTableViewCell
             cell.titleLabel.text = "交易单号"
-            cell.valueLabel.text = transDetail.orderNo
+            cell.valueLabel.text = transDetail.transactionId
             return cell
 //        default:
 //            let cell = tableView.dequeueReusableCell(withIdentifier: "FZGMessageFooterTableViewCell", for: indexPath) as! FZGMessageFooterTableViewCell

@@ -20,7 +20,8 @@ class FZGMessageCenterViewController: UITableViewController {
     
     //数据
     var historys = Array<Any>()
-    
+    //拉刷新控制器
+//    let refreshControl = UIRefreshControl()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,31 +31,58 @@ class FZGMessageCenterViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
 //        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
-        title = "消息"
-        tableView.tableFooterView = UIView()
+        title = "消息推送"
+        tableView.tableFooterView = FZGNoDataTableFooterView.footerView()
+        self.showRightButtonWithImage(#imageLiteral(resourceName: "message_clear"), target: self, action: #selector(rightNavBarClick))
+        
+        //添加刷新
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(loadTransDetails),
+                                 for: .valueChanged)
+        refreshControl?.attributedTitle = NSAttributedString(string: "下拉刷新数据")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         loadTransDetails()
     }
     
+    @objc private func rightNavBarClick() {
+        let cancelAction = UIAlertAction.init(title: "取消", style: .cancel, handler: nil)
+        let sureAction = UIAlertAction.init(title: "确定", style: .destructive) {(_) in
+            self.clearHisrory()
+        }
+        self.showAlertWithActions([cancelAction, sureAction], title: "确定要删除当前所有消息吗？")
+    }
+    
     //清除
-//    func clearHisrory() {
-//        for history in historys {
-//            managedObjectContext.delete(history as! NSManagedObject)
-//        }
-//        historys.removeAll()
-//        self.mainTableView.reloadData()
-//        self.mainTableView.tableFooterView = tableFooterView
-//    }
+    private func clearHisrory() {
+        let request = NSFetchRequest<NSFetchRequestResult>.init(entityName: "TransDetail")
+        let managedObjectContext = AppDelegate.currentDelegate().managedObjectContext
+        do {
+            let historys = try managedObjectContext.fetch(request)
+            for history in historys {
+                managedObjectContext.delete(history as! NSManagedObject)
+            }
+            tableView.tableFooterView = FZGNoDataTableFooterView.footerView()
+            
+        } catch  {
+            DDLogError("数据库错误：\(error.localizedDescription)")
+        }
+    }
     
     //读取
-    private func loadTransDetails() {
+    @objc private func loadTransDetails() {
         let request = NSFetchRequest<NSFetchRequestResult>.init(entityName: "TransDetail")
         let sortDescriptor = NSSortDescriptor.init(key: "txTime", ascending: false)
         request.sortDescriptors = [sortDescriptor]
         if let id = FZGTools.defaultsUserId(){
-            let predicate = NSPredicate.init(format: "mchntCd = '\(id)'", "")
+            // 只读取24小时内的消息
+            let yesterday = Date.init(timeIntervalSinceNow: -24 * 60 * 60)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let dateString = dateFormatter.string(from: yesterday)
+            
+            let predicate = NSPredicate.init(format: "mchntCd = '\(id)' AND txTime > '\(dateString)'")
             request.predicate = predicate
         }
         
@@ -62,6 +90,8 @@ class FZGMessageCenterViewController: UITableViewController {
             historys = try managedObjectContext.fetch(request)
             
             if historys.count > 0 {
+                tableView.tableFooterView = UIView()
+                refreshControl?.endRefreshing()
                 tableView.reloadData()
             }else{
 //                self.mainTableView.tableFooterView = tableFooterView
@@ -108,10 +138,8 @@ class FZGMessageCenterViewController: UITableViewController {
         cell?.imageView?.image = image
         cell?.imageView?.layer.cornerRadius = 5
         cell?.imageView?.clipsToBounds = true
-//        TX09->微信收款    TX15->支付宝收款   TX02->银行卡收款    TX18->扫码退款    TX03->银行卡退款
-//        其余的都叫富掌柜交易成功
-        
-        cell?.textLabel?.text = "\(getBusiNameWithBusiCd(transDetail.busiCd))\(transDetail.amt)元"
+        let amtString = String.init(format: "%.2f", transDetail.amt)
+        cell?.textLabel?.text = "\(transDetail.busiCdDesc ?? "")  ¥\(amtString)"
         cell?.detailTextLabel?.text = transDetail.txTime
         return cell!
     }

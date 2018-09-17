@@ -84,6 +84,7 @@ class FZGLoginViewController: UIViewController {
         leftView.image = #imageLiteral(resourceName: "lock")
         textField.leftView = leftView
         textField.leftViewMode = .always
+        textField.clearButtonMode = .whileEditing
         return textField
     }()
     
@@ -91,12 +92,13 @@ class FZGLoginViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "请输入验证码"
         textField.backgroundColor = UIColor.white
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = UIColor.separateLineColor.cgColor
+//        textField.layer.borderWidth = 1
+//        textField.layer.borderColor = UIColor.separateLineColor.cgColor
         let leftView = LeftView.init(frame: CGRect.init(x: 0, y: 0, width: 65, height: 45))
         leftView.image = #imageLiteral(resourceName: "list")
         textField.leftView = leftView
         textField.leftViewMode = .always
+        textField.clearButtonMode = .whileEditing
         return textField
     }()
     
@@ -118,15 +120,18 @@ class FZGLoginViewController: UIViewController {
         button.backgroundColor = UIColor.withHex(hexInt: 0x1ba3e7)
         return button
     }()
+    
+    let separateLine = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor.white
-        [logoView, accountTextField, passwordTextField, authCodeTextField, refreshButton, tipLabel, loginButton].forEach(view.addSubview)
+        [logoView, accountTextField, passwordTextField, authCodeTextField, refreshButton, tipLabel, loginButton, separateLine].forEach(view.addSubview)
         loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         refreshButton.addTarget(self, action: #selector(getAuthCode), for: .touchUpInside)
+        separateLine.backgroundColor = UIColor.separateLineColor
         makeConstains()
         getAuthCode()
     }
@@ -150,6 +155,8 @@ class FZGLoginViewController: UIViewController {
         constrain(view, logoView,accountTextField, passwordTextField, authCodeTextField) { (contain, logoView,accountTextField, passwordTextField, authCodeTextField) in
             logoView.centerX == contain.centerX
             logoView.top == contain.top + 70
+            logoView.width == 320
+            logoView.height == 320 * 203 / 720
             
             accountTextField.left == contain.left - 1
             accountTextField.top == logoView.bottom + 70
@@ -162,23 +169,28 @@ class FZGLoginViewController: UIViewController {
             passwordTextField.height == 47
             
             authCodeTextField.left == contain.left - 1
-            authCodeTextField.top == passwordTextField.bottom - 1
-            authCodeTextField.right == contain.right + 1
+            authCodeTextField.top == passwordTextField.bottom
+//            authCodeTextField.right == contain.right + 1
             authCodeTextField.height == 46
 
         }
         
-        constrain(view, authCodeTextField, refreshButton) { (contain, authCodeTextField, refreshButton) in
+        constrain(view, authCodeTextField, refreshButton, separateLine) { (contain, authCodeTextField, refreshButton, separateLine) in
             refreshButton.right == contain.right - 12
             refreshButton.top == authCodeTextField.top + 1
+            refreshButton.left == authCodeTextField.right
             refreshButton.height == 44
             refreshButton.width == 100
 
+            separateLine.left == contain.left
+            separateLine.right == contain.right
+            separateLine.top == authCodeTextField.bottom
+            separateLine.height == 1
         }
         
         constrain(view, authCodeTextField, tipLabel, loginButton) { (contain, authCodeTextField, tipLabel, loginButton) in
-            tipLabel.left == authCodeTextField.left
-            tipLabel.left == contain.right - 16
+            tipLabel.left == contain.left + 20
+            tipLabel.right == contain.right - 16
             tipLabel.top == authCodeTextField.bottom + 12
             
             loginButton.left == contain.left
@@ -192,18 +204,18 @@ class FZGLoginViewController: UIViewController {
     
     @objc private func login() {
         
-        guard let loginId = accountTextField.text, loginId.trimmingCharacters(in: .whitespacesAndNewlines) != "" else{
-            HUD.error("请输入账号")
+        guard let loginId = accountTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), loginId != "" else{
+            tipLabel.text = "请输入登录账号"
             return
         }
 
         guard let userPwd = passwordTextField.text, userPwd.trimmingCharacters(in: .whitespacesAndNewlines) != "" else{
-            HUD.error("请输入密码")
+            tipLabel.text = "请输入登陆账户密码"
             return
         }
 
         guard let verifyCode = authCodeTextField.text, verifyCode.trimmingCharacters(in: .whitespacesAndNewlines) != "" else{
-            HUD.error("请输入验证码")
+            tipLabel.text = "请输入验证码"
             return
         }
         
@@ -236,15 +248,15 @@ class FZGLoginViewController: UIViewController {
                 AppDelegate.currentDelegate().pushToMainViewController()
             }else{
                 self.tipLabel.text = value["retMsg"].string
-                HUD.error("\(value["retMsg"].string ?? "服务器连接失败！")")
+//                HUD.error("\(value["retMsg"].string ?? "服务器连接失败！")")
             }
             
 //            AppDelegate.currentDelegate().pushToMainViewController()
             DDLogInfo(value.description)
         }) { (error) in
             HUD.hide()
+            self.tipLabel.text = "服务器连接失败！"
             DDLogError(error.debugDescription)
-            HUD.error("服务器连接失败！")
         }
     }
     
