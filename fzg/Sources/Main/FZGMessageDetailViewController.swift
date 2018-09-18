@@ -116,7 +116,7 @@ class FZGMessageDetailViewController: UITableViewController {
         case 6:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FZGMessageTableViewCell", for: indexPath) as! FZGMessageTableViewCell
             cell.titleLabel.text = "交易卡号"
-            if let cardNo = transDetail.cardNo{
+            if let cardNo = transDetail.cardNo, cardNo.lengthOfBytes(using: .utf8) > 6{
                 let fristIndex = cardNo.index(cardNo.startIndex, offsetBy: 6)
                 let fristString = cardNo[cardNo.startIndex ..< fristIndex]
                 let endIndex = cardNo.index(cardNo.endIndex, offsetBy: -4)
