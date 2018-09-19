@@ -31,7 +31,7 @@ class FZGLaunchViewController: UIViewController {
     }
     
     private func checkToken() {
-        guard let user = FZGTools.defaultsUser(), let token = FZGTools.defaultsToken() else{
+        guard let user = FZGTools.defaultsAccount(), let token = FZGTools.defaultsToken() else{
             AppDelegate.currentDelegate().pushToLoginViewController()
             return
         }

@@ -130,7 +130,7 @@ class FZGMessageDetailViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FZGMessageTableViewCell", for: indexPath) as! FZGMessageTableViewCell
             cell.titleLabel.text = "交易参考号"
             let type = transDetail.busiCd
-            if type == "TX18" || type == "TX48" || type == "CX90" || type == "CX92"{
+            if type == "TX18" || type == "TX48" || type == "CX90" || type == "CX92" || type == "CX91" || type == "CX93"{
                 cell.valueLabel.text = transDetail.traceNo
             }else{
                 cell.valueLabel.text = transDetail.txnSsn

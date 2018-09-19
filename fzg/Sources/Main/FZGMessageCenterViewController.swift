@@ -40,6 +40,13 @@ class FZGMessageCenterViewController: UITableViewController {
         refreshControl?.addTarget(self, action: #selector(loadTransDetails),
                                  for: .valueChanged)
         refreshControl?.attributedTitle = NSAttributedString(string: "下拉刷新数据")
+        
+        let notificationName = Notification.Name("FZGDidReceiveNotification")
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(loadTransDetails),
+                                               name: notificationName,
+                                               object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +64,10 @@ class FZGMessageCenterViewController: UITableViewController {
     //清除
     private func clearHisrory() {
         let request = NSFetchRequest<NSFetchRequestResult>.init(entityName: "TransDetail")
+        if let account = FZGTools.defaultsAccount(){
+            let predicate = NSPredicate.init(format: "account = '\(account)'")
+            request.predicate = predicate
+        }
         let managedObjectContext = AppDelegate.currentDelegate().managedObjectContext
         do {
             let historys = try managedObjectContext.fetch(request)
@@ -75,14 +86,14 @@ class FZGMessageCenterViewController: UITableViewController {
         let request = NSFetchRequest<NSFetchRequestResult>.init(entityName: "TransDetail")
         let sortDescriptor = NSSortDescriptor.init(key: "txTime", ascending: false)
         request.sortDescriptors = [sortDescriptor]
-        if let id = FZGTools.defaultsUserId(){
+        if let account = FZGTools.defaultsAccount(){
             // 只读取24小时内的消息
             let yesterday = Date.init(timeIntervalSinceNow: -24 * 60 * 60)
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             let dateString = dateFormatter.string(from: yesterday)
             
-            let predicate = NSPredicate.init(format: "mchntCd = '\(id)' AND txTime > '\(dateString)'")
+            let predicate = NSPredicate.init(format: "account = '\(account)' AND txTime > '\(dateString)'")
             request.predicate = predicate
         }
         
@@ -94,9 +105,12 @@ class FZGMessageCenterViewController: UITableViewController {
                 refreshControl?.endRefreshing()
                 tableView.reloadData()
             }else{
-//                self.mainTableView.tableFooterView = tableFooterView
+                refreshControl?.endRefreshing()
+                tableView.tableFooterView = FZGNoDataTableFooterView.footerView()
             }
         } catch  {
+            refreshControl?.endRefreshing()
+            tableView.tableFooterView = FZGNoDataTableFooterView.footerView()
             DDLogError("数据库错误：\(error.localizedDescription)")
         }
     }

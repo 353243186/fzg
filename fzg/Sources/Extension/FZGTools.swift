@@ -7,7 +7,11 @@
 //
 
 import UIKit
-
+let userKey = "user"
+let userIdKey = "userId"
+let userTypeKey = "userType"
+let tokenKey = "token"
+let userNameKey = "userName"
 class FZGTools: NSObject {
     //获取设备型号
     static var deviceModel : String {
@@ -20,19 +24,26 @@ class FZGTools: NSObject {
         userDefaults.set(value, forKey: keyName)
         userDefaults.synchronize()
     }
+    //缓存账号名
+    class func setDefaultsAccount(_ account:String){
+        let userDefaults = UserDefaults.init(suiteName: "group.com.fuiou.fzg")
+        userDefaults?.set(account, forKey: userKey)
+        userDefaults?.synchronize()
+    }
     
     //返回缓存的账号名
-    class func defaultsUser() -> String?{
-        return defaultsValue(forKey: userKey) as? String
+    class func defaultsAccount() -> String?{
+        let userDefaults = UserDefaults.init(suiteName: "group.com.fuiou.fzg")
+        return userDefaults?.value(forKey: userKey) as? String
     }
     
     //返回缓存的商户名
-    class func defaultsUserName() -> String?{
+    class func defaultsMerchantName() -> String?{
         return defaultsValue(forKey: userNameKey) as? String
     }
     
     //返回缓存的商户id
-    class func defaultsUserId() -> String?{
+    class func defaultsMerchantId() -> String?{
         return defaultsValue(forKey: userIdKey) as? String
     }
 

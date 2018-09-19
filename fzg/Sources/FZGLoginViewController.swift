@@ -13,11 +13,7 @@ import Kingfisher
 import Alamofire
 import CloudPushSDK
 
-let userKey = "user"
-let userIdKey = "userId"
-let userTypeKey = "userType"
-let tokenKey = "token"
-let userNameKey = "userName"
+
 class FZGLoginViewController: UIViewController {
 
     lazy var topImageBackView : UIImageView = {
@@ -61,7 +57,7 @@ class FZGLoginViewController: UIViewController {
     
     lazy var accountTextField : UITextField = {
         let textField = UITextField()
-        textField.placeholder = "请输入登录账户名"
+        textField.placeholder = "请输入登录账号"
         textField.backgroundColor = UIColor.white
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.separateLineColor.cgColor
@@ -232,10 +228,7 @@ class FZGLoginViewController: UIViewController {
         FZGNetManager.instance.postJSONDataWithUrl(FZGNetManager.loginUrl, parameters: param, successed: { (value, status) in
             HUD.hide()
             if value["retCode"].string == "0000"{
-                FZGTools.setDefaultsValue(loginId, forKey: userKey)
-//                if let userType = value[""].string{
-//                    FZGTools.setDefaultsValue(userType, forKey: userTypeKey)
-//                }
+                FZGTools.setDefaultsAccount(loginId)
                 if let mchntCd = value["mchntCd"].string{
                     FZGTools.setDefaultsValue(mchntCd, forKey: userIdKey)
                 }

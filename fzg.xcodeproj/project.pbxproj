@@ -52,6 +52,7 @@
 		EBB7F7E02140496B009CA91D /* FZGLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7F7DF2140496B009CA91D /* FZGLaunchViewController.swift */; };
 		EBB7F7E221404E58009CA91D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7F7E121404E58009CA91D /* UIColor+Hex.swift */; };
 		EBB7F7E52140E025009CA91D /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB7F7E42140E025009CA91D /* SnapKit.framework */; };
+		EBB92B3B2152962100D64EF9 /* FZGTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB26E8D62144AE6900FE9769 /* FZGTools.swift */; };
 		EBC62F4B2142DB6500A8C581 /* FZGSpeechUtteranceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC62F4A2142DB6500A8C581 /* FZGSpeechUtteranceManager.swift */; };
 		EBE5552D214FAC2100362A2C /* FZGNoDataTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE5552C214FAC2100362A2C /* FZGNoDataTableFooterView.swift */; };
 		EBE5552F214FAD0500362A2C /* FZGNoDataTableFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE5552E214FAD0500362A2C /* FZGNoDataTableFooterView.xib */; };
@@ -619,6 +620,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB26E91C214532C700FE9769 /* NotificationService.swift in Sources */,
+				EBB92B3B2152962100D64EF9 /* FZGTools.swift in Sources */,
 				EB26E93D2145363800FE9769 /* FZGSpeechUtteranceManager.swift in Sources */,
 				EB26E93F2145392500FE9769 /* fzg.xcdatamodeld in Sources */,
 			);

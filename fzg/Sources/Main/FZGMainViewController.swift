@@ -35,8 +35,8 @@ class FZGMainViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        title = "富掌柜"
-        accountLabel.text = FZGTools.defaultsUserName()
+//        title = "富掌柜"
+        accountLabel.text = FZGTools.defaultsMerchantName()
         navigationItem.leftBarButtonItem = nil
         showRightButtonWithTitle("登出", target: self, action: #selector(logoutButtonClick))
     }
@@ -67,7 +67,7 @@ class FZGMainViewController: UIViewController {
     }
     
     private func logout() {
-        guard let loginId = FZGTools.defaultsUser() else { return  }
+        guard let loginId = FZGTools.defaultsAccount() else { return  }
         
         let param = ["loginId": loginId,
                      "deviceId": CloudPushSDK.getDeviceId()

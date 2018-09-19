@@ -25,6 +25,7 @@ class FZGNavigationViewController: UINavigationController {
 //        let attributes = [NSFontAttributeName : UIFont(magicIdentifier: "style.text.normal.font_spec").allCaps()]
 //        navButtonAppearance.setTitleTextAttributes(attributes, for: UIControlState.normal)
 //        navButtonAppearance.setTitleTextAttributes(attributes, for: UIControlState.highlighted)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,7 +37,8 @@ class FZGNavigationViewController: UINavigationController {
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         super.pushViewController(viewController, animated: animated)
-
+        // 支持侧滑返回
+        self.interactivePopGestureRecognizer?.delegate = viewController as? UIGestureRecognizerDelegate
         let backButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "message_back"), style: .plain, target: self, action: #selector(FZGNavigationViewController.backToLastVC))
         viewController.navigationItem.leftBarButtonItem = backButtonItem
     }

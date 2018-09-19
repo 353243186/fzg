@@ -201,6 +201,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print("Receive a notification in foreground.")
+        let notificationName = Notification.Name("FZGDidReceiveNotification")
+        NotificationCenter.default.post(name: notificationName, object: nil)
         handleiOS10Notification(notification)
         // 通知不弹出
         completionHandler([])
@@ -222,7 +224,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             if let clickTransDetailId = content.userInfo["txnSsn"] as? String,
                 let transDetail = searchTransDetailWithId(clickTransDetailId) {
                 
-                guard let user = FZGTools.defaultsUser(), let token = FZGTools.defaultsToken() else{
+                guard let user = FZGTools.defaultsAccount(), let token = FZGTools.defaultsToken() else{
                     return
                 }
                 let param = ["loginId": user,
@@ -310,8 +312,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if let value = userInfo["txnSsn"] as? String{
             transDetail.setValue(value, forKey: "txnSsn")
         }
+        if let value = userInfo["traceNo"] as? String{
+            transDetail.setValue(value, forKey: "traceNo")
+        }
         if let value = userInfo["txnSt"] as? String{
             transDetail.setValue(value, forKey: "txnSt")
+        }
+        if let value = userInfo["busiCdDesc"] as? String{
+            transDetail.setValue(value, forKey: "busiCdDesc")
+        }
+        if let value = userInfo["transactionId"] as? String{
+            transDetail.setValue(value, forKey: "transactionId")
+        }
+        if let value = userInfo["goodsDes"] as? String{
+            transDetail.setValue(value, forKey: "goodsDes")
         }
         
         if let value = userInfo["transactionId"] as? String{
