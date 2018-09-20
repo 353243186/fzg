@@ -63,8 +63,8 @@ class NotificationService: UNNotificationServiceExtension {
         if let userInfo = bestAttemptContent?.userInfo{
 //            print("---开始解析通知内容")
             let transDetail = NSEntityDescription.insertNewObject(forEntityName: "TransDetail", into: managedObjectContext)
-            if let accout = FZGTools.defaultsAccount(){
-                transDetail.setValue(accout, forKey: "account")
+            if let account = FZGTools.defaultsAccount(){
+                transDetail.setValue(account, forKey: "account")
             }
             if let value = userInfo["mchntName"] as? String{
                 transDetail.setValue(value, forKey: "mchntName")

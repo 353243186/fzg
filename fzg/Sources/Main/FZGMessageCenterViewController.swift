@@ -74,6 +74,7 @@ class FZGMessageCenterViewController: UITableViewController {
             for history in historys {
                 managedObjectContext.delete(history as! NSManagedObject)
             }
+            tableView.reloadData()
             tableView.tableFooterView = FZGNoDataTableFooterView.footerView()
             
         } catch  {
