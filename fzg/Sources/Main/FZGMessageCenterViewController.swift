@@ -18,6 +18,8 @@ class FZGMessageCenterViewController: UITableViewController {
         return context
     }()
     
+    var applicationDidReceiveNotificationToken : NSObjectProtocol? = nil
+    
     //数据
     var historys = Array<Any>()
     //拉刷新控制器
@@ -43,14 +45,19 @@ class FZGMessageCenterViewController: UITableViewController {
         
         let notificationName = Notification.Name("FZGDidReceiveNotification")
 
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(loadTransDetails),
-                                               name: notificationName,
-                                               object: nil)
+        applicationDidReceiveNotificationToken = NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: nil) { [weak self](_) in
+            self?.loadTransDetails()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         loadTransDetails()
+    }
+    
+    deinit {
+        if let token = applicationDidReceiveNotificationToken {
+            NotificationCenter.default.removeObserver(token)
+        }
     }
     
     @objc private func rightNavBarClick() {
