@@ -12,6 +12,7 @@ import IQKeyboardManagerSwift
 import CocoaLumberjackSwift
 import UserNotifications
 import CloudPushSDK
+import Cartography
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -203,11 +204,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("Receive a notification in foreground.")
         let notificationName = Notification.Name("FZGDidReceiveNotification")
         NotificationCenter.default.post(name: notificationName, object: nil)
+        showTips(notification)
         handleiOS10Notification(notification)
         // 通知不弹出
         completionHandler([])
         // 通知弹出，且带有声音、内容和角标
 //        completionHandler([.alert, .badge, .sound])
+    }
+    
+    private func showTips(_ notification: UNNotification) {
+        let content: UNNotificationContent = notification.request.content
+        // 内容
+        let body = content.body
+        let tipLabel = UILabel()
+        tipLabel.text = body
+//        tipLabel.textColor = UIColor.white
+        tipLabel.textAlignment = .center
+        tipLabel.backgroundColor = UIColor.yellow
+        self.window?.addSubview(tipLabel)
+        let group =  constrain(tipLabel) { (tipLabel) in
+            tipLabel.left == tipLabel.superview!.left
+            tipLabel.bottom == tipLabel.superview!.top
+            tipLabel.right == tipLabel.superview!.right
+            tipLabel.height == 20
+        }
+        self.window?.layoutIfNeeded()
+        constrain(tipLabel, replace: group) { (tipLabel) in
+            tipLabel.left == tipLabel.superview!.left
+            tipLabel.top == tipLabel.superview!.top + UIScreen.safeArea.top
+            tipLabel.right == tipLabel.superview!.right
+            tipLabel.height == 20
+        }
+        UIView.animate(withDuration: 0.5) {
+            self.window?.layoutIfNeeded()
+        }
+        
+       
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.5) {
+            UIView.animate(withDuration: 0.5, animations: {
+                constrain(tipLabel, replace: group) { (tipLabel) in
+                    tipLabel.left == tipLabel.superview!.left
+                    tipLabel.bottom == tipLabel.superview!.top
+                    tipLabel.right == tipLabel.superview!.right
+                    tipLabel.height == 20
+                }
+                self.window?.layoutIfNeeded()
+            }, completion: { (_) in
+                tipLabel.removeFromSuperview()
+            })
+        }
     }
     
 

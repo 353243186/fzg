@@ -41,6 +41,7 @@
 		EB4F4C3C2141A45A00AA54F0 /* FZGMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB4F4C3A2141A45A00AA54F0 /* FZGMessageTableViewCell.xib */; };
 		EB4F4C3F2142199900AA54F0 /* FZGMessageFooterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F4C3D2142199900AA54F0 /* FZGMessageFooterTableViewCell.swift */; };
 		EB4F4C402142199900AA54F0 /* FZGMessageFooterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB4F4C3E2142199900AA54F0 /* FZGMessageFooterTableViewCell.xib */; };
+		EB8C6EBE215A8DF00040DF7F /* UIScreen+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8C6EBD215A8DF00040DF7F /* UIScreen+SafeArea.swift */; };
 		EBB7F7D0214044D0009CA91D /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = EBB7F7CE214044D0009CA91D /* Cartfile.resolved */; };
 		EBB7F7D1214044D0009CA91D /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = EBB7F7CF214044D0009CA91D /* Cartfile */; };
 		EBB7F7D821404541009CA91D /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB7F7D321404541009CA91D /* Kingfisher.framework */; };
@@ -153,6 +154,7 @@
 		EB4F4C3A2141A45A00AA54F0 /* FZGMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FZGMessageTableViewCell.xib; sourceTree = "<group>"; };
 		EB4F4C3D2142199900AA54F0 /* FZGMessageFooterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGMessageFooterTableViewCell.swift; sourceTree = "<group>"; };
 		EB4F4C3E2142199900AA54F0 /* FZGMessageFooterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FZGMessageFooterTableViewCell.xib; sourceTree = "<group>"; };
+		EB8C6EBD215A8DF00040DF7F /* UIScreen+SafeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+SafeArea.swift"; sourceTree = "<group>"; };
 		EBB7F7CE214044D0009CA91D /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		EBB7F7CF214044D0009CA91D /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		EBB7F7D321404541009CA91D /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				EB4F4C202141322100AA54F0 /* UIImage+Color.swift */,
 				EB4F4C2321417E9F00AA54F0 /* UIViewController+Nav.swift */,
 				EB26E8CE21441A3D00FE9769 /* String+MD5.swift */,
+				EB8C6EBD215A8DF00040DF7F /* UIScreen+SafeArea.swift */,
 				EB26E8D021441A9F00FE9769 /* fzg-Bridging-Header.h */,
 				EB26E8D62144AE6900FE9769 /* FZGTools.swift */,
 			);
@@ -633,6 +636,7 @@
 				EBE5552D214FAC2100362A2C /* FZGNoDataTableFooterView.swift in Sources */,
 				EB4F4C3B2141A45A00AA54F0 /* FZGMessageTableViewCell.swift in Sources */,
 				EB4F4C122141222900AA54F0 /* FZGNetManager.swift in Sources */,
+				EB8C6EBE215A8DF00040DF7F /* UIScreen+SafeArea.swift in Sources */,
 				EB4F4C3F2142199900AA54F0 /* FZGMessageFooterTableViewCell.swift in Sources */,
 				EB4F4C2421417E9F00AA54F0 /* UIViewController+Nav.swift in Sources */,
 				EB4F4C1F214130F000AA54F0 /* FZGNavigationViewController.swift in Sources */,
@@ -803,7 +807,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -855,7 +859,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -878,7 +882,6 @@
 					"$(PROJECT_DIR)/OneSDK",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/fzg/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuiou.fzg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -904,7 +907,6 @@
 					"$(PROJECT_DIR)/OneSDK",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/fzg/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuiou.fzg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
