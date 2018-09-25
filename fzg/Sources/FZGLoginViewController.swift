@@ -239,16 +239,16 @@ class FZGLoginViewController: UIViewController {
                     FZGTools.setDefaultsValue(token, forKey: tokenKey)
                 }
                 AppDelegate.currentDelegate().pushToMainViewController()
+                DDLogInfo(value.description)
             }else{
                 self.tipLabel.text = value["retMsg"].string
-//                HUD.error("\(value["retMsg"].string ?? "服务器连接失败！")")
+                self.getAuthCode()
             }
             
-//            AppDelegate.currentDelegate().pushToMainViewController()
-            DDLogInfo(value.description)
         }) { (error) in
             HUD.hide()
             self.tipLabel.text = "服务器连接失败！"
+            self.getAuthCode()
             DDLogError(error.debugDescription)
         }
     }
