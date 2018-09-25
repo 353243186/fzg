@@ -35,10 +35,9 @@ class FZGMainViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        title = "富掌柜"
         accountLabel.text = FZGTools.defaultsMerchantName()
         navigationItem.leftBarButtonItem = nil
-        showRightButtonWithTitle("登出", target: self, action: #selector(logoutButtonClick))
+        showRightButtonWithImage(#imageLiteral(resourceName: "homepage_logout"), isOriginalImage: true, target: self, action: #selector(logoutButtonClick))
     }
     
     override func viewDidAppear(_ animated: Bool) {
