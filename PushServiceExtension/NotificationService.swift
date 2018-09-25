@@ -111,6 +111,9 @@ class NotificationService: UNNotificationServiceExtension {
             if let value = userInfo["goodsDes"] as? String{
                 transDetail.setValue(value, forKey: "goodsDes")
             }
+            if let value = userInfo["isBroadCast"] as? String{
+                transDetail.setValue(value, forKey: "isBroadCast")
+            }
             
 //            print("---开始保存通知内容")
             //保存通知内容

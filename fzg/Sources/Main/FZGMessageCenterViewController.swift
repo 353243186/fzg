@@ -155,7 +155,7 @@ class FZGMessageCenterViewController: UITableViewController {
         }
 //        tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         let transDetail = historys[indexPath.row] as! TransDetail
-        let imageColor = getColorWithBusiCd(transDetail.busiCd)
+        let imageColor = getColorWithBroadCast(transDetail.isBroadCast)
         let image = FZGTools.imageWithColor(imageColor, size: CGSize.init(width: 10, height: 10))
         cell?.imageView?.image = image
         cell?.imageView?.layer.cornerRadius = 5
@@ -165,11 +165,12 @@ class FZGMessageCenterViewController: UITableViewController {
         cell?.detailTextLabel?.text = transDetail.txTime
         return cell!
     }
-    
-    private func getColorWithBusiCd(_ busiCd: String?) -> UIColor {
-        if busiCd == "TX02" || busiCd == "TX09" || busiCd == "TX15"{
+    //isBroadCast,0：灰色；1：绿色；2：红色
+    private func getColorWithBroadCast(_ broadCast: String?) -> UIColor {
+        
+        if broadCast == "1"{
             return UIColor.withHex(hexInt: 0x009e3e)
-        }else if busiCd == "TX03" || busiCd == "TX18"{
+        }else if broadCast == "2"{
             return UIColor.withHex(hexInt: 0xe60012)
         }else{
             return UIColor.gray

@@ -7,6 +7,7 @@
         <attribute name="busiCdDesc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cardNo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="goodsDes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isBroadCast" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mchntCd" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mchntName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="orderNo" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,6 +20,6 @@
         <attribute name="txTime" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TransDetail" positionX="-63" positionY="-18" width="128" height="285"/>
+        <element name="TransDetail" positionX="-63" positionY="-18" width="128" height="300"/>
     </elements>
 </model>
