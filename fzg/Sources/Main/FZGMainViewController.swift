@@ -10,14 +10,23 @@ import UIKit
 import CoreData
 import CloudPushSDK
 import CocoaLumberjackSwift
+import Cartography
 
 class FZGMainViewController: UIViewController {
 
     @IBOutlet weak var accountLabel: UILabel!
     
+    @IBOutlet weak var topImageView: UIImageView!
+    var applicationDidReceiveNotificationToken : NSObjectProtocol? = nil
     
     @IBAction func mesaageButtonClick(_ sender: Any) {
         pushToMessageCenter()
+    }
+    
+    deinit {
+        if let token = applicationDidReceiveNotificationToken {
+            NotificationCenter.default.removeObserver(token)
+        }
     }
     
     @IBAction func checkTransactionRecords(_ sender: Any) {
@@ -38,6 +47,48 @@ class FZGMainViewController: UIViewController {
         accountLabel.text = FZGTools.defaultsMerchantName()
         navigationItem.leftBarButtonItem = nil
         showRightButtonWithImage(#imageLiteral(resourceName: "homepage_logout"), isOriginalImage: true, target: self, action: #selector(logoutButtonClick))
+        let notificationName = Notification.Name("FZGDidReceiveNotification")
+        
+        applicationDidReceiveNotificationToken = NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: nil) { [weak self](notification) in
+            if let contentString = notification.object as? String{
+                self?.showTips(contentString)
+            }
+
+        }
+    }
+    
+    private func showTips(_ tips: String) {
+        let tipLabel = UILabel()
+        tipLabel.text = tips
+        tipLabel.textColor = UIColor.withHex(hexInt: 0x913c23)
+        tipLabel.textAlignment = .center
+        tipLabel.backgroundColor = UIColor.yellow 
+        self.view.addSubview(tipLabel)
+//        let group =  constrain(topImageView,tipLabel) { (topImageView, tipLabel) in
+//            tipLabel.left == tipLabel.superview!.left
+//            tipLabel.bottom == tipLabel.superview!.top
+//            tipLabel.right == tipLabel.superview!.right
+//            tipLabel.height == 20
+//        }
+//        self.view.layoutIfNeeded()
+        constrain(topImageView, tipLabel) { (topImageView, tipLabel) in
+            tipLabel.left == topImageView.left
+            tipLabel.top == topImageView.bottom
+            tipLabel.right == topImageView.right
+            tipLabel.height == 20
+        }
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.5) {
+            UIView.animate(withDuration: 0.5, animations: {
+                tipLabel.isHidden = true
+            }, completion: { (_) in
+                tipLabel.removeFromSuperview()
+            })
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

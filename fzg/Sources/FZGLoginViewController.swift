@@ -140,8 +140,16 @@ class FZGLoginViewController: UIViewController {
                 if response.response?.statusCode == 200{
                     let image = UIImage.init(data: value)
                     self.refreshButton.setBackgroundImage(image, for: .normal)
+                }else{
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                        self.getAuthCode()
+                    })
                 }
+                    
             case .failure(let error):
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                    self.getAuthCode()
+                })
                 DDLogError(error.localizedDescription)
             }
         }
