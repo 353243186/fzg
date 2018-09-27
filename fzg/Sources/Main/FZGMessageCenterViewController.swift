@@ -75,12 +75,12 @@ class FZGMessageCenterViewController: UITableViewController {
             let predicate = NSPredicate.init(format: "account = '\(account)'")
             request.predicate = predicate
         }
-        let managedObjectContext = AppDelegate.currentDelegate().managedObjectContext
         do {
             let historys = try managedObjectContext.fetch(request)
             for history in historys {
                 managedObjectContext.delete(history as! NSManagedObject)
             }
+            self.historys.removeAll()
             tableView.reloadData()
             tableView.tableFooterView = FZGNoDataTableFooterView.footerView()
             

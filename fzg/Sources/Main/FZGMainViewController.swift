@@ -18,6 +18,8 @@ class FZGMainViewController: UIViewController {
     
     @IBOutlet weak var topImageView: UIImageView!
     var applicationDidReceiveNotificationToken : NSObjectProtocol? = nil
+    @IBOutlet weak var messageView: UIView!
+    @IBOutlet weak var messageLabel: UILabel!
     
     @IBAction func mesaageButtonClick(_ sender: Any) {
         pushToMessageCenter()
@@ -44,6 +46,7 @@ class FZGMainViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        messageView.isHidden = true
         accountLabel.text = FZGTools.defaultsMerchantName()
         navigationItem.leftBarButtonItem = nil
         showRightButtonWithImage(#imageLiteral(resourceName: "homepage_logout"), isOriginalImage: true, target: self, action: #selector(logoutButtonClick))
@@ -58,37 +61,8 @@ class FZGMainViewController: UIViewController {
     }
     
     private func showTips(_ tips: String) {
-        let tipLabel = UILabel()
-        tipLabel.text = tips
-        tipLabel.textColor = UIColor.withHex(hexInt: 0x913c23)
-        tipLabel.textAlignment = .center
-        tipLabel.backgroundColor = UIColor.yellow 
-        self.view.addSubview(tipLabel)
-//        let group =  constrain(topImageView,tipLabel) { (topImageView, tipLabel) in
-//            tipLabel.left == tipLabel.superview!.left
-//            tipLabel.bottom == tipLabel.superview!.top
-//            tipLabel.right == tipLabel.superview!.right
-//            tipLabel.height == 20
-//        }
-//        self.view.layoutIfNeeded()
-        constrain(topImageView, tipLabel) { (topImageView, tipLabel) in
-            tipLabel.left == topImageView.left
-            tipLabel.top == topImageView.bottom
-            tipLabel.right == topImageView.right
-            tipLabel.height == 20
-        }
-        UIView.animate(withDuration: 0.5) {
-            self.view.layoutIfNeeded()
-        }
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.5) {
-            UIView.animate(withDuration: 0.5, animations: {
-                tipLabel.isHidden = true
-            }, completion: { (_) in
-                tipLabel.removeFromSuperview()
-            })
-        }
+        messageView.isHidden = false
+        messageLabel.text = tips
     }
     
     override func viewDidAppear(_ animated: Bool) {

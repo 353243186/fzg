@@ -14,7 +14,7 @@ class NotificationService: UNNotificationServiceExtension {
 
     var contentHandler: ((UNNotificationContent) -> Void)?
     var bestAttemptContent: UNMutableNotificationContent?
-    
+    let speechUtteranceManager = FZGSpeechUtteranceManager.shared
     // MARK: - Core Data stack
     //数据库上下文，根据iOS版本
     lazy var managedObjectContext : NSManagedObjectContext = {
@@ -114,8 +114,6 @@ class NotificationService: UNNotificationServiceExtension {
             if let value = userInfo["isBroadCast"] as? String{
                 transDetail.setValue(value, forKey: "isBroadCast")
             }
-            
-//            print("---开始保存通知内容")
             //保存通知内容
             do {
                 try managedObjectContext.save()
@@ -124,36 +122,15 @@ class NotificationService: UNNotificationServiceExtension {
             }
             if let value = userInfo["isBroadCast"] as? String{
                 if value != "0"{
-                    FZGSpeechUtteranceManager.shared.speechWeather(with: bestAttemptContent?.body ?? "富掌柜交易成功")
+                    FZGSpeechUtteranceManager.shared.speechWeather(with: bestAttemptContent?.body ?? "富掌柜交易成功") { (_) in
+                        if let bestAttemptContent = self.bestAttemptContent {
+                            // Modify the notification content here...
+                            //            bestAttemptContent.title = "bestAttemptContent.title"
+                            contentHandler(bestAttemptContent)
+                        }
+                    }
                 }
             }
-            
-//            func getspeechStringWithBusiCd(_ busiCd: String, amt: Double) -> String {
-//                if busiCd == "TX02"{
-//                    return "银行卡收款\(amt)元"
-//                }else if busiCd == "TX03"{
-//                    return "富掌柜退款\(amt)元"
-//                }else if busiCd == "TX09"{
-//                    return "微信收款\(amt)元"
-//                }else if busiCd == "TX15"{
-//                    return "支付宝收款\(amt)元"
-//                }else if busiCd == "TX18"{
-//                    return "富掌柜退款\(amt)元"
-//                }else{
-//                    return "富掌柜交易成功"
-//                }
-//            }
-//
-//            if let busiCd = userInfo["busiCd"] as? String, let amt = userInfo["amt"] as? Double{
-//                FZGSpeechUtteranceManager.shared.speechWeather(with: getspeechStringWithBusiCd(busiCd, amt: amt))
-//            }
-        }
-        
-        if let bestAttemptContent = bestAttemptContent {
-            // Modify the notification content here...
-//            bestAttemptContent.title = "bestAttemptContent.title"
-            
-            contentHandler(bestAttemptContent)
         }
     }
     
