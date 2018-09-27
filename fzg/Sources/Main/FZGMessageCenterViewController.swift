@@ -43,9 +43,15 @@ class FZGMessageCenterViewController: UITableViewController {
                                  for: .valueChanged)
         refreshControl?.attributedTitle = NSAttributedString(string: "下拉刷新数据")
         
-        let notificationName = Notification.Name("FZGDidReceiveNotification")
+        let notificationName = Notification.Name(didReceiveNotificationName)
 
         applicationDidReceiveNotificationToken = NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: nil) { [weak self](_) in
+            self?.loadTransDetails()
+        }
+        
+        let notificationName1 = Notification.Name(willEnterForegroundNotificationName)
+        
+        applicationDidReceiveNotificationToken = NotificationCenter.default.addObserver(forName: notificationName1, object: nil, queue: nil) { [weak self](_) in
             self?.loadTransDetails()
         }
     }

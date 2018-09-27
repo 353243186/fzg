@@ -50,7 +50,7 @@ class FZGMainViewController: UIViewController {
         accountLabel.text = FZGTools.defaultsMerchantName()
         navigationItem.leftBarButtonItem = nil
         showRightButtonWithImage(#imageLiteral(resourceName: "homepage_logout"), isOriginalImage: true, target: self, action: #selector(logoutButtonClick))
-        let notificationName = Notification.Name("FZGDidReceiveNotification")
+        let notificationName = Notification.Name(didReceiveNotificationName)
         
         applicationDidReceiveNotificationToken = NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: nil) { [weak self](notification) in
             if let contentString = notification.object as? String{

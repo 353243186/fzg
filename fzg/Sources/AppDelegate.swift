@@ -14,6 +14,9 @@ import UserNotifications
 import CloudPushSDK
 import Cartography
 
+let didReceiveNotificationName = "FZGDidReceiveNotification"
+let willEnterForegroundNotificationName = "FZGWillEnterForeground"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
@@ -177,37 +180,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Get deviceToken from APNs failed, error: \(error).")
     }
-    // App处于启动状态时，通知打开回调（iOS 9）
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        saveTransDetailInfo(userInfo: userInfo)
-        print("Receive one notification.")
-        let aps = userInfo["aps"] as! [AnyHashable : Any]
-        let alert = aps["alert"] ?? "none"
-        let badge = aps["badge"] ?? 0
-        let sound = aps["sound"] ?? "none"
-        let extras = userInfo["Extras"]
-        
-        // 设置角标数为0
-        application.applicationIconBadgeNumber = 0;
-        // 同步角标数到服务端
-        // self.syncBadgeNum(0)
-        CloudPushSDK.sendNotificationAck(userInfo)
-        print("Notification, alert: \(alert), badge: \(badge), sound: \(sound), extras: \(String(describing: extras)).")
-//       FZGSpeechUtteranceManager.shared.speechWeather(with: "微信成功收款54.67元")
-    }
     
-
+    // App处于启动状态时，通知打开回调（iOS 9）
+//    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+//        print("Receive one notification.")
+//        let aps = userInfo["aps"] as! [AnyHashable : Any]
+//        let alert = aps["alert"] ?? "none"
+//        let badge = aps["badge"] ?? 0
+//        let sound = aps["sound"] ?? "none"
+//        let extras = userInfo["Extras"]
+//
+//        // 设置角标数为0
+//        application.applicationIconBadgeNumber = 0;
+//        // 同步角标数到服务端
+//        // self.syncBadgeNum(0)
+//        CloudPushSDK.sendNotificationAck(userInfo)
+//        print("Notification, alert: \(alert), badge: \(badge), sound: \(sound), extras: \(String(describing: extras)).")
+//    }
     
     // App处于前台时收到通知(iOS 10+)
     @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print("Receive a notification in foreground.")
-        let notificationName = Notification.Name("FZGDidReceiveNotification")
+        handleiOS10Notification(notification)
+        // 发送通知
+        let notificationName = Notification.Name(didReceiveNotificationName)
         // 内容
         let content: UNNotificationContent = notification.request.content
         let body = content.body
         NotificationCenter.default.post(name: notificationName, object: body)
-        handleiOS10Notification(notification)
         // 通知不弹出
         completionHandler([])
         // 通知弹出，且带有声音、内容和角标
@@ -237,20 +238,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                              "deviceId": CloudPushSDK.getDeviceId(),
                              "token": token]
                 FZGNetManager.instance.postJSONDataWithUrl(FZGNetManager.checkTokenUrl, parameters: param, successed: { (value, status) in
-                    HUD.hide()
                     if value["retCode"] == "0000"{
                         self.pushToNotificationViewWithTransDetail(transDetail)
                     }else{
                         
                     }
                 }) { (error) in
-                    HUD.hide()
                     DDLogError(error.debugDescription)
                 }
-                
-//                if fromDead{
-//                    FZGSpeechUtteranceManager.shared.speechWeather(with: "打开")
-//                }
             }
             
         }
@@ -282,76 +277,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
             self.window?.rootViewController = notificationRootViewController
         })
-    }
-    
-    private func saveTransDetailInfo(userInfo: [AnyHashable : Any]) {
-       print("---开始解析通知内容(ios9)")
-        //            let managedObjectContext = FZGDataAccess.instance.managedObjectContext
-        let transDetail = NSEntityDescription.insertNewObject(forEntityName: "TransDetail", into: managedObjectContext)
-        if let value = userInfo["mchntName"] as? String{
-            transDetail.setValue(value, forKey: "mchntName")
-        }
-        if let value = userInfo["termName"] as? String{
-            transDetail.setValue(value, forKey: "termName")
-        }
-        if let value = userInfo["termId"] as? String{
-            transDetail.setValue(value, forKey: "termId")
-        }
-        if let value = userInfo["txTime"] as? String{
-            transDetail.setValue(value, forKey: "txTime")
-        }
-        if let value = userInfo["busiCd"] as? String{
-            transDetail.setValue(value, forKey: "busiCd")
-        }
-        if let value = userInfo["cardNo"] as? String{
-            transDetail.setValue(value, forKey: "cardNo")
-        }
-        if let value = userInfo["mchntCd"] as? String{
-            transDetail.setValue(value, forKey: "mchntCd")
-        }
-        if let value = userInfo["orderNo"] as? String{
-            transDetail.setValue(value, forKey: "orderNo")
-        }
-        if let value = userInfo["amt"] as? Double{
-            transDetail.setValue(value / 100.0, forKey: "amt")
-        }
-        if let value = userInfo["txnSsn"] as? String{
-            transDetail.setValue(value, forKey: "txnSsn")
-        }
-        if let value = userInfo["traceNo"] as? String{
-            transDetail.setValue(value, forKey: "traceNo")
-        }
-        if let value = userInfo["txnSt"] as? String{
-            transDetail.setValue(value, forKey: "txnSt")
-        }
-        if let value = userInfo["busiCdDesc"] as? String{
-            transDetail.setValue(value, forKey: "busiCdDesc")
-        }
-        if let value = userInfo["transactionId"] as? String{
-            transDetail.setValue(value, forKey: "transactionId")
-        }
-        if let value = userInfo["goodsDes"] as? String{
-            transDetail.setValue(value, forKey: "goodsDes")
-        }
-        
-        if let value = userInfo["transactionId"] as? String{
-            transDetail.setValue(value, forKey: "transactionId")
-        }
-        if let value = userInfo["goodsDes"] as? String{
-            transDetail.setValue(value, forKey: "goodsDes")
-        }
-        
-        print("---开始保存通知内容")
-        //保存通知内容
-        do {
-            try managedObjectContext.save()
-        } catch  {
-            print("---数据库错误，保存失败：\(error.localizedDescription)")
-        }
-//        if let value = userInfo["amt"] as? String, let amtDoubleValue = Double.init(value){
-//            FZGSpeechUtteranceManager.shared.speechWeather(with: "微信收款\(amtDoubleValue / 100.0)元")
-//        }
-        
     }
     
     //读取
@@ -425,6 +350,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        // 发送通知
+        let notificationName = Notification.Name(willEnterForegroundNotificationName)
+        NotificationCenter.default.post(name: notificationName, object: nil)
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
