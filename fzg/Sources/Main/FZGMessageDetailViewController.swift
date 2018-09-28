@@ -75,14 +75,6 @@ class FZGMessageDetailViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FZGMessageTitleTableViewCell", for: indexPath) as! FZGMessageTitleTableViewCell
-            let busiCd = transDetail.busiCd
-            if busiCd == "TX02" || busiCd == "TX09" || busiCd == "TX15"{
-                cell.amountLabel.textColor = UIColor.withHex(hexInt: 0x009e3e)
-            }else if busiCd == "TX03" || busiCd == "TX18"{
-                cell.amountLabel.textColor = UIColor.withHex(hexInt:0xe60012)
-            }else{
-                cell.amountLabel.textColor = UIColor.black333
-            }
             cell.titleLabel.text = "交易成功"
             let amtString = String.init(format: "%.2f", transDetail.amt)
             cell.amountLabel.text = "¥\(amtString)"

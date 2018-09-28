@@ -60,7 +60,7 @@ class FZGMainViewController: UIViewController {
         }
     }
     
-    private func showTips(_ tips: String) {
+    func showTips(_ tips: String) {
         messageView.isHidden = false
         messageLabel.text = tips
     }
