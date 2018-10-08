@@ -17,14 +17,18 @@ typealias succeedHander = (_ response: JSON, _ statusCode: NSInteger) ->Void
 typealias failedHander = (_ error: Error?) ->Void
 
 class FZGNetManager: NSObject {
-    static let BaseUrl = "http://futest1.fuiou.com:24010/bdc_platfrom"
+//    static let BaseUrl = "http://futest1.fuiou.com:24010/bdc_platfrom"
+    static let BaseUrl = "https://fzg.fuioupay.com"
     static let loginUrl = "\(BaseUrl)/login"
     static let logoutUrl = "\(BaseUrl)/logout"
     static let verifyCodeUrl = "\(BaseUrl)/getVerifyCode"
     static let checkVersionUrl = "\(BaseUrl)/appVerUpdate"
     static let checkTokenUrl = "\(BaseUrl)/checkToken"
-    static let aboutUrl = "http://fzgwx-test.fuiou.com/static/about.html"
-    static let historyUrl = "http://fzgwx-test.fuiou.com/t/appTxnDetail"
+//    static let aboutUrl = "http://fzgwx-test.fuiou.com/static/about.html"
+    static let aboutUrl = "https://fzgwx.fuiou.com/static/about.html"
+//    static let historyUrl = "http://fzgwx-test.fuiou.com/t/appTxnDetail"
+    static let historyUrl = "https://fzgwx.fuiou.com/t/appTxnDetail"
+
 
     
     //单例模式下唯一实例化方法
