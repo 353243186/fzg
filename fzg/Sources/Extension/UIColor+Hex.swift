@@ -95,7 +95,7 @@ extension UIColor {
     
     //自定义颜色
     static var accentColor : UIColor {
-        return withHex(hexInt: 0x1362b1)
+        return withHex(hexInt: 0x1178c0)
     }
     
     static var accentGreenColor : UIColor {

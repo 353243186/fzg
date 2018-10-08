@@ -50,22 +50,6 @@ class FZGSpeechUtteranceManager: NSObject {
         speechUtterance?.rate = 0.5
         synthesizer.speak(speechUtterance!)
     }
-    
-//    fileprivate func play() {
-//        if speechUtterance == nil && currentStrings.count > 0{
-//            do {
-//                try AVAudioSession.sharedInstance().setActive(true)
-//            } catch {
-//                print(error.localizedDescription)
-//            }
-//            speechUtterance = AVSpeechUtterance(string: currentStrings[0])
-//            speechUtterance?.voice = voiceType
-//            speechUtterance?.rate = 0.5
-//            print("----开始播放：\(currentStrings[0])")
-//            synthesizer.speak(speechUtterance!)
-//
-//        }
-//    }
 }
 
 extension FZGSpeechUtteranceManager: AVSpeechSynthesizerDelegate {

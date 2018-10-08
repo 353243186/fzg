@@ -7,6 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB078CCE2161BFBD00DC1E3B /* FZGAudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97A70821605A0400C8C930 /* FZGAudioManager.swift */; };
+		EB078CE221625C1B00DC1E3B /* 百.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CD021625C1A00DC1E3B /* 百.mp3 */; };
+		EB078CE321625C1B00DC1E3B /* 十.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CD121625C1A00DC1E3B /* 十.mp3 */; };
+		EB078CE421625C1B00DC1E3B /* 千.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CD221625C1A00DC1E3B /* 千.mp3 */; };
+		EB078CE521625C1B00DC1E3B /* 五.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CD321625C1A00DC1E3B /* 五.mp3 */; };
+		EB078CE621625C1B00DC1E3B /* rs_pay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CD421625C1A00DC1E3B /* rs_pay.mp3 */; };
+		EB078CE721625C1B00DC1E3B /* 点.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CD521625C1A00DC1E3B /* 点.mp3 */; };
+		EB078CE821625C1B00DC1E3B /* 三.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CD621625C1A00DC1E3B /* 三.mp3 */; };
+		EB078CE921625C1B00DC1E3B /* 四.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CD721625C1A00DC1E3B /* 四.mp3 */; };
+		EB078CEA21625C1B00DC1E3B /* rs_refund.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CD821625C1A00DC1E3B /* rs_refund.mp3 */; };
+		EB078CEB21625C1B00DC1E3B /* 元.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CD921625C1A00DC1E3B /* 元.mp3 */; };
+		EB078CEC21625C1B00DC1E3B /* 九.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CDA21625C1A00DC1E3B /* 九.mp3 */; };
+		EB078CED21625C1B00DC1E3B /* 万.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CDB21625C1A00DC1E3B /* 万.mp3 */; };
+		EB078CEE21625C1B00DC1E3B /* 〇.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CDC21625C1A00DC1E3B /* 〇.mp3 */; };
+		EB078CEF21625C1B00DC1E3B /* 一.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CDD21625C1A00DC1E3B /* 一.mp3 */; };
+		EB078CF021625C1B00DC1E3B /* 七.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CDE21625C1A00DC1E3B /* 七.mp3 */; };
+		EB078CF121625C1B00DC1E3B /* 六.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CDF21625C1A00DC1E3B /* 六.mp3 */; };
+		EB078CF221625C1B00DC1E3B /* 八.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CE021625C1A00DC1E3B /* 八.mp3 */; };
+		EB078CF321625C1B00DC1E3B /* 二.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CE121625C1A00DC1E3B /* 二.mp3 */; };
+		EB078D082162621E00DC1E3B /* 百.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CF52162621E00DC1E3B /* 百.mp3 */; };
+		EB078D092162621E00DC1E3B /* 十.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CF62162621E00DC1E3B /* 十.mp3 */; };
+		EB078D0A2162621E00DC1E3B /* 千.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CF72162621E00DC1E3B /* 千.mp3 */; };
+		EB078D0B2162621E00DC1E3B /* 五.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CF82162621E00DC1E3B /* 五.mp3 */; };
+		EB078D0C2162621E00DC1E3B /* rs_pay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CF92162621E00DC1E3B /* rs_pay.mp3 */; };
+		EB078D0D2162621E00DC1E3B /* 点.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CFA2162621E00DC1E3B /* 点.mp3 */; };
+		EB078D0E2162621E00DC1E3B /* 〇.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CFB2162621E00DC1E3B /* 〇.mp3 */; };
+		EB078D102162621E00DC1E3B /* 三.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CFD2162621E00DC1E3B /* 三.mp3 */; };
+		EB078D112162621E00DC1E3B /* 四.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CFE2162621E00DC1E3B /* 四.mp3 */; };
+		EB078D122162621E00DC1E3B /* rs_refund.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078CFF2162621E00DC1E3B /* rs_refund.mp3 */; };
+		EB078D132162621E00DC1E3B /* 元.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078D002162621E00DC1E3B /* 元.mp3 */; };
+		EB078D142162621E00DC1E3B /* 九.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078D012162621E00DC1E3B /* 九.mp3 */; };
+		EB078D152162621E00DC1E3B /* 万.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078D022162621E00DC1E3B /* 万.mp3 */; };
+		EB078D162162621E00DC1E3B /* 一.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078D032162621E00DC1E3B /* 一.mp3 */; };
+		EB078D172162621E00DC1E3B /* 七.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078D042162621E00DC1E3B /* 七.mp3 */; };
+		EB078D182162621E00DC1E3B /* 六.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078D052162621E00DC1E3B /* 六.mp3 */; };
+		EB078D192162621E00DC1E3B /* 八.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078D062162621E00DC1E3B /* 八.mp3 */; };
+		EB078D1A2162621E00DC1E3B /* 二.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EB078D072162621E00DC1E3B /* 二.mp3 */; };
 		EB26E8CF21441A3D00FE9769 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB26E8CE21441A3D00FE9769 /* String+MD5.swift */; };
 		EB26E8D72144AE6900FE9769 /* FZGTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB26E8D62144AE6900FE9769 /* FZGTools.swift */; };
 		EB26E91C214532C700FE9769 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB26E91B214532C700FE9769 /* NotificationService.swift */; };
@@ -42,6 +79,7 @@
 		EB4F4C3F2142199900AA54F0 /* FZGMessageFooterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F4C3D2142199900AA54F0 /* FZGMessageFooterTableViewCell.swift */; };
 		EB4F4C402142199900AA54F0 /* FZGMessageFooterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB4F4C3E2142199900AA54F0 /* FZGMessageFooterTableViewCell.xib */; };
 		EB8C6EBE215A8DF00040DF7F /* UIScreen+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8C6EBD215A8DF00040DF7F /* UIScreen+SafeArea.swift */; };
+		EB97A70921605A0400C8C930 /* FZGAudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97A70821605A0400C8C930 /* FZGAudioManager.swift */; };
 		EBB7F7D0214044D0009CA91D /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = EBB7F7CE214044D0009CA91D /* Cartfile.resolved */; };
 		EBB7F7D1214044D0009CA91D /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = EBB7F7CF214044D0009CA91D /* Cartfile */; };
 		EBB7F7D821404541009CA91D /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB7F7D321404541009CA91D /* Kingfisher.framework */; };
@@ -116,6 +154,42 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EB078CD021625C1A00DC1E3B /* 百.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "百.mp3"; sourceTree = "<group>"; };
+		EB078CD121625C1A00DC1E3B /* 十.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "十.mp3"; sourceTree = "<group>"; };
+		EB078CD221625C1A00DC1E3B /* 千.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "千.mp3"; sourceTree = "<group>"; };
+		EB078CD321625C1A00DC1E3B /* 五.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "五.mp3"; sourceTree = "<group>"; };
+		EB078CD421625C1A00DC1E3B /* rs_pay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rs_pay.mp3; sourceTree = "<group>"; };
+		EB078CD521625C1A00DC1E3B /* 点.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "点.mp3"; sourceTree = "<group>"; };
+		EB078CD621625C1A00DC1E3B /* 三.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "三.mp3"; sourceTree = "<group>"; };
+		EB078CD721625C1A00DC1E3B /* 四.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "四.mp3"; sourceTree = "<group>"; };
+		EB078CD821625C1A00DC1E3B /* rs_refund.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rs_refund.mp3; sourceTree = "<group>"; };
+		EB078CD921625C1A00DC1E3B /* 元.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "元.mp3"; sourceTree = "<group>"; };
+		EB078CDA21625C1A00DC1E3B /* 九.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "九.mp3"; sourceTree = "<group>"; };
+		EB078CDB21625C1A00DC1E3B /* 万.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "万.mp3"; sourceTree = "<group>"; };
+		EB078CDC21625C1A00DC1E3B /* 〇.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "〇.mp3"; sourceTree = "<group>"; };
+		EB078CDD21625C1A00DC1E3B /* 一.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "一.mp3"; sourceTree = "<group>"; };
+		EB078CDE21625C1A00DC1E3B /* 七.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "七.mp3"; sourceTree = "<group>"; };
+		EB078CDF21625C1A00DC1E3B /* 六.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "六.mp3"; sourceTree = "<group>"; };
+		EB078CE021625C1A00DC1E3B /* 八.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "八.mp3"; sourceTree = "<group>"; };
+		EB078CE121625C1A00DC1E3B /* 二.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "二.mp3"; sourceTree = "<group>"; };
+		EB078CF52162621E00DC1E3B /* 百.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "百.mp3"; sourceTree = "<group>"; };
+		EB078CF62162621E00DC1E3B /* 十.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "十.mp3"; sourceTree = "<group>"; };
+		EB078CF72162621E00DC1E3B /* 千.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "千.mp3"; sourceTree = "<group>"; };
+		EB078CF82162621E00DC1E3B /* 五.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "五.mp3"; sourceTree = "<group>"; };
+		EB078CF92162621E00DC1E3B /* rs_pay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rs_pay.mp3; sourceTree = "<group>"; };
+		EB078CFA2162621E00DC1E3B /* 点.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "点.mp3"; sourceTree = "<group>"; };
+		EB078CFB2162621E00DC1E3B /* 〇.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "〇.mp3"; sourceTree = "<group>"; };
+		EB078CFD2162621E00DC1E3B /* 三.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "三.mp3"; sourceTree = "<group>"; };
+		EB078CFE2162621E00DC1E3B /* 四.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "四.mp3"; sourceTree = "<group>"; };
+		EB078CFF2162621E00DC1E3B /* rs_refund.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rs_refund.mp3; sourceTree = "<group>"; };
+		EB078D002162621E00DC1E3B /* 元.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "元.mp3"; sourceTree = "<group>"; };
+		EB078D012162621E00DC1E3B /* 九.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "九.mp3"; sourceTree = "<group>"; };
+		EB078D022162621E00DC1E3B /* 万.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "万.mp3"; sourceTree = "<group>"; };
+		EB078D032162621E00DC1E3B /* 一.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "一.mp3"; sourceTree = "<group>"; };
+		EB078D042162621E00DC1E3B /* 七.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "七.mp3"; sourceTree = "<group>"; };
+		EB078D052162621E00DC1E3B /* 六.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "六.mp3"; sourceTree = "<group>"; };
+		EB078D062162621E00DC1E3B /* 八.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "八.mp3"; sourceTree = "<group>"; };
+		EB078D072162621E00DC1E3B /* 二.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "二.mp3"; sourceTree = "<group>"; };
 		EB26E8CE21441A3D00FE9769 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		EB26E8D021441A9F00FE9769 /* fzg-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fzg-Bridging-Header.h"; sourceTree = "<group>"; };
 		EB26E8D62144AE6900FE9769 /* FZGTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGTools.swift; sourceTree = "<group>"; };
@@ -155,6 +229,7 @@
 		EB4F4C3D2142199900AA54F0 /* FZGMessageFooterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGMessageFooterTableViewCell.swift; sourceTree = "<group>"; };
 		EB4F4C3E2142199900AA54F0 /* FZGMessageFooterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FZGMessageFooterTableViewCell.xib; sourceTree = "<group>"; };
 		EB8C6EBD215A8DF00040DF7F /* UIScreen+SafeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+SafeArea.swift"; sourceTree = "<group>"; };
+		EB97A70821605A0400C8C930 /* FZGAudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FZGAudioManager.swift; sourceTree = "<group>"; };
 		EBB7F7CE214044D0009CA91D /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		EBB7F7CF214044D0009CA91D /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		EBB7F7D321404541009CA91D /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -235,11 +310,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB078CCF21625C1A00DC1E3B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			path = PushServiceExtension/Resources;
+			sourceTree = SOURCE_ROOT;
+		};
+		EB078CF42162621E00DC1E3B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EB078CF52162621E00DC1E3B /* 百.mp3 */,
+				EB078CF62162621E00DC1E3B /* 十.mp3 */,
+				EB078CF72162621E00DC1E3B /* 千.mp3 */,
+				EB078CF82162621E00DC1E3B /* 五.mp3 */,
+				EB078CF92162621E00DC1E3B /* rs_pay.mp3 */,
+				EB078CFA2162621E00DC1E3B /* 点.mp3 */,
+				EB078CFB2162621E00DC1E3B /* 〇.mp3 */,
+				EB078CFD2162621E00DC1E3B /* 三.mp3 */,
+				EB078CFE2162621E00DC1E3B /* 四.mp3 */,
+				EB078CFF2162621E00DC1E3B /* rs_refund.mp3 */,
+				EB078D002162621E00DC1E3B /* 元.mp3 */,
+				EB078D012162621E00DC1E3B /* 九.mp3 */,
+				EB078D022162621E00DC1E3B /* 万.mp3 */,
+				EB078D032162621E00DC1E3B /* 一.mp3 */,
+				EB078D042162621E00DC1E3B /* 七.mp3 */,
+				EB078D052162621E00DC1E3B /* 六.mp3 */,
+				EB078D062162621E00DC1E3B /* 八.mp3 */,
+				EB078D072162621E00DC1E3B /* 二.mp3 */,
+			);
+			name = "\bResources";
+			path = "fzg/\bResources";
+			sourceTree = SOURCE_ROOT;
+		};
 		EB26E91A214532C700FE9769 /* PushServiceExtension */ = {
 			isa = PBXGroup;
 			children = (
+				EB078CF42162621E00DC1E3B /* Resources */,
 				EB26E94121453D5500FE9769 /* PushServiceExtension.entitlements */,
 				EB26E91B214532C700FE9769 /* NotificationService.swift */,
+				EB97A70821605A0400C8C930 /* FZGAudioManager.swift */,
 				EB26E91D214532C700FE9769 /* Info.plist */,
 			);
 			path = PushServiceExtension;
@@ -248,6 +359,24 @@
 		EB4F4C1721412EA100AA54F0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EB078CD021625C1A00DC1E3B /* 百.mp3 */,
+				EB078CD121625C1A00DC1E3B /* 十.mp3 */,
+				EB078CD221625C1A00DC1E3B /* 千.mp3 */,
+				EB078CD321625C1A00DC1E3B /* 五.mp3 */,
+				EB078CD421625C1A00DC1E3B /* rs_pay.mp3 */,
+				EB078CD521625C1A00DC1E3B /* 点.mp3 */,
+				EB078CD621625C1A00DC1E3B /* 三.mp3 */,
+				EB078CD721625C1A00DC1E3B /* 四.mp3 */,
+				EB078CD821625C1A00DC1E3B /* rs_refund.mp3 */,
+				EB078CD921625C1A00DC1E3B /* 元.mp3 */,
+				EB078CDA21625C1A00DC1E3B /* 九.mp3 */,
+				EB078CDB21625C1A00DC1E3B /* 万.mp3 */,
+				EB078CDC21625C1A00DC1E3B /* 〇.mp3 */,
+				EB078CDD21625C1A00DC1E3B /* 一.mp3 */,
+				EB078CDE21625C1A00DC1E3B /* 七.mp3 */,
+				EB078CDF21625C1A00DC1E3B /* 六.mp3 */,
+				EB078CE021625C1A00DC1E3B /* 八.mp3 */,
+				EB078CE121625C1A00DC1E3B /* 二.mp3 */,
 				EBFBC65D213FD92F000CFD10 /* Assets.xcassets */,
 			);
 			path = "\bResources";
@@ -256,6 +385,7 @@
 		EB4F4C1821412FCE00AA54F0 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				EB078CCF21625C1A00DC1E3B /* Resources */,
 				EB4F4C2221417E7700AA54F0 /* Extension */,
 				EB4F4C1D2141309B00AA54F0 /* Net */,
 				EB4F4C1A2141304000AA54F0 /* Main */,
@@ -554,7 +684,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB078D112162621E00DC1E3B /* 四.mp3 in Resources */,
+				EB078D102162621E00DC1E3B /* 三.mp3 in Resources */,
+				EB078D142162621E00DC1E3B /* 九.mp3 in Resources */,
+				EB078D162162621E00DC1E3B /* 一.mp3 in Resources */,
+				EB078D0D2162621E00DC1E3B /* 点.mp3 in Resources */,
+				EB078D092162621E00DC1E3B /* 十.mp3 in Resources */,
+				EB078D182162621E00DC1E3B /* 六.mp3 in Resources */,
+				EB078D1A2162621E00DC1E3B /* 二.mp3 in Resources */,
+				EB078D0E2162621E00DC1E3B /* 〇.mp3 in Resources */,
+				EB078D0B2162621E00DC1E3B /* 五.mp3 in Resources */,
+				EB078D132162621E00DC1E3B /* 元.mp3 in Resources */,
 				EB26E9402145393E00FE9769 /* fzg.xcdatamodeld in Resources */,
+				EB078D152162621E00DC1E3B /* 万.mp3 in Resources */,
+				EB078D172162621E00DC1E3B /* 七.mp3 in Resources */,
+				EB078D122162621E00DC1E3B /* rs_refund.mp3 in Resources */,
+				EB078D0A2162621E00DC1E3B /* 千.mp3 in Resources */,
+				EB078D0C2162621E00DC1E3B /* rs_pay.mp3 in Resources */,
+				EB078D192162621E00DC1E3B /* 八.mp3 in Resources */,
+				EB078D082162621E00DC1E3B /* 百.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,16 +710,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB078CED21625C1B00DC1E3B /* 万.mp3 in Resources */,
+				EB078CE821625C1B00DC1E3B /* 三.mp3 in Resources */,
+				EB078CE321625C1B00DC1E3B /* 十.mp3 in Resources */,
+				EB078CF321625C1B00DC1E3B /* 二.mp3 in Resources */,
+				EB078CEF21625C1B00DC1E3B /* 一.mp3 in Resources */,
+				EB078CF121625C1B00DC1E3B /* 六.mp3 in Resources */,
+				EB078CE621625C1B00DC1E3B /* rs_pay.mp3 in Resources */,
+				EB078CE221625C1B00DC1E3B /* 百.mp3 in Resources */,
+				EB078CEA21625C1B00DC1E3B /* rs_refund.mp3 in Resources */,
 				EBB7F7D1214044D0009CA91D /* Cartfile in Resources */,
 				EBFBC661213FD92F000CFD10 /* LaunchScreen.storyboard in Resources */,
+				EB078CE921625C1B00DC1E3B /* 四.mp3 in Resources */,
 				EBB7F7D0214044D0009CA91D /* Cartfile.resolved in Resources */,
+				EB078CEC21625C1B00DC1E3B /* 九.mp3 in Resources */,
 				EBE5552F214FAD0500362A2C /* FZGNoDataTableFooterView.xib in Resources */,
 				EB4F4C3C2141A45A00AA54F0 /* FZGMessageTableViewCell.xib in Resources */,
 				EB4F4C282141827800AA54F0 /* FZGMainViewController.xib in Resources */,
+				EB078CEE21625C1B00DC1E3B /* 〇.mp3 in Resources */,
+				EB078CE421625C1B00DC1E3B /* 千.mp3 in Resources */,
 				EB4F4C3821419FC300AA54F0 /* FZGMessageTitleTableViewCell.xib in Resources */,
+				EB078CEB21625C1B00DC1E3B /* 元.mp3 in Resources */,
 				EB4F4C402142199900AA54F0 /* FZGMessageFooterTableViewCell.xib in Resources */,
+				EB078CF221625C1B00DC1E3B /* 八.mp3 in Resources */,
+				EB078CE721625C1B00DC1E3B /* 点.mp3 in Resources */,
 				EBFBC65E213FD92F000CFD10 /* Assets.xcassets in Resources */,
+				EB078CF021625C1B00DC1E3B /* 七.mp3 in Resources */,
 				EBFBC659213FD92F000CFD10 /* Main.storyboard in Resources */,
+				EB078CE521625C1B00DC1E3B /* 五.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,6 +790,7 @@
 			files = (
 				EB26E91C214532C700FE9769 /* NotificationService.swift in Sources */,
 				EBB92B3B2152962100D64EF9 /* FZGTools.swift in Sources */,
+				EB97A70921605A0400C8C930 /* FZGAudioManager.swift in Sources */,
 				EB26E93D2145363800FE9769 /* FZGSpeechUtteranceManager.swift in Sources */,
 				EB26E93F2145392500FE9769 /* fzg.xcdatamodeld in Sources */,
 			);
@@ -655,6 +822,7 @@
 				EB4F4C2C214195C200AA54F0 /* FZGMessageDetailViewController.swift in Sources */,
 				EBB7F7E02140496B009CA91D /* FZGLaunchViewController.swift in Sources */,
 				EB4F4C1021411FFE00AA54F0 /* ScreenInfo.swift in Sources */,
+				EB078CCE2161BFBD00DC1E3B /* FZGAudioManager.swift in Sources */,
 				EB4F4C2A21418BFA00AA54F0 /* FZGMessageCenterViewController.swift in Sources */,
 				EB3CE39A214949770051243F /* FZGWebViewController.swift in Sources */,
 			);

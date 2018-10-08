@@ -17,7 +17,8 @@ class FZGMainViewController: UIViewController {
     @IBOutlet weak var accountLabel: UILabel!
     
     @IBOutlet weak var topImageView: UIImageView!
-    var applicationDidReceiveNotificationToken : NSObjectProtocol? = nil
+    private var applicationDidReceiveNotificationToken : NSObjectProtocol? = nil
+    private var applicationWillEnterForegroundNotificationToken : NSObjectProtocol? = nil
     @IBOutlet weak var messageView: UIView!
     @IBOutlet weak var messageLabel: UILabel!
     
@@ -27,6 +28,9 @@ class FZGMainViewController: UIViewController {
     
     deinit {
         if let token = applicationDidReceiveNotificationToken {
+            NotificationCenter.default.removeObserver(token)
+        }
+        if let token = applicationWillEnterForegroundNotificationToken{
             NotificationCenter.default.removeObserver(token)
         }
     }
@@ -58,6 +62,14 @@ class FZGMainViewController: UIViewController {
             }
 
         }
+        
+        let notificationName1 = Notification.Name(willEnterForegroundNotificationName)
+        
+        applicationDidReceiveNotificationToken = NotificationCenter.default.addObserver(forName: notificationName1, object: nil, queue: nil) { [weak self](notification) in
+            self?.loadLatestTransDetail()
+        }
+        
+        
     }
     
     func showTips(_ tips: String) {
@@ -65,11 +77,40 @@ class FZGMainViewController: UIViewController {
         messageLabel.text = tips
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadLatestTransDetail()
     }
     
+    //读取最新消息
+    @objc private func loadLatestTransDetail() {
+        let request = NSFetchRequest<NSFetchRequestResult>.init(entityName: "TransDetail")
+        let sortDescriptor = NSSortDescriptor.init(key: "txTime", ascending: false)
+        request.sortDescriptors = [sortDescriptor]
+        if let account = FZGTools.defaultsAccount(){
+            // 只读取24小时内的消息
+            let yesterday = Date.init(timeIntervalSinceNow: -24 * 60 * 60)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let dateString = dateFormatter.string(from: yesterday)
+            
+            let predicate = NSPredicate.init(format: "account = '\(account)' AND txTime > '\(dateString)'")
+            request.predicate = predicate
+        }
+        
+        do {
+            let historys = try AppDelegate.currentDelegate().managedObjectContext.fetch(request)
+            
+            if historys.count > 0 {
+                if let transDetail = historys[0] as? TransDetail{
+                   messageLabel.text = transDetail.body
+                }
+                
+            }
+        } catch  {
+            DDLogError("数据库错误：\(error.localizedDescription)")
+        }
+    }
 
 
     override func didReceiveMemoryWarning() {
@@ -82,7 +123,10 @@ class FZGMainViewController: UIViewController {
     }
     
     @objc private func logoutButtonClick() {
-        
+//        FZGAudioManager.shared.playWithIsBroadCast("1", amt: 11111004.7) { (_) in
+//
+//        }
+//        return
         let cancelAction = UIAlertAction.init(title: "取消", style: .cancel, handler: nil)
         let sureAction = UIAlertAction.init(title: "确定", style: .destructive) {(_) in
             self.logout()
@@ -91,6 +135,7 @@ class FZGMainViewController: UIViewController {
     }
     
     private func logout() {
+
         guard let loginId = FZGTools.defaultsAccount() else { return  }
         
         let param = ["loginId": loginId,

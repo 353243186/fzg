@@ -66,6 +66,9 @@ class NotificationService: UNNotificationServiceExtension {
             if let account = FZGTools.defaultsAccount(){
                 transDetail.setValue(account, forKey: "account")
             }
+            if let body = bestAttemptContent?.body{
+                transDetail.setValue(body, forKey: "body")
+            }
             if let value = userInfo["mchntName"] as? String{
                 transDetail.setValue(value, forKey: "mchntName")
             }
@@ -120,15 +123,24 @@ class NotificationService: UNNotificationServiceExtension {
             } catch  {
                 print("---数据库错误，保存失败：\(error.localizedDescription)")
             }
-            if let value = userInfo["isBroadCast"] as? String{
-                if value != "0"{
-                    FZGSpeechUtteranceManager.shared.speechWeather(with: bestAttemptContent?.body ?? "富掌柜交易成功") { (_) in
+            if let isBroadCast = userInfo["isBroadCast"] as? String,
+                let amt = userInfo["amt"] as? Double{
+                if isBroadCast != "0"{
+                    
+                    FZGAudioManager.shared.playWithIsBroadCast(isBroadCast, amt: amt) { (_) in
                         if let bestAttemptContent = self.bestAttemptContent {
                             // Modify the notification content here...
                             //            bestAttemptContent.title = "bestAttemptContent.title"
                             contentHandler(bestAttemptContent)
                         }
                     }
+//                    FZGSpeechUtteranceManager.shared.speechWeather(with: bestAttemptContent?.body ?? "富掌柜交易成功") { (_) in
+//                        if let bestAttemptContent = self.bestAttemptContent {
+//                            // Modify the notification content here...
+//                            //            bestAttemptContent.title = "bestAttemptContent.title"
+//                            contentHandler(bestAttemptContent)
+//                        }
+//                    }
                 }
             }
         }
