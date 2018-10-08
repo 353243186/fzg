@@ -103,7 +103,8 @@ class FZGMainViewController: UIViewController {
             
             if historys.count > 0 {
                 if let transDetail = historys[0] as? TransDetail{
-                   messageLabel.text = transDetail.body
+                    messageView.isHidden = false
+                    messageLabel.text = transDetail.body
                 }
                 
             }

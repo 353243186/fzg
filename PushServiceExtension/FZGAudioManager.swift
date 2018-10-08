@@ -46,6 +46,7 @@ class FZGAudioManager: NSObject, AVAudioPlayerDelegate {
 //        let amtString = String.init(format: "%.2f", amt)
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.init(rawValue: UInt(CFNumberFormatterRoundingMode.roundHalfDown.rawValue))!
+        formatter.locale = Locale.init(identifier: "zh_CN")
         let amtString = formatter.string(from: NSNumber.init(value: amt))
         guard let amtStrings = amtString?.map({String($0)}) else {return [""]}
         

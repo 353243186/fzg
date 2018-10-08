@@ -127,7 +127,7 @@ class NotificationService: UNNotificationServiceExtension {
                 let amt = userInfo["amt"] as? Double{
                 if isBroadCast != "0"{
                     
-                    FZGAudioManager.shared.playWithIsBroadCast(isBroadCast, amt: amt) { (_) in
+                    FZGAudioManager.shared.playWithIsBroadCast(isBroadCast, amt: amt / 100.0) { (_) in
                         if let bestAttemptContent = self.bestAttemptContent {
                             // Modify the notification content here...
                             //            bestAttemptContent.title = "bestAttemptContent.title"

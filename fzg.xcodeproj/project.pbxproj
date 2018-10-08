@@ -310,14 +310,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EB078CCF21625C1A00DC1E3B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Resources;
-			path = PushServiceExtension/Resources;
-			sourceTree = SOURCE_ROOT;
-		};
 		EB078CF42162621E00DC1E3B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,7 +377,6 @@
 		EB4F4C1821412FCE00AA54F0 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				EB078CCF21625C1A00DC1E3B /* Resources */,
 				EB4F4C2221417E7700AA54F0 /* Extension */,
 				EB4F4C1D2141309B00AA54F0 /* Net */,
 				EB4F4C1A2141304000AA54F0 /* Main */,

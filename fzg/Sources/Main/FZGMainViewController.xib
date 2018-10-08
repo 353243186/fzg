@@ -80,7 +80,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1k-r8-6KB">
                     <rect key="frame" x="0.0" y="180" width="375" height="30"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cxk-ir-Sqc">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WechatIMG44" translatesAutoresizingMaskIntoConstraints="NO" id="Cxk-ir-Sqc">
                             <rect key="frame" x="10" y="5" width="20" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="B1A-ju-EcS"/>
@@ -131,6 +131,7 @@
         </view>
     </objects>
     <resources>
+        <image name="WechatIMG44" width="22" height="22"/>
         <image name="homepage_ad" width="540" height="206"/>
         <image name="homepage_fuzhanggui" width="514" height="246"/>
         <image name="homepage_message" width="75" height="75"/>
