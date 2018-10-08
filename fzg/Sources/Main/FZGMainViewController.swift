@@ -50,6 +50,13 @@ class FZGMainViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor.accentColor, size: CGSize(width: 1,height: 1)), for:.default)
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        
+        
         messageView.isHidden = true
         accountLabel.text = FZGTools.defaultsMerchantName()
         navigationItem.leftBarButtonItem = nil

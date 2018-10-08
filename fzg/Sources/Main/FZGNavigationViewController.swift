@@ -12,6 +12,8 @@ class FZGNavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         // Do any additional setup after loading the view.
     self.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor.accentColor, size: CGSize(width: 1,height: 1)), for:.default)
@@ -38,10 +40,15 @@ class FZGNavigationViewController: UINavigationController {
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         super.pushViewController(viewController, animated: animated)
         // 支持侧滑返回
-        self.interactivePopGestureRecognizer?.delegate = viewController as? UIGestureRecognizerDelegate
+        if !viewController.isMember(of: FZGMainViewController.self){
+            self.interactivePopGestureRecognizer?.delegate = viewController as? UIGestureRecognizerDelegate
+        }
+//        self.interactivePopGestureRecognizer?.delegate = viewController as? UIGestureRecognizerDelegate
         let backButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "message_back"), style: .plain, target: self, action: #selector(FZGNavigationViewController.backToLastVC))
         viewController.navigationItem.leftBarButtonItem = backButtonItem
     }
+    
+    
     
     @objc private func backToLastVC() {
         if self.viewControllers.count > 1 {

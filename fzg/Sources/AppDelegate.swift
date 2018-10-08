@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     ///跳转主页
     func pushToMainViewController() {
-        let mainViewController = FZGNavigationViewController.init(rootViewController: FZGMainViewController())
+        let mainViewController = UINavigationController.init(rootViewController: FZGMainViewController())
         self.window?.rootViewController = mainViewController
     }
 
