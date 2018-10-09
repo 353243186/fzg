@@ -50,7 +50,6 @@
 		EB26E920214532C700FE9769 /* PushServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EB26E919214532C700FE9769 /* PushServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EB26E93D2145363800FE9769 /* FZGSpeechUtteranceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC62F4A2142DB6500A8C581 /* FZGSpeechUtteranceManager.swift */; };
 		EB26E93F2145392500FE9769 /* fzg.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBFBC65A213FD92F000CFD10 /* fzg.xcdatamodeld */; };
-		EB26E9402145393E00FE9769 /* fzg.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = EBFBC65A213FD92F000CFD10 /* fzg.xcdatamodeld */; };
 		EB3CE39A214949770051243F /* FZGWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3CE399214949770051243F /* FZGWebViewController.swift */; };
 		EB4D4A622142BD4F0007C030 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4D4A5E2142BD4F0007C030 /* UTDID.framework */; };
 		EB4D4A632142BD4F0007C030 /* CloudPushSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4D4A5F2142BD4F0007C030 /* CloudPushSDK.framework */; };
@@ -686,7 +685,6 @@
 				EB078D0E2162621E00DC1E3B /* 〇.mp3 in Resources */,
 				EB078D0B2162621E00DC1E3B /* 五.mp3 in Resources */,
 				EB078D132162621E00DC1E3B /* 元.mp3 in Resources */,
-				EB26E9402145393E00FE9769 /* fzg.xcdatamodeld in Resources */,
 				EB078D152162621E00DC1E3B /* 万.mp3 in Resources */,
 				EB078D172162621E00DC1E3B /* 七.mp3 in Resources */,
 				EB078D122162621E00DC1E3B /* rs_refund.mp3 in Resources */,
